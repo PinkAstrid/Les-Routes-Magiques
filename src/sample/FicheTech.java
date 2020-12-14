@@ -6,6 +6,15 @@ public class FicheTech implements ElementVisitor {
 	float denivele;
 	int difficulte;
 
+	public FicheTech(){}
+
+	public FicheTech(float duree, float distance, float denivele, int difficulte){
+		this.duree = duree;
+		this.distance = distance;
+		this.denivele = denivele;
+		this.difficulte = difficulte;
+
+	}
 	public float getDistance() {
 		return distance;
 	}

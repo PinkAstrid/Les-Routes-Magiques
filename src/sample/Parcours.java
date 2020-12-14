@@ -19,6 +19,15 @@ public class Parcours implements ElementVisitor {
 		trace = new Trace();
 	}
 
+	public Parcours(String name, String description, String details, List<Image> photos, FicheTech fiche, Trace trace){
+		this.name = name;
+		this.descCourte = description;
+		this.descLongue = details;
+		this.photos = photos;
+		this.trace = trace;
+		this.fiche = fiche;
+	}
+
 	public String getName() {
 		return name;
 	}
