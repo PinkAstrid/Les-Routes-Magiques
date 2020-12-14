@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="project-grp23-TestParcours-J1">
-    <output-path>$PROJECT_DIR$/artifacts/project_grp23_TestParcours_J1</output-path>
-    <root id="archive" name="project-grp23-TestParcours-J1.jar">
-      <element id="module-output" name="project-grp23" />
-    </root>
-  </artifact>
-</component>
