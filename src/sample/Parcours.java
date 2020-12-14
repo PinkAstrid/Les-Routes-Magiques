@@ -19,6 +19,46 @@ public class Parcours implements ElementVisitor {
 		trace = new Trace();
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescCourte() {
+		return descCourte;
+	}
+
+	public void setDescCourte(String descCourte) {
+		this.descCourte = descCourte;
+	}
+
+	public String getDescLongue() {
+		return descLongue;
+	}
+
+	public void setDescLongue(String descLongue) {
+		this.descLongue = descLongue;
+	}
+
+	public List<Image> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<Image> photos) {
+		this.photos = photos;
+	}
+
+	public void setFiche(FicheTech fiche) {
+		this.fiche = fiche;
+	}
+
+	public void setTrace(Trace trace) {
+		this.trace = trace;
+	}
+
 	public Trace getTrace(){
 		return trace;
 	}
