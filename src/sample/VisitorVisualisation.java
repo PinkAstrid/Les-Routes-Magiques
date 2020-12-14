@@ -1,6 +1,10 @@
 package sample;
 
 public class VisitorVisualisation implements Visitor {
+
+	public VisitorVisualisation(){
+	}
+
 	@Override
 	public void visit(Parcours parc) {
 		System.out.println("Name:"+parc.name);
@@ -13,9 +17,9 @@ public class VisitorVisualisation implements Visitor {
 	@Override
 	public void visit(FicheTech fiche) {
 		System.out.println("durée:"+fiche.duree);
-		System.out.println("distance:"+fiche.duree);
-		System.out.println("denivelé:"+fiche.duree);
-		System.out.println("difficulté:"+fiche.duree+"/5");
+		System.out.println("distance:"+fiche.distance);
+		System.out.println("denivelé:"+fiche.denivele);
+		System.out.println("difficulté:"+(float)fiche.difficulte/2+"/5");
 		fiche.accept(this);
 	}
 
@@ -30,4 +34,5 @@ public class VisitorVisualisation implements Visitor {
 		System.out.println("chemin :");
 		trace.accept(this);
 	}
+
 }
