@@ -19,7 +19,7 @@ public class Command_Recherche_Duree extends Decorator_Recherche{
                 listeParcours.remove(parcours);
             }
         }
-        decorateur.execute(listeParcours);
+        listeParcours = decorateur.execute(listeParcours);
         return listeParcours;
     }
 

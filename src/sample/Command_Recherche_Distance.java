@@ -20,7 +20,7 @@ public class Command_Recherche_Distance extends Decorator_Recherche{
             }
         }
 
-        decorateur.execute(listeParcours);
+        listeParcours = decorateur.execute(listeParcours);
         return listeParcours;
     }
 

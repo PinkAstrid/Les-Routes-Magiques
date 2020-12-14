@@ -21,7 +21,7 @@ public class Command_Recherche_Description extends Decorator_Recherche {
                 }
             }
         }
-        decorateur.execute(parcoursCompatibles);
+        parcoursCompatibles = decorateur.execute(parcoursCompatibles);
         return parcoursCompatibles;
     }
 
