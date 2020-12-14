@@ -1,5 +1,6 @@
 package sample;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Command_Recherche_Denivele extends Decorator_Recherche {
@@ -7,19 +8,21 @@ public class Command_Recherche_Denivele extends Decorator_Recherche {
     float deniveleMin;
     float deniveleMax;
 
-    public void Command_Recherche_Duree(Decorator_Recherche decorateur, float deniveleMin, float deniveleMax) {
+    public Command_Recherche_Denivele(Decorator_Recherche decorateur, float deniveleMin, float deniveleMax) {
         this.decorateur = decorateur;
         this.deniveleMin = deniveleMin;
         this.deniveleMax = deniveleMax;
     }
 
     public List<Parcours> execute(List<Parcours> listeParcours) {
+        List<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
+
         for (Parcours parcours : listeParcours) {
-            if (parcours.fiche.denivele < deniveleMin || parcours.fiche.denivele > deniveleMax){
-                listeParcours.remove(parcours);
+            if (parcours.fiche.denivele >= deniveleMin && parcours.fiche.denivele <= deniveleMax){
+                parcoursCompatibles.add(parcours);
             }
         }
-        listeParcours = decorateur.execute(listeParcours);
-        return listeParcours;
+        parcoursCompatibles = decorateur.execute(parcoursCompatibles);
+        return parcoursCompatibles;
     }
 }
