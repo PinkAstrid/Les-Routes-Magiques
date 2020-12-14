@@ -10,6 +10,10 @@ public class Trace implements ElementVisitor {
 		chemin = new ArrayList<Coordonees>();
 	}
 
+	public Trace(List<Coordonees> chemin){
+		this.chemin = chemin;
+	}
+
 	public List<Coordonees> getChemin(){
 		return chemin;
 	}
