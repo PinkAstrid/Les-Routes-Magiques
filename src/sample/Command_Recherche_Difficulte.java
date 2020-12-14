@@ -13,14 +13,14 @@ public class Command_Recherche_Difficulte extends Decorator_Recherche {
         this.difficulteMax = difficulteMax;
     }
 
-    public List<FicheTech> execute(List<FicheTech> listeFiches) {
-        for(FicheTech fiche : listeFiches) {
-            if(fiche.difficulte < difficulteMin || fiche.difficulte > difficulteMax) {
-                listeFiches.remove(fiche);
+    public List<Parcours> execute(List<Parcours> listeParcours) {
+        for(Parcours parcours : listeParcours) {
+            if(parcours.fiche.difficulte < difficulteMin || parcours.fiche.difficulte > difficulteMax) {
+                listeParcours.remove(parcours);
             }
         }
-        decorateur.execute(listeFiches);
-        return listeFiches;
+        decorateur.execute(listeParcours);
+        return listeParcours;
     }
 
 }

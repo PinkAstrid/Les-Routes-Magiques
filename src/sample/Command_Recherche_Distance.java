@@ -13,15 +13,15 @@ public class Command_Recherche_Distance extends Decorator_Recherche{
         this.distanceMax = distanceMax;
     }
 
-    public List<FicheTech> execute(List<FicheTech> listeFiches) {
-        for(FicheTech fiche : listeFiches) {
-            if(fiche.distance < distanceMin && fiche.distance > distanceMax) {
-                listeFiches.remove(fiche);
+    public List<Parcours> execute(List<Parcours> listeParcours) {
+        for(Parcours parcours : listeParcours) {
+            if(parcours.fiche.distance < distanceMin || parcours.fiche.distance > distanceMax) {
+                listeParcours.remove(parcours);
             }
         }
 
-        decorateur.execute(listeFiches);
-        return listeFiches;
+        decorateur.execute(listeParcours);
+        return listeParcours;
     }
 
 }

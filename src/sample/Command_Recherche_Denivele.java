@@ -13,13 +13,13 @@ public class Command_Recherche_Denivele extends Decorator_Recherche {
         this.deniveleMax = deniveleMax;
     }
 
-    public List<FicheTech> execute(List<FicheTech> listeFiches) {
-        for (FicheTech fiche : listeFiches) {
-            if (fiche.denivele < deniveleMin || fiche.denivele > deniveleMax){
-                listeFiches.remove(fiche);
+    public List<Parcours> execute(List<Parcours> listeParcours) {
+        for (Parcours parcours : listeParcours) {
+            if (parcours.fiche.denivele < deniveleMin || parcours.fiche.denivele > deniveleMax){
+                listeParcours.remove(parcours);
             }
         }
-        listeFiches = decorateur.execute(listeFiches);
-        return listeFiches;
+        listeParcours = decorateur.execute(listeParcours);
+        return listeParcours;
     }
 }

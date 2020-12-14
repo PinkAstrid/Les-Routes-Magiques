@@ -11,18 +11,18 @@ public class Command_Recherche_Description extends Decorator_Recherche {
         this.motsCles = motsCles;
     }
 
-    public List<FicheTech> execute(List<FicheTech> listeFiches) {
-        List<FicheTech> fichesCompatibles = null;
-        for(FicheTech fiche : listeFiches) {
+    public List<Parcours> execute(List<Parcours> listeParcours) {
+        List<Parcours> parcoursCompatibles = null;
+        for(Parcours parcours : listeParcours) {
             for(String mot : motsCles) {
-                if(fiche.description.contains(mot)){
-                    fichesCompatibles.add(fiche);
+                if(parcours.descLongue.contains(mot) || parcours.descCourte.contains(mot)){
+                    parcoursCompatibles.add(parcours);
                     break;
                 }
             }
         }
-        decorateur.execute(fichesCompatibles);
-        return fichesCompatibles;
+        decorateur.execute(parcoursCompatibles);
+        return parcoursCompatibles;
     }
 
 }

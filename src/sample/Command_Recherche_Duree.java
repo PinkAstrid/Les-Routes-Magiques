@@ -13,14 +13,14 @@ public class Command_Recherche_Duree extends Decorator_Recherche{
         this.dureeMax = dureeMax;
     }
 
-    public List<FicheTech> execute(List<FicheTech> listeFiches) {
-        for(FicheTech fiche : listeFiches) {
-            if(fiche.duree < dureeMin || fiche.duree > dureeMax) {
-                listeFiches.remove(fiche);
+    public List<Parcours> execute(List<Parcours> listeParcours) {
+        for(Parcours parcours : listeParcours) {
+            if(parcours.fiche.duree < dureeMin || parcours.fiche.duree > dureeMax) {
+                listeParcours.remove(parcours);
             }
         }
-        decorateur.execute(listeFiches);
-        return listeFiches;
+        decorateur.execute(listeParcours);
+        return listeParcours;
     }
 
 }
