@@ -18,7 +18,7 @@
          </font></Label>
       <VBox prefHeight="130.0" prefWidth="491.0" spacing="10.0" style="-fx-background-color: white;">
          <children>
-            <ToolBar prefHeight="35.0" prefWidth="491.0" style="-fx-background-color: #F9B1CB;">
+            <ToolBar prefHeight="36.0" prefWidth="491.0" style="-fx-background-color: #F9B1CB;">
               <items>
                   <TextField alignment="TOP_LEFT" prefHeight="32.0" prefWidth="340.0" text="Rechercher">
                      <font>
@@ -53,22 +53,22 @@
                   <HBox prefHeight="29.0" prefWidth="251.0" spacing="5.0">
                      <children>
                         <Label prefHeight="20.0" prefWidth="60.0" text="Dénivelé " />
-                        <TextField prefHeight="25.0" prefWidth="85.0" />
-                        <TextField prefHeight="25.0" prefWidth="85.0" />
+                        <TextField alignment="CENTER" prefHeight="25.0" prefWidth="85.0" promptText="Min" />
+                        <TextField alignment="CENTER" prefHeight="25.0" prefWidth="85.0" promptText="Max" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="1">
                      <children>
                           <Label prefHeight="20.0" prefWidth="60.0" text="Distance " />
-                        <TextField prefHeight="25.0" prefWidth="85.0" />
-                        <TextField prefHeight="25.0" prefWidth="85.0" />
+                        <TextField alignment="CENTER" prefHeight="25.0" prefWidth="85.0" promptText="Min" />
+                        <TextField alignment="CENTER" prefHeight="25.0" prefWidth="85.0" promptText="Max" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <Label prefHeight="20.0" prefWidth="60.0" text="Durée " />
-                        <TextField prefHeight="25.0" prefWidth="85.0" />
-                        <TextField prefHeight="25.0" prefWidth="85.0" />
+                        <TextField alignment="CENTER" prefHeight="25.0" prefWidth="85.0" promptText="Min" />
+                        <TextField alignment="CENTER" prefHeight="25.0" prefWidth="85.0" promptText="Max" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
