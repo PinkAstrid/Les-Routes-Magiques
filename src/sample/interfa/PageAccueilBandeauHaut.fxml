@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="103.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AccueilHautController">
+   <children>
+      <ImageView fitHeight="103.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../ressource/logo.png" />
+         </image></ImageView>
+      <Label prefHeight="118.0" prefWidth="191.0" style="-fx-background-color: white;" text="Les routes magiques" textAlignment="CENTER" textFill="#917cc4" wrapText="true">
+         <font>
+            <Font name="DejaVu Sans Bold Oblique" size="21.0" />
+         </font></Label>
+      <TabPane prefHeight="103.0" prefWidth="350.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Recherches">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+                     <children>
+                        <ToolBar layoutY="12.0" prefHeight="47.0" prefWidth="349.0" style="-fx-background-color: #F9B1CB;">
+                          <items>
+                              <TextField prefHeight="32.0" prefWidth="283.0" text="Rechercher">
+                                 <font>
+                                    <Font name="DejaVu Sans" size="12.0" />
+                                 </font>
+                              </TextField>
+                            <Button mnemonicParsing="false" style="-fx-background-color: #F9B1CB;">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../ressource/loupe.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                          </items>
+                        </ToolBar>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Recherches avancées">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</HBox>
