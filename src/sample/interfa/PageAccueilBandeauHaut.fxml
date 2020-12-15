@@ -1,54 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="103.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AccueilHautController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AccueilHautController">
    <children>
-      <ImageView fitHeight="103.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="132.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../ressource/logo.png" />
          </image></ImageView>
-      <Label prefHeight="118.0" prefWidth="191.0" style="-fx-background-color: white;" text="Les routes magiques" textAlignment="CENTER" textFill="#917cc4" wrapText="true">
+      <Label prefHeight="130.0" prefWidth="215.0" style="-fx-background-color: white;" text=" Les routes magiques" textFill="#917cc4" wrapText="true">
          <font>
             <Font name="DejaVu Sans Bold Oblique" size="21.0" />
          </font></Label>
-      <TabPane prefHeight="103.0" prefWidth="350.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Recherches">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+      <VBox prefHeight="130.0" prefWidth="491.0" spacing="10.0" style="-fx-background-color: white;">
+         <children>
+            <ToolBar prefHeight="35.0" prefWidth="491.0" style="-fx-background-color: #F9B1CB;">
+              <items>
+                  <TextField alignment="TOP_LEFT" prefHeight="32.0" prefWidth="340.0" text="Rechercher">
+                     <font>
+                        <Font name="DejaVu Sans" size="12.0" />
+                     </font>
+                  </TextField>
+                <Button mnemonicParsing="false" style="-fx-background-color: #F9B1CB;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ressource/loupe.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+              </items>
+               <padding>
+                  <Insets bottom="5.0" left="60.0" top="5.0" />
+               </padding>
+            </ToolBar>
+            <GridPane hgap="10.0" prefHeight="97.0" prefWidth="422.0" style="-fx-background-color: white;" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="214.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="0.0" prefWidth="239.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="17.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="8.0" minHeight="6.0" prefHeight="6.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox prefHeight="29.0" prefWidth="251.0" spacing="5.0">
                      <children>
-                        <ToolBar layoutY="12.0" prefHeight="47.0" prefWidth="349.0" style="-fx-background-color: #F9B1CB;">
-                          <items>
-                              <TextField prefHeight="32.0" prefWidth="283.0" text="Rechercher">
-                                 <font>
-                                    <Font name="DejaVu Sans" size="12.0" />
-                                 </font>
-                              </TextField>
-                            <Button mnemonicParsing="false" style="-fx-background-color: #F9B1CB;">
-                                 <graphic>
-                                    <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../ressource/loupe.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                          </items>
-                        </ToolBar>
+                        <Label prefHeight="20.0" prefWidth="60.0" text="Dénivelé " />
+                        <TextField prefHeight="25.0" prefWidth="85.0" />
+                        <TextField prefHeight="25.0" prefWidth="85.0" />
                      </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Recherches avancées">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="1">
+                     <children>
+                          <Label prefHeight="20.0" prefWidth="60.0" text="Distance " />
+                        <TextField prefHeight="25.0" prefWidth="85.0" />
+                        <TextField prefHeight="25.0" prefWidth="85.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="60.0" text="Durée " />
+                        <TextField prefHeight="25.0" prefWidth="85.0" />
+                        <TextField prefHeight="25.0" prefWidth="85.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="60.0" text="Difficulté " />
+                        <Slider prefHeight="16.0" prefWidth="126.0" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </VBox>
    </children>
 </HBox>
