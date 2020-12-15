@@ -5,21 +5,26 @@ import java.util.List;
 
 public class VisitorDistanceElevation implements Visitor{
 
+	private static double R = 6372.8f;
 	List<Float> distance;
 	Coordonees lastCords;
 	List<Float> elevation;
+	float elev_origine = 0f;
 
 	public VisitorDistanceElevation(){
 		distance = new ArrayList<>();
-		distance.add(0f);
 		elevation = new ArrayList<>();
-		elevation.add(0f);
+		elev_origine = 0f;
 	}
 	public List<Float> getDistance(){ return distance; }
 	public List<Float> getElevation(){ return elevation; }
 
-	public float haversine(Coordonees c1, Coordonees c2){
-		return 0f;
+	public double haversine(Coordonees c1, Coordonees c2){
+		double DLat = Math.toRadians(c2.lattitude - c1.lattitude);
+		double DLong = Math.toRadians(c2.longitude - c1.longitude);
+		double a = Math.pow(Math.sin(DLat / 2),2) + Math.pow(Math.sin(DLong / 2),2) * Math.cos(Math.toRadians(c1.lattitude)) * Math.cos(Math.toRadians(c2.lattitude));
+		double c = 2*Math.asin(Math.sqrt(a));
+		return R * c;
 	}
 
 	@Override
@@ -36,15 +41,18 @@ public class VisitorDistanceElevation implements Visitor{
 	public void visit(Coordonees cord) {
 		float d = 0f;
 		if (lastCords != null) {
-			d = haversine(lastCords, cord);
+			d = distance.get(distance.size()-1);
+			d += (float)haversine(lastCords, cord);
 			lastCords = cord;
 		}
 		else {
-			d = cord.lattitude + cord.longitude;
 			lastCords = cord;
 		}
 		distance.add(d);
-		elevation.add(cord.elevation);
+		if (elevation.isEmpty()){
+			elev_origine = cord.elevation;
+		}
+		elevation.add(cord.elevation - elev_origine);
 		cord.accept(this);
 	}
 

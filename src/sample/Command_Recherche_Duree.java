@@ -1,13 +1,28 @@
 package sample;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Command_Recherche_Duree extends Decorator_Recherche{
-    Object receiver;
+    Decorator_Recherche decorateur;
     float dureeMin;
     float dureeMax;
 
-    public void Command_Recherche_Duree(Object receiver, float dureeMin, float dureeMax) {
+    public Command_Recherche_Duree(Decorator_Recherche decorateur, float dureeMin, float dureeMax) {
+        this.decorateur = decorateur;
+        this.dureeMin = dureeMin;
+        this.dureeMax = dureeMax;
     }
 
-    public void execute() {}
+    public List<Parcours> execute(List<Parcours> listeParcours) {
+        List<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
+        for(Parcours parcours : listeParcours) {
+            if(parcours.fiche.duree >= dureeMin && parcours.fiche.duree <= dureeMax) {
+                parcoursCompatibles.add(parcours);
+            }
+        }
+        parcoursCompatibles = decorateur.execute(parcoursCompatibles);
+        return parcoursCompatibles;
+    }
 
 }

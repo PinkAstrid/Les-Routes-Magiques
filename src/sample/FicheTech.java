@@ -1,10 +1,12 @@
 package sample;
 
+import java.util.List;
+
 public class FicheTech implements ElementVisitor {
-	float duree;
-	float distance;
-	float denivele;
-	int difficulte;
+    float duree;
+    float distance;
+    float denivele;
+    int difficulte;
 
 	public FicheTech(){}
 

@@ -1,12 +1,28 @@
 package sample;
 
-public class Command_Recherche_Denivele extends Decorator_Recherche{
-    Object receiver;
-    float denivele;
+import java.util.ArrayList;
+import java.util.List;
 
-    public void Command_Recherche_Duree(Object receiver, float denivele) {
+public class Command_Recherche_Denivele extends Decorator_Recherche {
+    Decorator_Recherche decorateur;
+    float deniveleMin;
+    float deniveleMax;
+
+    public Command_Recherche_Denivele(Decorator_Recherche decorateur, float deniveleMin, float deniveleMax) {
+        this.decorateur = decorateur;
+        this.deniveleMin = deniveleMin;
+        this.deniveleMax = deniveleMax;
     }
 
-    public void execute() {}
+    public List<Parcours> execute(List<Parcours> listeParcours) {
+        List<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
 
+        for (Parcours parcours : listeParcours) {
+            if (parcours.fiche.denivele >= deniveleMin && parcours.fiche.denivele <= deniveleMax){
+                parcoursCompatibles.add(parcours);
+            }
+        }
+        parcoursCompatibles = decorateur.execute(parcoursCompatibles);
+        return parcoursCompatibles;
+    }
 }
