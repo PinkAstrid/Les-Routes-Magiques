@@ -12,14 +12,15 @@ import java.util.ResourceBundle;
 
 
 public class PresentParcoursAccueil implements Initializable {
+    public Label level;
     @FXML
-    private Button name;
+    public Button name;
     @FXML
-    private Label descCourte;
+    public Label descCourte;
     @FXML
-    private Label distance;
+    public Label distance;
     @FXML
-    private Label duree;
+    public Label duree;
 
     private Parcours parc;
     private VisitorVisualisation vis;
