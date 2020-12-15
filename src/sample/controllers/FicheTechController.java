@@ -1,16 +1,24 @@
 package sample.controllers;
 
+import javafx.fxml.FXML;
 import sample.Parcours;
 
 import java.awt.*;
 
 public class FicheTechController {
     private String name;
-    public TextArea textArea;
+    @FXML
+    private Label FicheName;
+    @FXML
+    private Label FicheShortDescr;
+    @FXML
+    private Label FicheLongDescr;
     public FicheTechController(){}
 
-    public void getNameController(Parcours p) {
-        this.name = p.getName();
-        textArea.setText(name);
+    public FicheTechController(Parcours p){
+        FicheName.setText(p.getName());
+        FicheShortDescr.setText(p.getDescCourte());
+        FicheLongDescr.setText(p.getDescLongue());
     }
+
 }
