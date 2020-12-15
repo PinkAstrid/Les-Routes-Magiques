@@ -31,7 +31,7 @@ public class TestMap extends Application {
 		Scene scene = new Scene(rootNode);
 
 		System.out.println("Création d'un lecteur de fichier xml pour la trace gpx");
-		Reader gpxReader = new Reader("src/traceTest.gpx");
+		Reader gpxReader = Reader.CreateReader("./traceTest.gpx");
 		System.out.println("Creation du visiteur pour la trace");
 		VisitorVisualisation v = new VisitorVisualisation();
 		System.out.println("Creation de l'objet Trace");

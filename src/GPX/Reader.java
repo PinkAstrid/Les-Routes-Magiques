@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,8 @@ public class Reader {
 	private Document doc;
 
 	public Reader(String filePath) throws ParserConfigurationException, IOException, SAXException {
-		file = new File("src/traceTest.gpx");
+		file = new File(filePath);
+		file = new File(getClass().getClassLoader().getResource(filePath).getFile());
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		db = dbf.newDocumentBuilder();
 		doc = db.parse(file);
