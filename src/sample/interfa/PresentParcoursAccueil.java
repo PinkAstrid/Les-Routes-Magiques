@@ -13,14 +13,12 @@ import java.util.ResourceBundle;
 
 public class PresentParcoursAccueil implements Initializable {
     public Label level;
-    @FXML
     public Button name;
-    @FXML
     public Label descCourte;
-    @FXML
     public Label distance;
-    @FXML
     public Label duree;
+    public Label diff;
+    public Label descLongue;
 
     private Parcours parc;
     private VisitorVisualisation vis;
@@ -37,5 +35,7 @@ public class PresentParcoursAccueil implements Initializable {
         descCourte.setText(vis.getDescCourte());
         distance.setText(vis.getDistance()+"km");
         duree.setText(vis.getDuree()+"h");
+        diff.setText(vis.getDiff()+"5");
+        descLongue.setText(vis.getDescLongue());
     }
 }
