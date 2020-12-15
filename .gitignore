@@ -112,6 +112,7 @@ fabric.properties
 .idea/.gitignore
 .gitignore
 src/project-grp23.iml
+project-grp23.iml
 src/META-INF/
 
 ### Java ###
