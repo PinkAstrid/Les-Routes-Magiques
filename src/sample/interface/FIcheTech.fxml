@@ -71,13 +71,40 @@
                   <ImageView fitHeight="78.0" fitWidth="110.0" layoutX="133.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
                </children>
             </GridPane>
-            <TextArea prefHeight="26.0" prefWidth="220.0" style="-fx-background-color: white; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextArea prefHeight="96.0" prefWidth="223.0" style="-fx-background-color: white; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextArea prefHeight="21.0" prefWidth="220.0" style="-fx-background-color: white; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: xhite; -fx-border-color: white;" GridPane.columnIndex="1" />
-            <TextArea prefHeight="28.0" prefWidth="220.0" style="-fx-background-color: white; -fx-border-color: white; -fx-region-border: white;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextArea minHeight="-Infinity" prefHeight="20.0" prefWidth="220.0" style="-fx-background-color: white; -fx-border-color: white;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label prefHeight="30.0" prefWidth="220.0" text="Label" wrapText="true" GridPane.columnIndex="1">
+               <font>
+                  <Font name="DejaVu Sans" size="12.0" />
+               </font></Label>
+            <Label prefHeight="27.0" prefWidth="220.0" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="DejaVu Sans" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="83.0" prefWidth="220.0" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="DejaVu Sans" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="23.0" prefWidth="220.0" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="DejaVu Sans" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="23.0" prefWidth="220.0" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="DejaVu Sans" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="25.0" prefWidth="220.0" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font name="DejaVu Sans" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="28.0" prefWidth="220.0" text="Coucou" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="12.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>
