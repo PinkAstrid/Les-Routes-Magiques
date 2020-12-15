@@ -6,10 +6,10 @@ import java.util.List;
 public class VisitorDistanceElevation implements Visitor{
 
 	private static double R = 6372.8f;
-	List<Float> distance;
-	Coordonees lastCords;
-	List<Float> elevation;
-	float elev_origine = 0f;
+	List<Float> distance; //distance cumulative
+	Coordonees lastCords; //dernière coordonnées visitées (pour le calcul des distances)
+	List<Float> elevation; //Elevation par rapport au point de départ
+	float elev_origine = 0f; //Elévation du point de départ
 
 	public VisitorDistanceElevation(){
 		distance = new ArrayList<>();
