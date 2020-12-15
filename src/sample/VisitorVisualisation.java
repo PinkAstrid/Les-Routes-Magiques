@@ -37,6 +37,22 @@ public class VisitorVisualisation implements Visitor {
 		parc.fiche.accept(this);
 	}
 
+	public String getName() {return name;}
+
+	public String getDescCourte() {	return descCourte;}
+
+	public String getDescLongue() {return descLongue;}
+
+	public List<Image> getPhotos() {return photos;}
+
+	public float getDenivele() { return denivele; }
+
+	public int getDiff() { return diff;	}
+
+	public float getDistance() { return distance;}
+
+	public float getDuree() { return duree; }
+
 	@Override
 	public void visit(FicheTech fiche) {
 		System.out.println("durée:"+fiche.duree);
