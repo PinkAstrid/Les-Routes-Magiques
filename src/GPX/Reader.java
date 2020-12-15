@@ -87,9 +87,7 @@ public class Reader {
 	}
 
 	public Trace getTrace(){
-		Node root = this.getRoot();
 		List<Coordonees> listCords = new ArrayList<Coordonees>();
-		listCords.add(getCords(root));
 		NodeList list = this.getElementsByTag("wpt");
 		for (int i = 0; i < list.getLength() ; i++) {
 			listCords.add(getCords(list.item(i)));
