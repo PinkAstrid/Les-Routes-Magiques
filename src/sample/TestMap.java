@@ -1,5 +1,6 @@
 package sample;
 
+import GPX.Reader;
 import com.sothawo.mapjfx.Projection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,12 +24,20 @@ public class TestMap extends Application {
 		rootNode = fxmlLoader.load(getClass().getResourceAsStream(fxmlFile));
 
 		final DemoMapController controller = fxmlLoader.getController();
-		System.out.println(controller);
 		final Projection projection = getParameters().getUnnamed().contains("wgs84")
 				? Projection.WGS_84 : Projection.WEB_MERCATOR;
 		controller.initMapAndControls(projection);
 
 		Scene scene = new Scene(rootNode);
+
+		System.out.println("Création d'un lecteur de fichier xml pour la trace gpx");
+		Reader gpxReader = new Reader("src/traceTest.gpx");
+		System.out.println("Creation du visiteur pour la trace");
+		VisitorVisualisation v = new VisitorVisualisation();
+		System.out.println("Creation de l'objet Trace");
+		Trace trace = gpxReader.getTrace();
+		System.out.println("Visite");
+		v.visit(trace);
 
 		primaryStage.setTitle("sothawo mapjfx demo application");
 		primaryStage.setScene(scene);
