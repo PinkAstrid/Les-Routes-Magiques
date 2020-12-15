@@ -1,17 +1,40 @@
 package sample;
 
+import javafx.scene.image.Image;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class VisitorVisualisation implements Visitor {
+	String name;
+	String descCourte;
+	String descLongue;
+	List<Image> photos;
+	float distance;
+	float duree;
+	float denivele;
+	int diff;
+
+	Trace trace;
+
 
 	public VisitorVisualisation(){
+		this.photos = new ArrayList<Image>();
 	}
 
 	@Override
 	public void visit(Parcours parc) {
-		System.out.println("Name:"+parc.name);
-		System.out.println("description(short):"+parc.descCourte);
-		System.out.println("description:"+parc.descLongue);
-		System.out.println("photos:"+parc.photos.size());
+		this.name = parc.name;
+		this.descCourte = parc.descCourte;
+		this.descLongue= parc.descLongue;
+		this.photos = parc.photos;
 		parc.accept(this);
+		this.denivele = parc.fiche.denivele;
+		this.diff = parc.fiche.difficulte;
+		this.distance = parc.fiche.distance;
+		this.duree = parc.fiche.duree;
+		parc.fiche.accept(this);
 	}
 
 	@Override
