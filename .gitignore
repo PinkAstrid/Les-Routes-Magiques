@@ -105,6 +105,15 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/12206-codestream
 .idea/codestream.xml
 
+# perso
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/.gitignore
+.gitignore
+src/project-grp23.iml
+src/META-INF/
+
 ### Java ###
 # Compiled class file
 *.class
