@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="412.0" prefWidth="362.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.interfa.FicheTechControl">
+<AnchorPane maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.interfa.FicheTechControl">
     <children>
-        <GridPane layoutX="6.0" prefHeight="412.0" prefWidth="356.0" style="-fx-background-color: white; -fx-border-color: white; -fx-alignment: white; -fx-region-border: white; -fx-region-background: white;">
+        <GridPane fx:id="grid" layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-border-color: white; -fx-alignment: white; -fx-region-border: white; -fx-region-background: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="139.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="223.0" />
@@ -24,11 +24,11 @@
                 <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Nom du parcours" textFill="#917cc4">
+                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Nom du parcours" textFill="#917cc4">
                     <font>
                         <Font name="DejaVu Sans Bold" size="12.0" />
                     </font></Label>
-                <Label text="Distance" textFill="#917cc4" GridPane.rowIndex="4">
+                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Distance" textFill="#917cc4" GridPane.rowIndex="4">
                     <font>
                         <Font name="DejaVu Sans Bold" size="12.0" />
                     </font></Label>
@@ -36,11 +36,11 @@
                     <font>
                         <Font name="DejaVu Sans Bold" size="12.0" />
                     </font></Label>
-                <Label prefHeight="36.0" prefWidth="119.0" text="Description détaillée" textFill="#917cc4" wrapText="true" GridPane.rowIndex="2">
+                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="36.0" prefWidth="119.0" text="Description détaillée" textFill="#917cc4" wrapText="true" GridPane.rowIndex="2">
                     <font>
                         <Font name="DejaVu Sans Bold" size="12.0" />
                     </font></Label>
-                <Label text="Durée" textFill="#917cc4" GridPane.rowIndex="3">
+                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Durée" textFill="#917cc4" GridPane.rowIndex="3">
                     <font>
                         <Font name="DejaVu Sans Bold" size="12.0" />
                     </font></Label>
@@ -48,11 +48,11 @@
                     <font>
                         <Font name="DejaVu Sans Bold" size="12.0" />
                     </font></Label>
-                <Label text="Photos" textFill="#917cc4" GridPane.rowIndex="7">
+                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Photos" textFill="#917cc4" GridPane.rowIndex="7">
                     <font>
                         <Font name="DejaVu Sans Bold" size="12.0" />
                     </font></Label>
-                <Label text="Description courte" textFill="#917cc4" GridPane.rowIndex="1">
+                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Description courte" textFill="#917cc4" GridPane.rowIndex="1">
                     <font>
                         <Font name="DejaVu Sans Bold" size="12.0" />
                     </font></Label>
@@ -72,41 +72,41 @@
                         <ImageView fitHeight="78.0" fitWidth="110.0" layoutX="133.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
                     </children>
                 </GridPane>
-                <Label fx:id="FicheName" prefHeight="30.0" prefWidth="220.0" wrapText="true" GridPane.columnIndex="1">
+                <Label fx:id="FicheName" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" wrapText="true" GridPane.columnIndex="1">
                     <font>
                         <Font name="DejaVu Sans" size="12.0" />
                     </font></Label>
-                <Label fx:id="FicheShortDescr" prefHeight="27.0" prefWidth="220.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label fx:id="FicheShortDescr" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <font>
                         <Font name="DejaVu Sans" size="12.0" />
                     </font>
                 </Label>
-                <Label fx:id="FicheLongDescr" prefHeight="83.0" prefWidth="220.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Label fx:id="FicheLongDescr" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <font>
                         <Font name="DejaVu Sans" size="12.0" />
                     </font>
                 </Label>
-                <Label fx:id="duree" prefHeight="23.0" prefWidth="220.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <Label fx:id="duree" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <font>
                         <Font name="DejaVu Sans" size="12.0" />
                     </font>
                 </Label>
-                <Label fx:id="distance" prefHeight="23.0" prefWidth="220.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Label fx:id="distance" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
                     <font>
                         <Font name="DejaVu Sans" size="12.0" />
                     </font>
                 </Label>
-                <Label fx:id="difficulte" prefHeight="25.0" prefWidth="220.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                <Label fx:id="difficulte" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
                     <font>
                         <Font name="DejaVu Sans" size="12.0" />
                     </font>
                 </Label>
-                <Label fx:id="denivele" prefHeight="28.0" prefWidth="220.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                <Label fx:id="denivele" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
                     <font>
                         <Font name="DejaVu Sans" size="12.0" />
                     </font>
                 </Label>
-                <Label prefHeight="30.0" prefWidth="136.0" text="Visualisation du parcours " textFill="#917cc4" wrapText="true" GridPane.rowIndex="8">
+                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Visualisation du parcours " textFill="#917cc4" wrapText="true" GridPane.rowIndex="8">
                     <font>
                         <Font name="DejaVu Sans Bold" size="12.0" />
                     </font>

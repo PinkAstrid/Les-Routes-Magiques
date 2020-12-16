@@ -1,19 +1,28 @@
 package sample.interfa;
 
+import GPX.Reader;
+import com.sothawo.mapjfx.Projection;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import sample.Parcours;
+import sample.Trace;
 import sample.Visitor;
 import sample.VisitorVisualisation;
 
 import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class FicheTechControl implements Initializable {
 
+    public GridPane grid;
     @FXML
     private Label FicheName;
     @FXML
@@ -33,7 +42,7 @@ public class FicheTechControl implements Initializable {
 
     public FicheTechControl(){}
 
-    public void myFichControl(Parcours p){
+    public void myFichControl(Parcours p) throws IOException {
         VisitorVisualisation v = new VisitorVisualisation();
         v.visit(p);
         FicheName.setText(v.getName());
@@ -47,6 +56,20 @@ public class FicheTechControl implements Initializable {
         if (!v.getPhotos().isEmpty()){
             imRando0.setImage(v.getPhotos().get(0));
         }
+
+        //Def carte
+        String fxmlFile = "demoMap.fxml";
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent rootNode = null;
+        rootNode = fxmlLoader.load(getClass().getResourceAsStream(fxmlFile));
+
+        final DemoMapController controller = fxmlLoader.getController();
+        final Projection projection = Projection.WEB_MERCATOR;
+        controller.initMapAndControls(projection);
+
+        controller.addCoordinateLine(p).setWidth(20);
+
+        grid.add(rootNode, 2, 9);
 
     }
 

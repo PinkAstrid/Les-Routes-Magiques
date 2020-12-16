@@ -18,10 +18,10 @@ public class TestFicheControl extends Application {
     public void start(Stage primaryStage) throws Exception {
         //Parcours p = new Parcours();
         System.out.println("Création de coordonnées grâce au créateur");
-        Coordonees c0 = new Coordonees(0f, 0f, 0f);
-        Coordonees c1 = new Coordonees(0.1f, 0f, 0.1f);
-        Coordonees c2 = new Coordonees(0.2f, 0f, 0.2f);
-        Coordonees c3 = new Coordonees(0.2f, 0.1f, 0.1f);
+        Coordonees c0 = new Coordonees(48.6692041f, 6.156187f, 0f);
+        Coordonees c1 = new Coordonees(48.6692081f, 6.156257f, 0.1f);
+        Coordonees c2 = new Coordonees(48.6692101f, 6.156287f, 0.2f);
+        Coordonees c3 = new Coordonees(48.6692041f, 6.156187f, 0.1f);
         List<Coordonees> list = new ArrayList<Coordonees>();
         list.add(c0);
         list.add(c1);
@@ -38,8 +38,10 @@ public class TestFicheControl extends Application {
         Parent root = load.load();
         FicheTechControl controller = load.getController();
         controller.myFichControl(p);
+
+        Scene scene = new Scene(root, 1200, 1000);
         primaryStage.setTitle("Telecom Nancy Hiking");
-        primaryStage.setScene(new Scene(root, 400, 500));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
