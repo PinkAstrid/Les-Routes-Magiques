@@ -15,20 +15,10 @@ public class TestInterfa extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/sample/interfa/PageAccueilBandeauHaut.fxml"));
 
-        AccueilHautController control = new AccueilHautController();
-        TreeView tree = control.getTree();
-
-        TreeItem rootitem = new TreeItem("Recherches avancées");
-
-        TreeItem denivele = new TreeItem("Dénivelé");
-        TreeItem duree = new TreeItem("Durée");
-
-        tree.setRoot(rootitem);
-        rootitem.getChildren().addAll(denivele,duree);
-        
+       
 
         primaryStage.setTitle("Telecom Nancy Hiking");
-        primaryStage.setScene(new Scene(root, 664, 104));
+        primaryStage.setScene(new Scene(root, 774, 126));
         primaryStage.show();
     }
 
