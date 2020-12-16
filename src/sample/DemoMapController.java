@@ -30,8 +30,7 @@ public class DemoMapController {
 	private List<Marker> followedMarker;
 
 	public DemoMapController() {
-		markerClick = Marker.createProvided(Marker.Provided.ORANGE).setVisible(true).setPosition(TelecomNancy);
-
+		markerClick = Marker.createProvided(Marker.Provided.ORANGE);
 		followedLines = new ArrayList<CoordinateLine>();
 		followedMarker = new ArrayList<Marker>();
 	}
@@ -47,18 +46,21 @@ public class DemoMapController {
 		mapView.addEventHandler(MapViewEvent.MAP_CLICKED, event -> {
 			event.consume();
 			final Coordinate newPosition = event.getCoordinate().normalize();
+			markerClick.setPosition(newPosition).setVisible(true);
 
-			if (markerClick.getVisible()) {
-				final Coordinate oldPosition = markerClick.getPosition();
-				if (oldPosition != null) {
-					markerClick.setPosition(newPosition);
-				} else {
-					markerClick.setPosition(newPosition);
-					// adding can only be done after coordinate is set
-					mapView.addMarker(markerClick);
-				}
+			final Coordinate oldPosition = markerClick.getPosition();
+			if (oldPosition != null) {
+				mapView.addMarker(markerClick);
 			}
 		});
+
+		mapView.addEventHandler(MapViewEvent.MAP_RIGHTCLICKED, event -> {
+			event.consume();
+			if (markerClick.getVisible()) {
+				markerClick.setVisible(false);
+			}
+		});
+
 
 		this.mapView.initialize(Configuration.builder().projection(projection).showZoomControls(false).build());
 
