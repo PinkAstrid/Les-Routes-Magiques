@@ -1,5 +1,7 @@
 package GPX;
 
+import com.sothawo.mapjfx.Coordinate;
+import com.sothawo.mapjfx.CoordinateLine;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import sample.Coordonees;
@@ -95,6 +97,10 @@ public class Reader {
 			listCords.add(getCords(list.item(i)));
 		}
 		return new Trace(listCords);
+	}
+
+	public List<Coordinate> getListCoordinates(){
+		return this.getTrace().getListCoordinates();
 	}
 
 }

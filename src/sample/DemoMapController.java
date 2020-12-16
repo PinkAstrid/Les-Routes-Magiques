@@ -1,14 +1,19 @@
 
 package sample;
 
-import com.sothawo.mapjfx.Configuration;
-import com.sothawo.mapjfx.Coordinate;
-import com.sothawo.mapjfx.MapView;
-import com.sothawo.mapjfx.Projection;
+import GPX.Reader;
+import com.sothawo.mapjfx.*;
+import com.sothawo.mapjfx.event.MapViewEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.paint.Color;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.print.DocFlavor;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DemoMapController {
 	private static final Logger logger = LoggerFactory.getLogger(DemoMapController.class);
@@ -19,16 +24,19 @@ public class DemoMapController {
 	@FXML
 	private MapView mapView;
 
-	public DemoMapController() {
+	private Marker markerClick;
 
+	private List<CoordinateLine> followedLines;
+	private List<Marker> followedMarker;
+
+	public DemoMapController() {
+		markerClick = Marker.createProvided(Marker.Provided.ORANGE).setVisible(true).setPosition(TelecomNancy);
+
+		followedLines = new ArrayList<CoordinateLine>();
+		followedMarker = new ArrayList<Marker>();
 	}
 
 	public void initMapAndControls(Projection projection) {
-
-		//this.buttonZoom.setOnAction((event) -> {
-		//	this.mapView.setZoom(14.0D);
-		//});
-
 		this.mapView.initializedProperty().addListener((observable, oldValue, newValue) -> {
 			if (newValue) {
 				this.afterMapIsInitialized();
@@ -36,12 +44,123 @@ public class DemoMapController {
 
 		});
 
+		mapView.addEventHandler(MapViewEvent.MAP_CLICKED, event -> {
+			event.consume();
+			final Coordinate newPosition = event.getCoordinate().normalize();
+
+			if (markerClick.getVisible()) {
+				final Coordinate oldPosition = markerClick.getPosition();
+				if (oldPosition != null) {
+					markerClick.setPosition(newPosition);
+				} else {
+					markerClick.setPosition(newPosition);
+					// adding can only be done after coordinate is set
+					mapView.addMarker(markerClick);
+				}
+			}
+		});
+
 		this.mapView.initialize(Configuration.builder().projection(projection).showZoomControls(false).build());
 
 	}
 	private void afterMapIsInitialized() {
 		logger.trace("map intialized");
-		this.mapView.setZoom(14.0D);
+		this.mapView.setZoom(ZOOM_DEFAULT);
 		this.mapView.setCenter(TelecomNancy);
+
+		for (CoordinateLine cl : followedLines){
+			mapView.addCoordinateLine(cl);
+		}
 	}
+
+	/**
+	 * ajout d'une CoordinateLine sur la carte
+	 * @param p
+	 * 		parcours contenant le chemin à afficher
+	 * @return CoordinateLine
+	 * 		CoordinateLine créé dans la liste followedLines
+	 */
+	public CoordinateLine addCoordinateLine(Parcours p){
+		return addCoordinateLine(p.getTrace());
+	}
+
+	/**
+	 * ajout d'une CoordinateLine sur la carte
+	 * @param t
+	 * 		trace contenant le chemin à afficher
+	 * @return CoordinateLine
+	 * 		CoordinateLine créé dans la liste followedLines
+	 */
+	public CoordinateLine addCoordinateLine(Trace t){
+		return addCoordinateLine(new CoordinateLine(t.getListCoordinates()));
+	}
+
+	/**
+	 * ajout d'une CoordinateLine sur la carte
+	 * @param cl
+	 * 		CoordinateLine à ajouter
+	 * @return CoordinateLine
+	 * 		CoordinateLine créée
+	 */
+	public CoordinateLine addCoordinateLine(CoordinateLine cl) {
+		if (followedLines.contains(cl)){
+			cl.setVisible(true);
+			return cl;
+		}
+		else{
+			followedLines.add(cl);
+			cl.setVisible(true);
+			mapView.addCoordinateLine(cl);
+			return cl;
+		}
+	}
+
+	/**
+	 * Ajoute un marker sur la carte
+	 * @param url
+	 * 		url de l'image à ajouter sur la carte
+	 * @return Marker
+	 * 		Marker ajouté
+	 */
+	public Marker addMarker(URL url){
+		Marker m = new Marker(url);
+		return addMarker(m);
+	}
+
+	/**
+	 * Ajoute un marker sur la carte
+	 * @param m
+	 * 		Marker à ajouter sur la carte
+	 * @return Marker
+	 * 		Marker ajouté
+	 */
+	public Marker addMarker(Marker m){
+		if (followedMarker.contains(m)){
+			m.setVisible(true);
+			return m;
+		}
+		else{
+			followedMarker.add(m);
+			m.setVisible(true);
+			mapView.addMarker(m);
+			return m;
+		}
+	}
+
+	/**
+	 * renvoie la liste des lignes sur la carte
+	 * @return List<CoordinateLine>
+	 */
+	public List<CoordinateLine> getFollowedLines(){
+		return followedLines;
+	}
+
+	/**
+	 * renvoie la liste des marker sur la carte
+	 * @return List<Marker>
+	 */
+	public List<Marker> getMarker(){
+		return followedMarker;
+	}
+
 }
