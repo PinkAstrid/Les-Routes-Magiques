@@ -19,7 +19,7 @@ public class TestMap extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		String fxmlFile = "interfa/demoMap.fxml";
+		String fxmlFile = "./ressources/layout/demoMap.fxml";
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		Parent rootNode = null;
 		rootNode = fxmlLoader.load(getClass().getResourceAsStream(fxmlFile));
