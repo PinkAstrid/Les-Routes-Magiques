@@ -9,17 +9,18 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import sample.CreatorParcours;
 import sample.Parcours;
 
 import java.io.IOException;
 
 public class PageAccueilBandeauDroiteControl {
-
-    /*
+    
     public void creerPopup(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("CreationParcours.fxml"));
-        Pane page = loader.load();
+
+        FXMLLoader loaderCreation = new FXMLLoader();
+        loaderCreation.setLocation(getClass().getResource("CreationParcours.fxml"));
+        Pane page = loaderCreation.load();
 
         // Create the dialog Stage.
         Stage dialogStage = new Stage();
@@ -30,11 +31,14 @@ public class PageAccueilBandeauDroiteControl {
         dialogStage.setScene(scene);
 
         // Set the person into the controller.
-        CreationParcoursControl creationParcoursController = loader.getController();
+        CreationParcoursControl creationParcoursController = loaderCreation.getController();
         creationParcoursController.setDialogStage(dialogStage);
-        creationParcoursController.handleCreate();
+        creationParcoursController.setParcours(parcours);
 
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
-    }*/
+    }
+
+    public void supprimerParcours(ActionEvent actionEvent) {
+    }
 }
