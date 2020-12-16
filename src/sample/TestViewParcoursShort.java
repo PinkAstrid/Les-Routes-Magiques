@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import sample.interfa.PresentParcoursAccueil;
+import sample.interfa.VBoxMiddlePaneAccueil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,15 +36,16 @@ public class TestViewParcoursShort extends Application {
         System.out.println("Création de parcours grâce au créateur");
         Parcours p = c.createProduct(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
         Parcours p2 = c.createProduct(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
+        List<Parcours> ps = new ArrayList<Parcours>();
+        ps.add(p); ps.add(p2);
 
 
-
-        String fxmlFile = "./interfa/presentParcoursAccueil.fxml";
+        String fxmlFile = "./interfa/vBoxMiddlePaneAccueil.fxml";
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent rootNode = fxmlLoader.load();
 
-        final PresentParcoursAccueil controller = fxmlLoader.getController();
-        controller.myFunct(p);
+        VBoxMiddlePaneAccueil controller = fxmlLoader.getController();
+        controller.initList(ps);
         Scene scene = new Scene(rootNode);
 
         primaryStage.setTitle("let us try");

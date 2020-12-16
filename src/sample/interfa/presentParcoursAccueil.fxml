@@ -28,7 +28,7 @@
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../ressource/distance.png" />
+                              <Image url="@./../ressource/distance.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="distance" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="Label">
@@ -46,7 +46,7 @@
                            </padding></Label>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../ressource/time.png" />
+                              <Image url="@./../ressource/time.png" />
                            </image></ImageView>
                         <Label fx:id="duree" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="Label">
                            <padding>
@@ -54,7 +54,7 @@
                            </padding></Label>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="file:/home/mastrid/Documents/pcd/project-grp23/ressource/Difficulty.png" />
+                              <Image url="@./../ressource/Difficulty.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="level" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="Label">
@@ -66,7 +66,7 @@
                            </padding></Label>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@./../../../ressource/denivele_up.png" />
+                              <Image url="@./../ressource/denivele_up.png" />
                            </image></ImageView>
                         <Label fx:id="diff" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="Label">
                            <font>
