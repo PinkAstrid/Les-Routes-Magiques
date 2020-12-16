@@ -14,6 +14,7 @@ public class Command_Recherche_Description extends Decorator_Recherche {
 
     public ArrayList<Parcours> execute(ArrayList<Parcours> listeParcours) {
         ArrayList<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
+
         String[] listeRecherche = recherche.split(" ");
 
         for(Parcours parcours : listeParcours) {

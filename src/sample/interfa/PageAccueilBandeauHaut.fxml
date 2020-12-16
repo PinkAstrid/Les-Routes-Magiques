@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AccueilHautController">
+<HBox fx:id="accueil" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AccueilHautController" onKeyPressed="#rechercherKey">
    <children>
       <ImageView fitHeight="132.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,12 +20,12 @@
          <children>
             <ToolBar prefHeight="44.0" prefWidth="470.0" style="-fx-background-color: #F9B1CB;">
               <items>
-                  <TextField fx:id="rechercheT" prefHeight="32.0" prefWidth="340.0" text="Rechercher">
+                  <TextField fx:id="rechercheT" prefHeight="32.0" prefWidth="340.0" promptText="Rechercher">
                      <font>
                         <Font name="DejaVu Sans" size="12.0" />
                      </font>
                   </TextField>
-                <Button fx:id="loupe" mnemonicParsing="false" onMouseClicked="#rechercher" style="-fx-background-color: #F9B1CB">
+                <Button fx:id="loupe" mnemonicParsing="false" onMouseClicked="#rechercherMouse" style="-fx-background-color: #F9B1CB">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>

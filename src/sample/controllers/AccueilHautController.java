@@ -3,17 +3,18 @@ package sample.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import sample.*;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.TextEvent;
+import javafx.scene.input.KeyEvent;
 import java.util.ArrayList;
 
 import static java.lang.Float.isInfinite;
 
 public class AccueilHautController {
+    @FXML
+    public HBox accueil;
     @FXML
     public TextField distMinT;
     @FXML
@@ -40,11 +41,7 @@ public class AccueilHautController {
         this.parcours = parcours;
     }
 
-
-    public void rechercher(MouseEvent mouseEvent) {
-        float Pinf = Float.POSITIVE_INFINITY;
-        float Ninf = Float.NEGATIVE_INFINITY;
-
+    public void rechercher(){
         float distMin;
         float distMax;
         float denMin;
@@ -53,6 +50,11 @@ public class AccueilHautController {
         float diffMax;
         float durMin;
         float durMax;
+
+        ArrayList<Parcours> resultat;
+
+        float Pinf = Float.POSITIVE_INFINITY;
+        float Ninf = Float.NEGATIVE_INFINITY;
 
         String distMinS = getdistMin();
         String distMaxS = getdistMax();
@@ -63,6 +65,7 @@ public class AccueilHautController {
         String durMinS = getdurMin();
         String durMaxS = getdurMax();
         String recherche = getRecherche();
+
 
         try {
             if(distMinS.length() != 0) {
@@ -97,22 +100,24 @@ public class AccueilHautController {
                 durMax = Float.parseFloat(durMaxS);
             } else durMax = Pinf;
 
-            if(recherche.length() == 0 && (isInfinite(distMin) && isInfinite(distMax)
-                    && isInfinite(denMin)&& isInfinite(denMax) && isInfinite(diffMin)
-                    && isInfinite(diffMax) && isInfinite(durMin) && isInfinite(durMax))) {
-                System.out.println("There is a problem with your input");
-            }
-
             Composant_Decorator_Recherche CDR = new Composant_Decorator_Recherche();
             Command_Recherche_Distance CRDist = new Command_Recherche_Distance(CDR, distMin, distMax);
             Command_Recherche_Denivele CRDen = new Command_Recherche_Denivele(CRDist, denMin, denMax);
             Command_Recherche_Difficulte CRDiff = new Command_Recherche_Difficulte(CRDen, diffMin, diffMax);
             Command_Recherche_Duree CRDur = new Command_Recherche_Duree(CRDiff, durMin, durMax);
-            Command_Recherche_Description CRDescr = new Command_Recherche_Description(CRDur, recherche);
 
-            ArrayList<Parcours> resultat = CRDescr.execute(parcours);
+            if(recherche.length() != 0) {
+                Command_Recherche_Description CRDescr = new Command_Recherche_Description(CRDur, recherche);
+                resultat = CRDescr.execute(parcours);
+            }
+            else {
+                resultat = CRDur.execute(parcours);
+            }
 
-            System.out.println(resultat);
+            Visitor v = new VisitorVisualisation();
+            for(Parcours parc : resultat) {
+                v.visit(parc);
+            }
 
         }
         catch(Exception e) {
@@ -156,5 +161,17 @@ public class AccueilHautController {
         return rechercheT.getText();
     }
 
+
+    public void rechercherMouse(MouseEvent mouseEvent) {
+        rechercher();
+    }
+
+    public void rechercherKey(KeyEvent keyEvent) {
+        accueil.setOnKeyPressed(ev -> {
+            if (ev.getCode() == KeyCode.ENTER) {
+                rechercher();
+            }
+        });
+    }
 
 }

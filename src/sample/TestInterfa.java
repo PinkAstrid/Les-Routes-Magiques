@@ -31,8 +31,8 @@ public class TestInterfa extends Application {
         CreatorParcours c = new CreatorParcours();
 
         System.out.println("Création de parcours grâce au créateur");
-        Parcours p = c.createProduct(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
-        Parcours p2 = c.createProduct(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
+        Parcours p = c.createProduct(list, 2.5f, 5.0f, 200, 1, "chemin", "randonée sur un petit chemin", "details", photos);
+        Parcours p2 = c.createProduct(list, 2.5f, 100, 600, 1, "titre", "description", "details", photos);
 
         ArrayList<Parcours> lp = new ArrayList<Parcours>();
         lp.add(p);
