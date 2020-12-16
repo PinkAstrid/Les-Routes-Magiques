@@ -17,14 +17,13 @@ public class MiddlePaneController implements Initializable {
     public MiddlePaneController(){}
 
     public void setBorPane(List<Parcours> parcoursList) throws IOException {
-        String fxmlFile = "./../../ressources/layoutvBoxMiddlePaneAccueil.fxml"; //vers ta classe
+        String fxmlFile = "/ressources/layout/vBoxMiddlePaneAccueil.fxml"; //vers ta classe
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent rootNode = fxmlLoader.load();
 
         VBoxMiddlePaneAccueil controller = fxmlLoader.getController(); //type de ton controller
         controller.initList(parcoursList); //la fonction permettant d'ajouter les éléments dans ton controller
         borPane.setCenter(rootNode);
-
     }
 
     @Override

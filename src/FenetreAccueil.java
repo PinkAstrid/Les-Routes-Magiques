@@ -14,6 +14,10 @@ import java.util.List;
 
 public class FenetreAccueil extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         System.out.println("Création de coordonnées grâce au créateur");
@@ -36,7 +40,7 @@ public class FenetreAccueil extends Application {
         ps.add(p); ps.add(p2);
 
 
-        String fxmlFile = "./ressources/layout/pageAccueil.fxml";
+        String fxmlFile = "/ressources/layout/pageAccueil.fxml";
         System.out.println(fxmlFile+"\n");
         System.out.println(getClass().getResource(fxmlFile));
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource(fxmlFile));

@@ -14,6 +14,9 @@ import java.util.List;
 
 public class FenetreMap extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
     @Override
     public void start(Stage primaryStage) throws Exception {
         //Parcours p = new Parcours();
