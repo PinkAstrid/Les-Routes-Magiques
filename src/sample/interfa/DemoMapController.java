@@ -61,7 +61,7 @@ public class DemoMapController {
 		});
 
 
-		this.mapView.initialize(Configuration.builder().projection(projection).showZoomControls(false).build());
+		this.mapView.initialize(Configuration.builder().projection(projection).showZoomControls(true).build());
 
 	}
 	private void afterMapIsInitialized() {
