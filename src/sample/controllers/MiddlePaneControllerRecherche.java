@@ -14,7 +14,7 @@ public class MiddlePaneControllerRecherche {
     public MiddlePaneControllerRecherche(){}
 
     public void setBorPane(List<Parcours> parcoursList) throws IOException {
-        String fxmlFile = "./../../ressources/layout/vBoxMiddlePaneAccueil.fxml"; //vers ta classe
+        String fxmlFile = "/ressources/layout/vBoxMiddlePaneAccueil.fxml"; //vers ta classe
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent rootNode = fxmlLoader.load();
 

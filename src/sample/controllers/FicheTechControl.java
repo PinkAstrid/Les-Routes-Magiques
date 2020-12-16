@@ -56,7 +56,7 @@ public class FicheTechControl implements Initializable {
         }
 
         //Def carte
-        String fxmlFile = "./../../ressources/layout/demoMap.fxml";
+        String fxmlFile = "/ressources/layout/demoMap.fxml";
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent rootNode = null;
         rootNode = fxmlLoader.load(getClass().getResourceAsStream(fxmlFile));

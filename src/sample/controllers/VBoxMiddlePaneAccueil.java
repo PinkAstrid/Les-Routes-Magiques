@@ -20,7 +20,7 @@ public class VBoxMiddlePaneAccueil implements Initializable
 
     public void initList(List<Parcours> parcours) throws IOException {
         for (Parcours pa: parcours) {
-            String fxmlFile = "./../../ressources/layout/presentParcoursAccueil.fxml"; //vers ta classe
+            String fxmlFile = "/ressources/layout/presentParcoursAccueil.fxml"; //vers ta classe
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent rootNode = fxmlLoader.load();
 

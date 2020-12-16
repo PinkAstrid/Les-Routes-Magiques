@@ -37,7 +37,7 @@ public class FenetreMap extends Application {
         Parcours p = c.createProduct(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
         Parcours p2 = c.createProduct(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
 
-        FXMLLoader load = new FXMLLoader(getClass().getResource("./ressources/layout/FicheTech.fxml"));
+        FXMLLoader load = new FXMLLoader(getClass().getResource("/ressources/layout/FicheTech.fxml"));
         Parent root = load.load();
         FicheTechControl controller = load.getController();
         controller.myFichControl(p);
