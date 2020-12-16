@@ -15,7 +15,7 @@ import sample.Parcours;
 import java.io.IOException;
 
 public class PageAccueilBandeauDroiteControl {
-    
+    private Stage primaryStage;
     public void creerPopup(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loaderCreation = new FXMLLoader();
@@ -33,12 +33,15 @@ public class PageAccueilBandeauDroiteControl {
         // Set the person into the controller.
         CreationParcoursControl creationParcoursController = loaderCreation.getController();
         creationParcoursController.setDialogStage(dialogStage);
-        creationParcoursController.setParcours(parcours);
 
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
     }
 
     public void supprimerParcours(ActionEvent actionEvent) {
+    }
+
+    public void myfunct(Stage primaryStage){
+        this.primaryStage = primaryStage;
     }
 }

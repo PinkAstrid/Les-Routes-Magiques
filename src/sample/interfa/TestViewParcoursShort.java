@@ -1,4 +1,4 @@
-package sample;
+package sample.interfa;
 
 import com.sothawo.mapjfx.Projection;
 import javafx.application.Application;
@@ -7,6 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import sample.Coordonees;
+import sample.CreatorParcours;
+import sample.Parcours;
 import sample.interfa.MiddlePaneController;
 import sample.interfa.PageAccueil;
 import sample.interfa.PresentParcoursAccueil;
@@ -42,12 +45,14 @@ public class TestViewParcoursShort extends Application {
         ps.add(p); ps.add(p2);
 
 
-        String fxmlFile = "./interfa/pageAccueil.fxml";
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
-        Parent rootNode = fxmlLoader.load();
+        String fxmlFile = "pageAccueil.fxml";
+        System.out.println(fxmlFile+"\n");
+        System.out.println(getClass().getResource(fxmlFile));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource(fxmlFile));
+        Parent rootNode = fxmlLoader1.load();
 
-        PageAccueil controller = fxmlLoader.getController();
-        controller.initPage(ps);
+        PageAccueil controller = fxmlLoader1.getController();
+        controller.initPage(ps, primaryStage);
         Scene scene = new Scene(rootNode);
 
         primaryStage.setTitle("let us try");

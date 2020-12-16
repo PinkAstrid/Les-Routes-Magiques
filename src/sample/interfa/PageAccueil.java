@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import sample.Parcours;
 import sample.controllers.AccueilHautController;
 
@@ -16,10 +17,10 @@ import java.util.ResourceBundle;
 public class PageAccueil implements Initializable {
     public BorderPane bordPa;
     List<Parcours> parcours;
-
+    private Stage primaryStage;
     public PageAccueil(){}
 
-    public void initPage(List<Parcours> parc) throws IOException {
+    public void initPage(List<Parcours> parc, Stage primaryStage) throws IOException {
         this.parcours = parc;
 
         String fxmlFileMiddle = "./middlePane.fxml"; //vers ta classe
@@ -38,8 +39,8 @@ public class PageAccueil implements Initializable {
         String fxmlFileRight = "./PageAccueilBandeauDroite.fxml"; //vers ta classe
         FXMLLoader fxmlLoaderRight = new FXMLLoader(getClass().getResource(fxmlFileRight));
         Parent rightNode = fxmlLoaderRight.load();
-        PageAccueilBandeauDroiteControl controllerRight = fxmlLoaderRight.getController(); //type de ton controller
-        //controllerRight.initList(parcoursList); //la fonction permettant d'ajouter les éléments dans ton controller
+        //PageAccueilBandeauDroiteControl controllerRight = fxmlLoaderRight.getController(); //type de ton controller
+        //controllerRight.myfunct(primaryStage); //la fonction permettant d'ajouter les éléments dans ton controller
         bordPa.setRight(rightNode);
     }
 

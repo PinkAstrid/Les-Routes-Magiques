@@ -54,32 +54,40 @@ public class CreationParcoursControl implements Initializable {
         this.dialogStage.close();
     }
 
-    public void setParcours(Parcours p){this.parcours = p;}
+    public void setParcours(Parcours p){
+        this.parcours = p;
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public Parcours validerParcours(javafx.event.ActionEvent actionEvent) {
+    public void validerParcours(javafx.event.ActionEvent actionEvent) {
         try {
             float duree = Float.parseFloat(getDuree());
+            System.out.println(duree);
             float distance = Float.parseFloat(getDistance());
+            System.out.println(distance);
             int difficulte = Integer.parseInt(getDiff());
+            System.out.println(difficulte);
             float denivele = Float.parseFloat(getDenivele());
+            System.out.println(denivele);
             ArrayList<Image> photos = new ArrayList<Image>();
+            System.out.println(photos);
             List<Coordonees> chemin = new ArrayList<Coordonees>();
-
+            System.out.println(chemin);
+            System.out.println(getName());
+            System.out.println(getLongDescr());
+            System.out.println(getShortDescr());
             CreatorParcours c = new CreatorParcours();
-
-            Parcours p = c.createProduct(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos);
+            parcours = c.createProduct(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos);
 
             this.dialogStage.close();
-            return p;
         }
         catch(Exception e) {
-            System.out.println("There is a problem with your input");
+            System.out.println("There is a problem with your input"+e.getCause());
         }
-        return null;
     }
 }
