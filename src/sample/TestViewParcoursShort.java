@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import sample.interfa.MiddlePaneController;
 import sample.interfa.PresentParcoursAccueil;
 import sample.interfa.VBoxMiddlePaneAccueil;
 
@@ -40,12 +41,12 @@ public class TestViewParcoursShort extends Application {
         ps.add(p); ps.add(p2);
 
 
-        String fxmlFile = "./interfa/vBoxMiddlePaneAccueil.fxml";
+        String fxmlFile = "./interfa/middlePane.fxml";
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent rootNode = fxmlLoader.load();
 
-        VBoxMiddlePaneAccueil controller = fxmlLoader.getController();
-        controller.initList(ps);
+        MiddlePaneController controller = fxmlLoader.getController();
+        controller.setBorPane(ps);
         Scene scene = new Scene(rootNode);
 
         primaryStage.setTitle("let us try");
