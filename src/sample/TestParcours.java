@@ -42,10 +42,10 @@ public class TestParcours {
 
         Composant_Decorator_Recherche CDR = new Composant_Decorator_Recherche();
         Command_Recherche_Denivele CRD = new Command_Recherche_Denivele(CDR, 300f, 600f);
-        List<Parcours> lp = new ArrayList<Parcours>();
+        ArrayList<Parcours> lp = new ArrayList<Parcours>();
         lp.add(p);
         lp.add(p2);
-        List<Parcours> lfinale = new ArrayList<Parcours>();
+        ArrayList<Parcours> lfinale = new ArrayList<Parcours>();
         System.out.println("Filtrage grâce au décorateur");
         lfinale = CRD.execute(lp);
 

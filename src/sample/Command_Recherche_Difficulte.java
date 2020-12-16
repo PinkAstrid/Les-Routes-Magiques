@@ -14,8 +14,8 @@ public class Command_Recherche_Difficulte extends Decorator_Recherche {
         this.difficulteMax = difficulteMax;
     }
 
-    public List<Parcours> execute(List<Parcours> listeParcours) {
-        List<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
+    public ArrayList<Parcours> execute(ArrayList<Parcours> listeParcours) {
+        ArrayList<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
         for(Parcours parcours : listeParcours) {
             if(parcours.fiche.difficulte >= difficulteMin && parcours.fiche.difficulte <= difficulteMax) {
                 parcoursCompatibles.add(parcours);

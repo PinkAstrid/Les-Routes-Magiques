@@ -1,10 +1,10 @@
 package sample;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Composant_Decorator_Recherche extends Decorator_Recherche{
     @Override
-    public List<Parcours> execute(List<Parcours> listeParcours) {
+    public ArrayList<Parcours> execute(ArrayList<Parcours> listeParcours) {
         return listeParcours;
     }
 }

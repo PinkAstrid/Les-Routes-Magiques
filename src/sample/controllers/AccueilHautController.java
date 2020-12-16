@@ -8,7 +8,10 @@ import sample.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.TextEvent;
 import java.util.ArrayList;
+
+import static java.lang.Float.isInfinite;
 
 public class AccueilHautController {
     @FXML
@@ -27,10 +30,13 @@ public class AccueilHautController {
     public TextField durMinT;
     @FXML
     public TextField durMaxT;
+    @FXML
+    public TextField rechercheT;
 
     ArrayList<Parcours> parcours;
 
-    public void AccueilHautController(ArrayList<Parcours> parcours) {
+
+    public AccueilHautController(ArrayList<Parcours> parcours) {
         this.parcours = parcours;
     }
 
@@ -55,53 +61,63 @@ public class AccueilHautController {
         String diffMinS = getdiffMin();
         String diffMaxS = getdiffMax();
         String durMinS = getdurMin();
-        String durMaxS = getdurMin();
+        String durMaxS = getdurMax();
+        String recherche = getRecherche();
 
         try {
-            if (distMinS.length() != 0) {
+            if(distMinS.length() != 0) {
                 distMin = Float.parseFloat(distMinS);
             } else distMin = Ninf;
 
-            if (distMaxS.length() != 0) {
+            if(distMaxS.length() != 0) {
                 distMax = Float.parseFloat(distMaxS);
             } else distMax = Pinf;
 
-            if (denMinS.length() != 0) {
+            if(denMinS.length() != 0) {
                 denMin = Float.parseFloat(denMinS);
-            } denMin = Ninf;
+            } else denMin = Ninf;
 
-            if (denMaxS.length() != 0) {
+            if(denMaxS.length() != 0) {
                 denMax = Float.parseFloat(denMaxS);
-            } denMax = Pinf;
+            } else denMax = Pinf;
 
-            if (diffMinS.length() != 0) {
+            if(diffMinS.length() != 0) {
                 diffMin = Float.parseFloat(diffMinS);
             } else diffMin = Ninf;
 
-            if (diffMaxS.length() != 0) {
+            if(diffMaxS.length() != 0) {
                 diffMax = Float.parseFloat(diffMaxS);
             } else diffMax = Pinf;
 
-            if (durMinS.length() != 0) {
+            if(durMinS.length() != 0) {
                 durMin = Float.parseFloat(durMinS);
             } else durMin = Ninf;
 
-            if (durMaxS.length() != 0) {
+            if(durMaxS.length() != 0) {
                 durMax = Float.parseFloat(durMaxS);
             } else durMax = Pinf;
+
+            if(recherche.length() == 0 && (isInfinite(distMin) && isInfinite(distMax)
+                    && isInfinite(denMin)&& isInfinite(denMax) && isInfinite(diffMin)
+                    && isInfinite(diffMax) && isInfinite(durMin) && isInfinite(durMax))) {
+                System.out.println("There is a problem with your input");
+            }
+
+            Composant_Decorator_Recherche CDR = new Composant_Decorator_Recherche();
+            Command_Recherche_Distance CRDist = new Command_Recherche_Distance(CDR, distMin, distMax);
+            Command_Recherche_Denivele CRDen = new Command_Recherche_Denivele(CRDist, denMin, denMax);
+            Command_Recherche_Difficulte CRDiff = new Command_Recherche_Difficulte(CRDen, diffMin, diffMax);
+            Command_Recherche_Duree CRDur = new Command_Recherche_Duree(CRDiff, durMin, durMax);
+            Command_Recherche_Description CRDescr = new Command_Recherche_Description(CRDur, recherche);
+
+            ArrayList<Parcours> resultat = CRDescr.execute(parcours);
+
+            System.out.println(resultat);
+
         }
         catch(Exception e) {
-                System.out.println("There is a problem with your input");
+            System.out.println("There is a problem with your input");
         }
-
-        /*Composant_Decorator_Recherche CDR = new Composant_Decorator_Recherche();
-        Command_Recherche_Distance CRD = new Command_Recherche_Distance(CDR, distMin, distMax)
-        Command_Recherche_Denivele CRD = new Command_Recherche_Denivele(CDR, denMin, denMax)
-        Command_Recherche_Difficulte CRD = new Command_Recherche_Difficulte(CDR, diffMin, diffMax)
-        Command_Recherche_Duree CRD = new Command_Recherche_Duree(CDR, durMin, durMax);
-
-        ArrayList<Parcours> resultat = CRD.execute(parcours);*/
-
     }
 
     public String getdistMin() {
@@ -134,6 +150,10 @@ public class AccueilHautController {
 
     public String getdurMax() {
         return durMaxT.getText();
+    }
+
+    public String getRecherche() {
+        return rechercheT.getText();
     }
 
 

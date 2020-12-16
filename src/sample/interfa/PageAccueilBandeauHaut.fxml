@@ -20,12 +20,12 @@
          <children>
             <ToolBar prefHeight="44.0" prefWidth="470.0" style="-fx-background-color: #F9B1CB;">
               <items>
-                  <TextField prefHeight="32.0" prefWidth="340.0" text="Rechercher">
+                  <TextField fx:id="rechercheT" prefHeight="32.0" prefWidth="340.0" text="Rechercher">
                      <font>
                         <Font name="DejaVu Sans" size="12.0" />
                      </font>
                   </TextField>
-                <Button fx:id="loupe" mnemonicParsing="false" style="-fx-background-color: #F9B1CB" onMouseClicked="#rechercher">
+                <Button fx:id="loupe" mnemonicParsing="false" onMouseClicked="#rechercher" style="-fx-background-color: #F9B1CB">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -62,15 +62,15 @@
                      <padding>
                         <Insets left="25.0" />
                      </padding></Label>
-                  <Label maxHeight="20.0" maxWidth="60.0" minHeight="20.0" minWidth="60.0" prefHeight="20.0" prefWidth="60.0" text="Difficulté " textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1"/>
-                  <TextField fx:id="distMin" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="1"/>
-                  <TextField fx:id="distMax" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="2" />
-                  <TextField fx:id="diffMin" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="diffMax" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <TextField fx:id="durMin" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                  <TextField fx:id="durMax" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                   <TextField fx:id="denMin" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="4" />
-                   <TextField fx:id="denMax" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="5" />
+                  <Label maxHeight="20.0" maxWidth="60.0" minHeight="20.0" minWidth="60.0" prefHeight="20.0" prefWidth="60.0" text="Difficulté " textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1" />
+                  <TextField fx:id="distMinT" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="1" />
+                  <TextField fx:id="distMaxT" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="2" />
+                  <TextField fx:id="diffMinT" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="diffMaxT" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="durMinT" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <TextField fx:id="durMaxT" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                   <TextField fx:id="denMinT" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="4" />
+                   <TextField fx:id="denMaxT" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="5" />
 
                </children>
                <padding>

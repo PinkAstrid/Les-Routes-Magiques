@@ -14,8 +14,8 @@ public class Command_Recherche_Duree extends Decorator_Recherche{
         this.dureeMax = dureeMax;
     }
 
-    public List<Parcours> execute(List<Parcours> listeParcours) {
-        List<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
+    public ArrayList<Parcours> execute(ArrayList<Parcours> listeParcours) {
+        ArrayList<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
         for(Parcours parcours : listeParcours) {
             if(parcours.fiche.duree >= dureeMin && parcours.fiche.duree <= dureeMax) {
                 parcoursCompatibles.add(parcours);

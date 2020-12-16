@@ -1,10 +1,11 @@
 package sample;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Decorator_Recherche {
 
-    public List<Parcours> execute(List<Parcours> listeParcours) {
+    public ArrayList<Parcours> execute(ArrayList<Parcours> listeParcours) {
         return null;
     }
 }
