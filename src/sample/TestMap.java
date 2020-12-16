@@ -37,7 +37,7 @@ public class TestMap extends Application {
 		System.out.println("Creation de l'objet Trace");
 		Trace trace = gpxReader.getTrace();
 		System.out.println("Visite");
-		v.visit(trace);
+		controller.addCoordinateLine(trace);
 
 		primaryStage.setTitle("sothawo mapjfx demo application");
 		primaryStage.setScene(scene);

@@ -1,6 +1,7 @@
 
 package sample;
 
+import GPX.Reader;
 import com.sothawo.mapjfx.*;
 import com.sothawo.mapjfx.event.MapViewEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,8 @@ import javafx.scene.paint.Color;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.print.DocFlavor;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,17 +24,16 @@ public class DemoMapController {
 	@FXML
 	private MapView mapView;
 
-	private final MapLabel TNLabel;
 	private Marker markerClick;
 
-	private CoordinateLine redLine;
 	private List<CoordinateLine> followedLines;
+	private List<Marker> followedMarker;
 
 	public DemoMapController() {
 		markerClick = Marker.createProvided(Marker.Provided.ORANGE).setVisible(true).setPosition(TelecomNancy);
 
-		TNLabel = new MapLabel("Telecom Nancy").setPosition(TelecomNancy).setVisible(true);
 		followedLines = new ArrayList<CoordinateLine>();
+		followedMarker = new ArrayList<Marker>();
 	}
 
 	public void initMapAndControls(Projection projection) {
@@ -58,8 +60,6 @@ public class DemoMapController {
 			}
 		});
 
-		redLine = new CoordinateLine(new Coordinate[]{new Coordinate(48.6692041D,6.156187D), new Coordinate(48.6702041D,6.166187D)}).setColor(Color.RED).setVisible(true);
-
 		this.mapView.initialize(Configuration.builder().projection(projection).showZoomControls(false).build());
 
 	}
@@ -68,7 +68,99 @@ public class DemoMapController {
 		this.mapView.setZoom(ZOOM_DEFAULT);
 		this.mapView.setCenter(TelecomNancy);
 
-		mapView.addLabel(TNLabel);
-		mapView.addCoordinateLine(redLine);
+		for (CoordinateLine cl : followedLines){
+			mapView.addCoordinateLine(cl);
+		}
 	}
+
+	/**
+	 * ajout d'une CoordinateLine sur la carte
+	 * @param p
+	 * 		parcours contenant le chemin à afficher
+	 * @return CoordinateLine
+	 * 		CoordinateLine créé dans la liste followedLines
+	 */
+	public CoordinateLine addCoordinateLine(Parcours p){
+		return addCoordinateLine(p.getTrace());
+	}
+
+	/**
+	 * ajout d'une CoordinateLine sur la carte
+	 * @param t
+	 * 		trace contenant le chemin à afficher
+	 * @return CoordinateLine
+	 * 		CoordinateLine créé dans la liste followedLines
+	 */
+	public CoordinateLine addCoordinateLine(Trace t){
+		return addCoordinateLine(new CoordinateLine(t.getListCoordinates()));
+	}
+
+	/**
+	 * ajout d'une CoordinateLine sur la carte
+	 * @param cl
+	 * 		CoordinateLine à ajouter
+	 * @return CoordinateLine
+	 * 		CoordinateLine créée
+	 */
+	public CoordinateLine addCoordinateLine(CoordinateLine cl) {
+		if (followedLines.contains(cl)){
+			cl.setVisible(true);
+			return cl;
+		}
+		else{
+			followedLines.add(cl);
+			cl.setVisible(true);
+			mapView.addCoordinateLine(cl);
+			return cl;
+		}
+	}
+
+	/**
+	 * Ajoute un marker sur la carte
+	 * @param url
+	 * 		url de l'image à ajouter sur la carte
+	 * @return Marker
+	 * 		Marker ajouté
+	 */
+	public Marker addMarker(URL url){
+		Marker m = new Marker(url);
+		return addMarker(m);
+	}
+
+	/**
+	 * Ajoute un marker sur la carte
+	 * @param m
+	 * 		Marker à ajouter sur la carte
+	 * @return Marker
+	 * 		Marker ajouté
+	 */
+	public Marker addMarker(Marker m){
+		if (followedMarker.contains(m)){
+			m.setVisible(true);
+			return m;
+		}
+		else{
+			followedMarker.add(m);
+			m.setVisible(true);
+			mapView.addMarker(m);
+			return m;
+		}
+	}
+
+	/**
+	 * renvoie la liste des lignes sur la carte
+	 * @return List<CoordinateLine>
+	 */
+	public List<CoordinateLine> getFollowedLines(){
+		return followedLines;
+	}
+
+	/**
+	 * renvoie la liste des marker sur la carte
+	 * @return List<Marker>
+	 */
+	public List<Marker> getMarker(){
+		return followedMarker;
+	}
+
 }

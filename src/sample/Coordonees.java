@@ -2,6 +2,19 @@ package sample;
 
 public class Coordonees implements ElementVisitor {
 	float lattitude;
+
+	public float getLattitude() {
+		return lattitude;
+	}
+
+	public float getLongitude() {
+		return longitude;
+	}
+
+	public float getElevation() {
+		return elevation;
+	}
+
 	float longitude;
 	float elevation;
 
