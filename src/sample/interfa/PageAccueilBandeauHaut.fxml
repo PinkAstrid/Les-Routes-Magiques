@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AccueilHautController">
+   <children>
+      <ImageView fitHeight="132.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../ressource/logo.png" />
+         </image></ImageView>
+      <Label prefHeight="130.0" prefWidth="222.0" style="-fx-background-color: white;" text=" Les routes magiques" textFill="#917cc4" wrapText="true">
+         <font>
+            <Font name="DejaVu Sans Bold Oblique" size="21.0" />
+         </font></Label>
+      <VBox prefHeight="131.0" prefWidth="401.0" spacing="10.0" style="-fx-background-color: white;">
+         <children>
+            <ToolBar prefHeight="44.0" prefWidth="470.0" style="-fx-background-color: #F9B1CB;">
+              <items>
+                  <TextField prefHeight="32.0" prefWidth="340.0" text="Rechercher">
+                     <font>
+                        <Font name="DejaVu Sans" size="12.0" />
+                     </font>
+                  </TextField>
+                <Button fx:id="loupe" mnemonicParsing="false" style="-fx-background-color: #F9B1CB" onMouseClicked="#rechercher">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ressource/loupe.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+              </items>
+               <padding>
+                  <Insets bottom="5.0" left="20.0" top="5.0" />
+               </padding>
+            </ToolBar>
+            <GridPane hgap="3.0" maxHeight="70.0" maxWidth="430.0" minHeight="70.0" minWidth="430.0" prefHeight="100.0" prefWidth="430.0" style="-fx-background-color: white;" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="65.0" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="65.0" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="80.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="65.0" minWidth="65.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="65.0" minWidth="65.0" prefWidth="65.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="27.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                   <Label maxHeight="20.0" maxWidth="80.0" minHeight="20.0" minWidth="60.0" prefHeight="20.0" prefWidth="80.0" text="Dénivelé " textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="3">
+                     <padding>
+                        <Insets left="25.0" />
+                     </padding></Label>
+                   <Label maxHeight="20.0" maxWidth="60.0" minHeight="20.0" minWidth="60.0" prefHeight="20.0" prefWidth="60.0" text="Distance " textAlignment="CENTER" wrapText="true" />
+                   <Label contentDisplay="CENTER" maxHeight="20.0" maxWidth="79.0" minHeight="20.0" minWidth="60.0" prefHeight="20.0" prefWidth="79.0" text="Durée " textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets left="25.0" />
+                     </padding></Label>
+                  <Label maxHeight="20.0" maxWidth="60.0" minHeight="20.0" minWidth="60.0" prefHeight="20.0" prefWidth="60.0" text="Difficulté " textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1"/>
+                  <TextField fx:id="distMin" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="1"/>
+                  <TextField fx:id="distMax" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="2" />
+                  <TextField fx:id="diffMin" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="diffMax" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="durMin" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <TextField fx:id="durMax" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                   <TextField fx:id="denMin" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Min" GridPane.columnIndex="4" />
+                   <TextField fx:id="denMax" alignment="CENTER" maxHeight="25.0" maxWidth="65.0" minHeight="25.0" minWidth="65.0" prefHeight="25.0" prefWidth="65.0" promptText="Max" GridPane.columnIndex="5" />
+
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</HBox>
