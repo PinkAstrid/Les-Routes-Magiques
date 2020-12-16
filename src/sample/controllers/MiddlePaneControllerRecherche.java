@@ -1,4 +1,4 @@
-package sample.interfa;
+package sample.controllers;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -6,9 +6,7 @@ import javafx.scene.layout.BorderPane;
 import sample.Parcours;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class MiddlePaneControllerRecherche {
     public BorderPane borPane;

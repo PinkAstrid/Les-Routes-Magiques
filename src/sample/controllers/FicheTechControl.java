@@ -1,22 +1,18 @@
-package sample.interfa;
+package sample.controllers;
 
-import GPX.Reader;
 import com.sothawo.mapjfx.Projection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import sample.Parcours;
-import sample.Trace;
-import sample.Visitor;
 import sample.VisitorVisualisation;
+import sample.controllers.DemoMapController;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

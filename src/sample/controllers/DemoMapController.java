@@ -1,5 +1,5 @@
 
-package sample.interfa;
+package sample.controllers;
 
 import com.sothawo.mapjfx.*;
 import com.sothawo.mapjfx.event.MapViewEvent;
@@ -14,7 +14,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class DemoMapController {
 	private static final Logger logger = LoggerFactory.getLogger(DemoMapController.class);

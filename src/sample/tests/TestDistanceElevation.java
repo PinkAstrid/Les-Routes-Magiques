@@ -1,6 +1,10 @@
-package sample;
+package sample.tests;
 
 import javafx.scene.image.Image;
+import sample.Coordonees;
+import sample.CreatorParcours;
+import sample.Parcours;
+import sample.VisitorDistanceElevation;
 
 import java.util.ArrayList;
 import java.util.List;

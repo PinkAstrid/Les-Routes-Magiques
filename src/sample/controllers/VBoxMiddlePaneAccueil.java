@@ -1,10 +1,11 @@
-package sample.interfa;
+package sample.controllers;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 import sample.Parcours;
+import sample.controllers.PresentParcoursAccueil;
 
 import java.io.IOException;
 import java.net.URL;

@@ -1,4 +1,4 @@
-package sample;
+package sample.tests;
 
 import GPX.Reader;
 import com.sothawo.mapjfx.Projection;
@@ -7,7 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.interfa.DemoMapController;
+import sample.Trace;
+import sample.VisitorVisualisation;
+import sample.controllers.DemoMapController;
 
 public class TestMap extends Application {
 

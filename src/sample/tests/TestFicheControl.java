@@ -1,4 +1,4 @@
-package sample;
+package sample.tests;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import sample.Coordonees;
 import sample.CreatorParcours;
 import sample.Parcours;
-import sample.interfa.FicheTechControl;
+import sample.controllers.FicheTechControl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class TestFicheControl extends Application {
         Parcours p = c.createProduct(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
         Parcours p2 = c.createProduct(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
 
-        FXMLLoader load = new FXMLLoader(getClass().getResource("./interfa/FicheTech.fxml"));
+        FXMLLoader load = new FXMLLoader(getClass().getResource("../ressources/layout/FicheTech.fxml"));
         Parent root = load.load();
         FicheTechControl controller = load.getController();
         controller.myFichControl(p);

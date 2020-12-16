@@ -1,4 +1,4 @@
-package sample.interfa;
+package sample.controllers;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -7,6 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.Parcours;
 import sample.controllers.AccueilHautController;
+import sample.controllers.MiddlePaneController;
 
 import java.io.IOException;
 import java.net.URL;

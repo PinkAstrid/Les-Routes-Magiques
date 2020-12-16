@@ -1,6 +1,7 @@
-package sample;
+package sample.tests;
 
 import javafx.scene.image.Image;
+import sample.*;
 
 import java.util.ArrayList;
 import java.util.List;

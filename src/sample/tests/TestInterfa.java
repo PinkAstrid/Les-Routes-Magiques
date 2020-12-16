@@ -1,14 +1,14 @@
-package sample;
+package sample.tests;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import sample.Coordonees;
+import sample.CreatorParcours;
+import sample.Parcours;
 import sample.controllers.AccueilHautController;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class TestInterfa extends Application {
         lp.add(p2);
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/sample/interfa/PageAccueilBandeauHaut.fxml"));
+        loader.setLocation(getClass().getResource("/ressources/layout/PageAccueilBandeauHaut.fxml"));
         loader.setControllerFactory(iC->new AccueilHautController(lp));
         Parent root = loader.load();
 

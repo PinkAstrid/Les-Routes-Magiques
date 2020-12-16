@@ -1,6 +1,5 @@
-package sample.interfa;
+package sample.tests;
 
-import com.sothawo.mapjfx.Projection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,10 +9,7 @@ import javafx.stage.Stage;
 import sample.Coordonees;
 import sample.CreatorParcours;
 import sample.Parcours;
-import sample.interfa.MiddlePaneController;
-import sample.interfa.PageAccueil;
-import sample.interfa.PresentParcoursAccueil;
-import sample.interfa.VBoxMiddlePaneAccueil;
+import sample.controllers.PageAccueil;
 
 import java.util.ArrayList;
 import java.util.List;
