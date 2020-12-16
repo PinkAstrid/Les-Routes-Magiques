@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import sample.*;
 
-import java.awt.*;
+import javafx.scene.control.TextField;
 import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ArrayList;

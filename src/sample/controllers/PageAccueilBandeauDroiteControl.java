@@ -15,7 +15,7 @@ public class PageAccueilBandeauDroiteControl {
     public void creerPopup(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loaderCreation = new FXMLLoader();
-        loaderCreation.setLocation(getClass().getResource("CreationParcours.fxml"));
+        loaderCreation.setLocation(getClass().getResource("/ressources/layout/CreationParcours.fxml"));
         Pane page = loaderCreation.load();
 
         // Create the dialog Stage.
