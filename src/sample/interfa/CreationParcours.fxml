@@ -78,13 +78,13 @@
                         <ImageView fitHeight="78.0" fitWidth="110.0" layoutX="133.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
                     </children>
                 </GridPane>
-                <TextField GridPane.columnIndex="1" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <TextField fx:id="parcoursName" GridPane.columnIndex="1" />
+                <TextField fx:id="parcoursShortDescr" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="parcoursLongDescr" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="parcoursDuree" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="parcoursDistance" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TextField fx:id="parcoursDifficulte" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <TextField fx:id="parcoursDenivele" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                 <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#validerParcours" prefHeight="25.0" prefWidth="50.0" text="Créer" GridPane.rowIndex="9" />
                 <Button mnemonicParsing="false" onAction="#handleCancel" text="Annuler" GridPane.columnIndex="1" GridPane.rowIndex="9" />
 
