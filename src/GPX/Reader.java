@@ -30,7 +30,6 @@ public class Reader {
 	 * @throws SAXException
 	 */
 	public Reader(String filePath) throws ParserConfigurationException, IOException, SAXException {
-		file = new File(filePath);
 		file = new File(getClass().getClassLoader().getResource(filePath).getFile());
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		db = dbf.newDocumentBuilder();
