@@ -17,7 +17,7 @@ public class MiddlePaneController implements Initializable {
     public MiddlePaneController(){}
 
     public void setBorPane(List<Parcours> parcoursList) throws IOException {
-        String fxmlFile = "./vBoxMiddlePaneAccueil.fxml"; //vers ta classe
+        String fxmlFile = "./../../ressources/layoutvBoxMiddlePaneAccueil.fxml"; //vers ta classe
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent rootNode = fxmlLoader.load();
 

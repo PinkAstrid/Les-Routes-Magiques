@@ -41,7 +41,7 @@ public class TestViewParcoursShort extends Application {
         ps.add(p); ps.add(p2);
 
 
-        String fxmlFile = "pageAccueil.fxml";
+        String fxmlFile = "./../../ressources/layout/pageAccueil.fxml";
         System.out.println(fxmlFile+"\n");
         System.out.println(getClass().getResource(fxmlFile));
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource(fxmlFile));
