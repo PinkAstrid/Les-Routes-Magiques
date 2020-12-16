@@ -5,9 +5,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import sample.Parcours;
+import sample.controllers.AccueilHautController;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -29,9 +31,8 @@ public class PageAccueil implements Initializable {
 
         String fxmlFileTop = "./PageAccueilBandeauHaut.fxml"; //vers ta classe
         FXMLLoader fxmlLoaderTop = new FXMLLoader(getClass().getResource(fxmlFileTop));
+        fxmlLoaderTop.setControllerFactory(iC->new AccueilHautController((ArrayList<Parcours>) parcours));
         Parent rootNodeTop = fxmlLoaderTop.load();
-        //VBoxMiddlePaneAccueil controller = fxmlLoader.getController(); //type de ton controller
-        //controller.initList(parcoursList); //la fonction permettant d'ajouter les éléments dans ton controller
         bordPa.setTop(rootNodeTop);
 
         String fxmlFileRight = "./PageAccueilBandeauDroite.fxml"; //vers ta classe

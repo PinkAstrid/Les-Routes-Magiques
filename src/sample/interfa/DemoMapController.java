@@ -13,6 +13,8 @@ import sample.Trace;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DemoMapController {
 	private static final Logger logger = LoggerFactory.getLogger(DemoMapController.class);
@@ -27,6 +29,8 @@ public class DemoMapController {
 
 	private List<CoordinateLine> followedLines;
 	private List<Marker> followedMarker;
+
+	Extent extent;
 
 	public DemoMapController() {
 		markerClick = Marker.createProvided(Marker.Provided.ORANGE);
@@ -60,17 +64,24 @@ public class DemoMapController {
 			}
 		});
 
-
 		this.mapView.initialize(Configuration.builder().projection(projection).showZoomControls(true).build());
 
 	}
+
+	/**
+	 * est appelé après l'initialisation de la map
+	 */
 	private void afterMapIsInitialized() {
-		logger.trace("map intialized");
 		this.mapView.setZoom(ZOOM_DEFAULT);
 		this.mapView.setCenter(TelecomNancy);
+		if (extent != null)
+			mapView.setExtent(extent);
 
 		for (CoordinateLine cl : followedLines){
 			mapView.addCoordinateLine(cl);
+		}
+		for (Marker m : followedMarker){
+			mapView.addMarker(m);
 		}
 	}
 
@@ -104,6 +115,8 @@ public class DemoMapController {
 	 * 		CoordinateLine créée
 	 */
 	public CoordinateLine addCoordinateLine(CoordinateLine cl) {
+		extent = Extent.forCoordinates(cl.getCoordinateStream().collect(Collectors.toList()));
+		mapView.setExtent(extent);
 		if (followedLines.contains(cl)){
 			cl.setVisible(true);
 			return cl;
@@ -111,7 +124,6 @@ public class DemoMapController {
 		else{
 			followedLines.add(cl);
 			cl.setVisible(true);
-			mapView.addCoordinateLine(cl);
 			return cl;
 		}
 	}
