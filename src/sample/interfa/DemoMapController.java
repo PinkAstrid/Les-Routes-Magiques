@@ -1,16 +1,15 @@
 
-package sample;
+package sample.interfa;
 
-import GPX.Reader;
 import com.sothawo.mapjfx.*;
 import com.sothawo.mapjfx.event.MapViewEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.paint.Color;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sample.Parcours;
+import sample.Trace;
 
-import javax.print.DocFlavor;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
