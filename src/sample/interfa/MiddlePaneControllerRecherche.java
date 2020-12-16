@@ -25,9 +25,4 @@ public class MiddlePaneControllerRecherche {
         borPane.setCenter(rootNode);
 
     }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
 }
