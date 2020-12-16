@@ -39,7 +39,7 @@ public class TestFicheControl extends Application {
         FicheTechControl controller = load.getController();
         controller.myFichControl(p);
 
-        Scene scene = new Scene(root, 1200, 1000);
+        Scene scene = new Scene(root, 1000, 1000);
         primaryStage.setTitle("Telecom Nancy Hiking");
         primaryStage.setScene(scene);
         primaryStage.show();

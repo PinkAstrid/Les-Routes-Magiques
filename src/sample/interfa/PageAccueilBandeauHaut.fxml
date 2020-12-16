@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="132.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../ressource/logo.png" />
+            <Image url="@./../ressource/logo.png" />
          </image></ImageView>
       <Label prefHeight="130.0" prefWidth="222.0" style="-fx-background-color: white;" text=" Les routes magiques" textFill="#917cc4" wrapText="true">
          <font>
@@ -29,7 +29,7 @@
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../ressource/loupe.png" />
+                              <Image url="@./../ressource/loupe.png" />
                            </image>
                         </ImageView>
                      </graphic>

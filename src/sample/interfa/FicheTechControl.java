@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import sample.Parcours;
 import sample.Trace;
@@ -23,6 +24,7 @@ import java.util.ResourceBundle;
 public class FicheTechControl implements Initializable {
 
     public GridPane grid;
+    public AnchorPane anchorMap;
     @FXML
     private Label FicheName;
     @FXML
@@ -69,7 +71,7 @@ public class FicheTechControl implements Initializable {
 
         controller.addCoordinateLine(p).setWidth(20);
 
-        grid.add(rootNode, 2, 9);
+        anchorMap.getChildren().add(rootNode);
 
     }
 
