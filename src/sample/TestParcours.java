@@ -41,7 +41,7 @@ public class TestParcours {
         //v.visit(p);
 
         Composant_Decorator_Recherche CDR = new Composant_Decorator_Recherche();
-        Command_Recherche_Denivele CRD = new Command_Recherche_Denivele(CDR, 300f, 600f);
+        Decorator_Recherche_Denivele CRD = new Decorator_Recherche_Denivele(CDR, 300f, 600f);
         ArrayList<Parcours> lp = new ArrayList<Parcours>();
         lp.add(p);
         lp.add(p2);

@@ -10,8 +10,6 @@ import sample.*;
 import javafx.scene.input.KeyEvent;
 import java.util.ArrayList;
 
-import static java.lang.Float.isInfinite;
-
 public class AccueilHautController {
     @FXML
     public HBox accueil;
@@ -36,11 +34,19 @@ public class AccueilHautController {
 
     ArrayList<Parcours> parcours;
 
-
+    /**
+     * Constructeur
+     *
+     * @param parcours
+     * liste des parcours à filtrer lors d'une recherche
+     */
     public AccueilHautController(ArrayList<Parcours> parcours) {
         this.parcours = parcours;
     }
 
+    /**
+     * fonction permettant d'afficher les parcours correspondant à une recherche
+     */
     public void rechercher(){
         float distMin;
         float distMax;
@@ -101,13 +107,13 @@ public class AccueilHautController {
             } else durMax = Pinf;
 
             Composant_Decorator_Recherche CDR = new Composant_Decorator_Recherche();
-            Command_Recherche_Distance CRDist = new Command_Recherche_Distance(CDR, distMin, distMax);
-            Command_Recherche_Denivele CRDen = new Command_Recherche_Denivele(CRDist, denMin, denMax);
-            Command_Recherche_Difficulte CRDiff = new Command_Recherche_Difficulte(CRDen, diffMin, diffMax);
-            Command_Recherche_Duree CRDur = new Command_Recherche_Duree(CRDiff, durMin, durMax);
+            Decorator_Recherche_Distance CRDist = new Decorator_Recherche_Distance(CDR, distMin, distMax);
+            Decorator_Recherche_Denivele CRDen = new Decorator_Recherche_Denivele(CRDist, denMin, denMax);
+            Decorator_Recherche_Difficulte CRDiff = new Decorator_Recherche_Difficulte(CRDen, diffMin, diffMax);
+            Decorator_Recherche_Duree CRDur = new Decorator_Recherche_Duree(CRDiff, durMin, durMax);
 
             if(recherche.length() != 0) {
-                Command_Recherche_Description CRDescr = new Command_Recherche_Description(CRDur, recherche);
+                Decorator_Recherche_Description CRDescr = new Decorator_Recherche_Description(CRDur, recherche);
                 resultat = CRDescr.execute(parcours);
             }
             else {
@@ -125,47 +131,112 @@ public class AccueilHautController {
         }
     }
 
+    /**
+     * fonction récupérant la distance minimale rentrée par l'utilisateur
+     *
+     * @return
+     * distance minimale rentrée par l'utilisateur
+     */
     public String getdistMin() {
         return distMinT.getText();
     }
 
+    /**
+     * fonction récupérant la distance maximale rentrée par l'utilisateur
+     *
+     * @return
+     * distance maximale rentrée par l'utilisateur
+     */
     public String getdistMax() {
         return distMaxT.getText();
     }
 
+    /**
+     * fonction récupérant le denivelé minimal rentré par l'utilisateur
+     *
+     * @return
+     * denivelé minimal rentré par l'utilisateur
+     */
     public String getdenMin() {
         return denMinT.getText();
     }
 
+    /**
+     * fonction récupérant la denivelé maximal rentré par l'utilisateur
+     *
+     * @return
+     * denivelé maximal rentré par l'utilisateur
+     */
     public String getdenMax() {
         return denMaxT.getText();
     }
 
+    /**
+     * fonction récupérant la difficulté minimale rentrée par l'utilisateur
+     *
+     * @return
+     * difficulté minimale rentrée par l'utilisateur
+     */
     public String getdiffMin() {
         return diffMinT.getText();
     }
 
+    /**
+     * fonction récupérant la difficutlé maximale rentrée par l'utilisateur
+     *
+     * @return
+     * difficulté maximale rentrée par l'utilisateur
+     */
     public String getdiffMax() {
         return diffMaxT.getText();
     }
 
+    /**
+     * fonction récupérant la durée minimale rentrée par l'utilisateur
+     *
+     * @return
+     * durée minimale rentrée par l'utilisateur
+     */
     public String getdurMin() {
         return durMinT.getText();
     }
 
+    /**
+     * fonction récupérant la durée maximale rentrée par l'utilisateur
+     *
+     * @return
+     * durée maximale rentrée par l'utilisateur
+     */
     public String getdurMax() {
         return durMaxT.getText();
     }
 
+    /**
+     * fonction récupérant les mots rentrés par l'utilisateur
+     *
+     * @return
+     * mots rentrés par l'utilisateur
+     */
     public String getRecherche() {
         return rechercheT.getText();
     }
 
-
+    /**
+     * fonction lançant la recherche lors du clic sur la loupe
+     *
+     *  @param mouseEvent
+     *  événement de la souris
+     */
     public void rechercherMouse(MouseEvent mouseEvent) {
         rechercher();
     }
 
+    /**
+     * fonction lançant la recherche lors de l'appui sur la touche entrée
+     *
+     * @param keyEvent
+     * événement sur le clavier
+     */
     public void rechercherKey(KeyEvent keyEvent) {
         accueil.setOnKeyPressed(ev -> {
             if (ev.getCode() == KeyCode.ENTER) {

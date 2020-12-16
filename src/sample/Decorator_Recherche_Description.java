@@ -3,15 +3,33 @@ package sample;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Command_Recherche_Description extends Decorator_Recherche {
+public class Decorator_Recherche_Description extends Decorator_Recherche {
     Decorator_Recherche decorateur;
     String recherche;
 
-    public Command_Recherche_Description(Decorator_Recherche decorateur, String recherche) {
+    /**
+     * Constructeur
+     *
+     * @param decorateur
+     * prochain décorateur à appeler pour filtrer de nouveaux éléments
+     *
+     * @param recherche
+     * mots à rechercher dans les descriptions ou le nom d'un parcours
+     */
+    public Decorator_Recherche_Description(Decorator_Recherche decorateur, String recherche) {
         this.decorateur = decorateur;
         this.recherche = recherche;
     }
 
+    /**
+     * fonction qui va filtrer les parcours ayant "recherche" dans ses descriptions ou son nom
+     *
+     * @param listeParcours
+     * liste des parcours à filtrer
+     *
+     * @return
+     * liste des parcours ayant un dénivelé compris entre deniveleMin et deniveleMax
+     */
     public ArrayList<Parcours> execute(ArrayList<Parcours> listeParcours) {
         ArrayList<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
 
