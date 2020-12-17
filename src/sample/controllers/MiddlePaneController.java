@@ -45,7 +45,6 @@ public class MiddlePaneController implements Initializable, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("hihi");
         GestionnaireParcours gestionnaireParcours = (GestionnaireParcours) o;
         try {
             controller.initList(gestionnaireParcours.getListeParcours());

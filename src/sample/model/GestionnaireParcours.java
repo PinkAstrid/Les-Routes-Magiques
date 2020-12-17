@@ -67,6 +67,7 @@ public class GestionnaireParcours extends Observable {
         listeParcours.remove(p);
         //notifying observers
         this.marqueurChangementGlobal = 1;
+        setChanged();
         notifyObservers();
         this.marqueurChangementGlobal =0;
     }
@@ -83,6 +84,7 @@ public class GestionnaireParcours extends Observable {
         this.listeParcoursRecherches = listeParcoursRecherches;
         //notifying observers
         this.marqueurRecherche = 1;
+        setChanged();
         notifyObservers();
         this.marqueurRecherche =0;
     }

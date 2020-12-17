@@ -35,7 +35,7 @@ public class FenetreMap extends Application {
 
         System.out.println("Création de parcours grâce au créateur");
         Parcours p = gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
-        Parcours p2 = gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
+        gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
 
         FXMLLoader load = new FXMLLoader(getClass().getResource("/ressources/layout/FicheTech.fxml"));
         Parent root = load.load();
