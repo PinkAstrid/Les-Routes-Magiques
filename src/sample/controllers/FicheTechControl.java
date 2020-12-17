@@ -66,6 +66,7 @@ public class FicheTechControl implements Initializable {
         controller.initMapAndControls(projection);
 
         controller.addCoordinateLine(p).setWidth(20);
+        controller.addListWaypoint(p.getWaypoints());
 
         anchorMap.getChildren().add(rootNode);
 

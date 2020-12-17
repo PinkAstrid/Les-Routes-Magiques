@@ -25,7 +25,7 @@ public class TestDistanceElevation {
 		ArrayList<Image> photos = new ArrayList<Image>();
 		GestionnaireParcours gestion = new GestionnaireParcours();
 
-		Parcours p = gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
+		Parcours p = gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos, new ArrayList<>());
 		v.visit(p);
 		System.out.println(v.getElevation());
 		System.out.println(v.getDistance());

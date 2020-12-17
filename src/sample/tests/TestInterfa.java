@@ -32,8 +32,8 @@ public class TestInterfa extends Application {
         GestionnaireParcours gestion = new GestionnaireParcours();
 
         System.out.println("Création de parcours grâce au créateur");
-        gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "chemin", "randonée sur un petit chemin", "details", photos);
-        gestion.createParcours(list, 2.5f, 100, 600, 1, "titre", "description", "details", photos);
+        gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "chemin", "randonée sur un petit chemin", "details", photos, new ArrayList<>());
+        gestion.createParcours(list, 2.5f, 100, 600, 1, "titre", "description", "details", photos, new ArrayList<>());
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/ressources/layout/PageAccueilBandeauHaut.fxml"));

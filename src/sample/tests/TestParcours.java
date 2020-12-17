@@ -25,8 +25,8 @@ public class TestParcours {
 
         GestionnaireParcours gestion = new GestionnaireParcours();
         System.out.println("Création de parcours grâce au créateur");
-        gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
-        gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
+        gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos, new ArrayList<>());
+        gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos, new ArrayList<>());
         /*p.setName("easy");
         p.setDescCourte("an easy course");
         p.setDescLongue("this is a very basic track, can be walked by anyone");

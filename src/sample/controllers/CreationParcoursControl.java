@@ -105,8 +105,9 @@ public class CreationParcoursControl implements Initializable {
             float denivele = Float.parseFloat(getDenivele());
             ArrayList<Image> photos = new ArrayList<Image>();
             List<Coordonees> chemin = mapCreationParcours.getTrace().getChemin();
+            List<Waypoint> waypoints = mapCreationParcours.getWaypoints();
 
-            gestion.createParcours(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos);
+            gestion.createParcours(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos, waypoints);
 
 
             this.dialogStage.close();

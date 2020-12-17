@@ -22,14 +22,14 @@ public class Parcours implements ElementVisitor {
 		trace = new Trace();
 	}
 
-	public Parcours(String name, String description, String details, ArrayList<Image> photos, FicheTech fiche, Trace trace){
+	public Parcours(String name, String description, String details, ArrayList<Image> photos, FicheTech fiche, Trace trace, List<Waypoint> waypoints){
 		this.name = name;
 		this.descCourte = description;
 		this.descLongue = details;
 		this.photos = photos;
 		this.trace = trace;
 		this.fiche = fiche;
-		waypoints = new ArrayList<Waypoint>();
+		this.waypoints = waypoints;
 		this.favoris = false;
 	}
 
