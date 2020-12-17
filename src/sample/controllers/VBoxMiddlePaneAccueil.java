@@ -13,9 +13,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
-public class VBoxMiddlePaneAccueil implements Initializable
+public class VBoxMiddlePaneAccueil implements Initializable, Observer
 {
     public VBox vBox;
     public Stage primaryStage;
@@ -40,5 +42,27 @@ public class VBoxMiddlePaneAccueil implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        GestionnaireParcours gestion = (GestionnaireParcours) o;
+        if (gestion.getMarqueurChangementGlobal()==1){
+            vBox.getChildren().clear();
+            List<Parcours> parcours = gestion.getListeParcours();
+            for (Parcours pa: parcours) {
+                String fxmlFile = "/ressources/layout/presentParcoursAccueil.fxml"; //vers ta classe
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
+                Parent rootNode = null;
+                try {
+                    rootNode = fxmlLoader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                PresentParcoursAccueil controller = fxmlLoader.getController(); //type de ton controller
+                controller.myFunct(primaryStage, pa, gestion); //la fonction permettant d'ajouter les éléments dans ton controller
+                vBox.getChildren().add(rootNode);
+            }
+        }
     }
 }

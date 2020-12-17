@@ -19,6 +19,8 @@ import java.util.stream.Stream;
 public class GestionnaireParcours extends Observable {
     private List<Parcours> listeParcours;
     private List<Parcours> listeParcoursRecherches;
+    int marqueurRecherche;
+    int marqueurChangementGlobal;
 
     public GestionnaireParcours() {
         listeParcours = new ArrayList<Parcours>();
@@ -52,10 +54,18 @@ public class GestionnaireParcours extends Observable {
 
     public void ajouterParcours(Parcours p){
         listeParcours.add(p);
+        //notifying observers
+        this.marqueurChangementGlobal = 1;
+        notifyObservers();
+        this.marqueurChangementGlobal =0;
     }
 
     public void supprimerParcours(Parcours p){
         listeParcours.remove(p);
+        //notifying observers
+        this.marqueurChangementGlobal = 1;
+        notifyObservers();
+        this.marqueurChangementGlobal =0;
     }
 
     public List<Parcours> getListeParcours() {
@@ -68,6 +78,10 @@ public class GestionnaireParcours extends Observable {
 
     public void setParcoursRecherche(List<Parcours> listeParcoursRecherches) {
         this.listeParcoursRecherches = listeParcoursRecherches;
+        //notifying observers
+        this.marqueurRecherche = 1;
+        notifyObservers();
+        this.marqueurRecherche =0;
     }
 
     public List<Parcours> getListeParcoursRecherches() {
@@ -112,4 +126,12 @@ public class GestionnaireParcours extends Observable {
     }
 
     public void afficherParcours(Parcours p){}
+
+    public int getMarqueurChangementGlobal() {
+        return marqueurChangementGlobal;
+    }
+
+    public int getMarqueurRecherche() {
+        return marqueurRecherche;
+    }
 }
