@@ -24,6 +24,7 @@ public class MiddlePaneController implements Initializable, Observer {
     public MiddlePaneController(GestionnaireParcours gestion, Stage primaryStage){
         this.gestion = gestion;
         this.primaryStage = primaryStage;
+        gestion.addObserver(this);
     }
 
     public void setBorPane(List<Parcours> parcoursList) throws IOException {
@@ -44,6 +45,7 @@ public class MiddlePaneController implements Initializable, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+        System.out.println("hihi");
         GestionnaireParcours gestionnaireParcours = (GestionnaireParcours) o;
         try {
             controller.initList(gestionnaireParcours.getListeParcours());

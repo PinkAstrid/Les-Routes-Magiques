@@ -26,6 +26,7 @@ public class VBoxMiddlePaneAccueil implements Initializable, Observer
     public VBoxMiddlePaneAccueil(GestionnaireParcours gestion, Stage primaryStage){
         this.gestion = gestion;
         this.primaryStage = primaryStage;
+        gestion.addObserver(this);
     }
 
     public void initList(List<Parcours> parcours) throws IOException {
@@ -46,10 +47,12 @@ public class VBoxMiddlePaneAccueil implements Initializable, Observer
 
     @Override
     public void update(Observable o, Object arg) {
+        System.out.println("hihi");
         GestionnaireParcours gestion = (GestionnaireParcours) o;
+        System.out.println(gestion.getMarqueurChangementGlobal());
         if (gestion.getMarqueurChangementGlobal()==1){
             vBox.getChildren().clear();
-            List<Parcours> parcours = gestion.getListeParcours();
+            /*List<Parcours> parcours = gestion.getListeParcours();
             for (Parcours pa: parcours) {
                 String fxmlFile = "/ressources/layout/presentParcoursAccueil.fxml"; //vers ta classe
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
@@ -62,7 +65,7 @@ public class VBoxMiddlePaneAccueil implements Initializable, Observer
                 PresentParcoursAccueil controller = fxmlLoader.getController(); //type de ton controller
                 controller.myFunct(primaryStage, pa, gestion); //la fonction permettant d'ajouter les éléments dans ton controller
                 vBox.getChildren().add(rootNode);
-            }
+            }*/
         }
     }
 }

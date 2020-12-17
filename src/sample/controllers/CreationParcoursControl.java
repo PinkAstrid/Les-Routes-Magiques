@@ -98,4 +98,6 @@ public class CreationParcoursControl implements Initializable {
             System.out.println("There is a problem with your input"+e.getCause());
         }
     }
+
+    
 }

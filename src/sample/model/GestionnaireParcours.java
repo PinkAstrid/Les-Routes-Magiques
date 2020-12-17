@@ -53,6 +53,7 @@ public class GestionnaireParcours extends Observable {
         System.out.println(listeParcours.size());
         //notifying observers
         this.marqueurChangementGlobal = 1;
+        setChanged();
         notifyObservers();
         this.marqueurChangementGlobal =0;
         return p;
