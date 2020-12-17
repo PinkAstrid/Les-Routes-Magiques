@@ -35,6 +35,13 @@ public class Waypoint implements ElementVisitor {
 		this.name = name;
 	}
 
+	public String toString(){
+		String str = "";
+		str += name + ", ";
+		str += "Coords : [" + cords.lattitude + ", " + cords.longitude + ", " + cords.elevation + "]";
+		return  str;
+	}
+
 	@Override
 	public void accept(Visitor v) {
 		v.visit(cords);
