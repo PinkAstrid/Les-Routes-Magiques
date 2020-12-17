@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.Parcours;
 import sample.Trace;
+import sample.Waypoint;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class DemoMapController {
 
 	private List<CoordinateLine> followedLines;
 	private List<Marker> followedMarker;
+	private List<MapLabel> followedLabel;
 
 	Extent extent;
 
@@ -35,6 +37,7 @@ public class DemoMapController {
 		markerClick = Marker.createProvided(Marker.Provided.ORANGE);
 		followedLines = new ArrayList<CoordinateLine>();
 		followedMarker = new ArrayList<Marker>();
+		followedLabel = new ArrayList<MapLabel>();
 	}
 
 	public void initMapAndControls(Projection projection) {
@@ -78,6 +81,9 @@ public class DemoMapController {
 
 		for (CoordinateLine cl : followedLines){
 			mapView.addCoordinateLine(cl);
+		}
+		for (MapLabel label : followedLabel){
+			mapView.addLabel(label);
 		}
 		for (Marker m : followedMarker){
 			mapView.addMarker(m);
@@ -135,7 +141,7 @@ public class DemoMapController {
 	 * 		Marker ajouté
 	 */
 	public Marker addMarker(URL url){
-		Marker m = new Marker(url);
+		Marker m = new Marker(url, -62, -62);
 		return addMarker(m);
 	}
 
@@ -157,6 +163,23 @@ public class DemoMapController {
 			mapView.addMarker(m);
 			return m;
 		}
+	}
+
+	public void addListWaypoint(List<Waypoint> waypoints){
+		for (Waypoint w : waypoints){
+			Marker marker = addMarker(new Marker(getClass().getResource("/ressources/images/ressource/blackmarker.png"), -25, -50));
+			marker.setPosition(new Coordinate((double)w.getCords().getLattitude(), (double)w.getCords().getLongitude()));
+			MapLabel label = addLabel(w.getName());
+			marker.attachLabel(label);
+		}
+	}
+
+	public MapLabel addLabel(String name){
+		MapLabel mapLabel = new MapLabel(name);
+		mapLabel.setVisible(true);
+		followedLabel.add(mapLabel);
+		mapView.addLabel(mapLabel);
+		return mapLabel;
 	}
 
 	/**

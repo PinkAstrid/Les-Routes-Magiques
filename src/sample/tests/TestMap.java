@@ -6,7 +6,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import sample.Parcours;
 import sample.Trace;
 import sample.VisitorVisualisation;
 import sample.controllers.DemoMapController;
@@ -19,7 +21,7 @@ public class TestMap extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		String fxmlFile = "./ressources/layout/demoMap.fxml";
+		String fxmlFile = "/ressources/layout/demoMap.fxml";
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		Parent rootNode = null;
 		rootNode = fxmlLoader.load(getClass().getResourceAsStream(fxmlFile));
@@ -31,13 +33,14 @@ public class TestMap extends Application {
 
 		Scene scene = new Scene(rootNode);
 
-		Reader gpxReader = Reader.CreateReader("./traceTest.gpx");
+		Reader gpxReader = Reader.CreateReader("src/traceTest.gpx");
 
 		VisitorVisualisation v = new VisitorVisualisation();
 
-		Trace trace = gpxReader.getTrace();
+		Parcours p = gpxReader.getParcours();
 
-		controller.addCoordinateLine(trace);
+		controller.addCoordinateLine(p).setWidth(10).setColor(Color.RED);
+		controller.addListWaypoint(p.getWaypoints());
 
 		primaryStage.setTitle("sothawo mapjfx demo application");
 		primaryStage.setScene(scene);
