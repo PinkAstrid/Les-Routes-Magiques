@@ -16,8 +16,6 @@ import java.util.List;
 public class TestFicheControl extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //Parcours p = new Parcours();
-        System.out.println("Création de coordonnées grâce au créateur");
         Coordonees c0 = new Coordonees(48.6692041f, 6.156187f, 0f);
         Coordonees c1 = new Coordonees(48.6692081f, 6.156257f, 0.1f);
         Coordonees c2 = new Coordonees(48.6692101f, 6.156287f, 0.2f);
@@ -31,7 +29,6 @@ public class TestFicheControl extends Application {
 
         GestionnaireParcours gestion = new GestionnaireParcours();
 
-        System.out.println("Création de parcours grâce au créateur");
         Parcours p = gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos, new ArrayList<>());
         gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos, new ArrayList<>());
 

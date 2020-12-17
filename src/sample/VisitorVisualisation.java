@@ -89,10 +89,6 @@ public class VisitorVisualisation implements Visitor {
 	 * 		fiche technique à visiter
 	 */
 	public void visit(FicheTech fiche) {
-		System.out.println("durée:"+fiche.duree);
-		System.out.println("distance:"+fiche.distance);
-		System.out.println("denivelé:"+fiche.denivele);
-		System.out.println("difficulté:"+(float)fiche.difficulte/2+"/5");
 		fiche.accept(this);
 	}
 
@@ -103,7 +99,6 @@ public class VisitorVisualisation implements Visitor {
 	 * 		Coordonée à visiter
 	 */
 	public void visit(Coordonees cord) {
-		System.out.println("\tlat:"+ cord.lattitude+" long:"+cord.longitude+" elev:"+cord.elevation);
 		cord.accept(this);
 	}
 
@@ -119,7 +114,6 @@ public class VisitorVisualisation implements Visitor {
 	 * 		Trace à visiter
 	 */
 	public void visit(Trace trace) {
-		System.out.println("chemin :");
 		trace.accept(this);
 	}
 

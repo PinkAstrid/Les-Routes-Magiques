@@ -42,6 +42,7 @@ public class TestDenivle extends Application {
 		}
 		graph.getData().add(cd);
 		graph.setLegendVisible(false);
+		graph.setMaxSize(200, 100);
 		/* ----------- End Graph ----------- */
 
 		((GridPane)root).add(graph, 0, 0);

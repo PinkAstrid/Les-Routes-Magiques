@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="466.0" prefWidth="404.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ModifierParcoursController">
+<AnchorPane prefHeight="466.0" prefWidth="404.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ModifierParcoursController">
     <children>
         <GridPane layoutX="8.0" prefHeight="451.0" prefWidth="391.0" style="-fx-background-color: white; -fx-border-color: white; -fx-alignment: white; -fx-region-border: white; -fx-region-background: white;">
             <columnConstraints>

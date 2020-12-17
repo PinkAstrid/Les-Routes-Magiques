@@ -5,11 +5,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import sample.Parcours;
+import sample.VisitorDistanceElevation;
 import sample.VisitorVisualisation;
 import sample.controllers.DemoMapController;
 
@@ -37,6 +41,8 @@ public class FicheTechControl implements Initializable {
     private Label denivele;
     @FXML
     private ImageView imRando0;
+    @FXML
+    private AnchorPane graphDenivele;
 
     public FicheTechControl(){}
 
@@ -70,6 +76,25 @@ public class FicheTechControl implements Initializable {
 
         anchorMap.getChildren().add(rootNode);
 
+        VisitorDistanceElevation vElevation = new VisitorDistanceElevation();
+        vElevation.visit(p);
+
+        /* ----------- Graph ----------- */
+        final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        LineChart<Number, Number> graph = new LineChart<Number, Number>(xAxis, yAxis);
+        XYChart.Series<Number, Number> cd = new XYChart.Series();
+        for (int i = 0; i < vElevation.getDistance().size(); i++){
+            cd.getData().add(new XYChart.Data<Number, Number>(vElevation.getDistance().get(i), vElevation.getElevation().get(i)));
+        }
+        graph.getData().add(cd);
+        graph.setLegendVisible(false);
+        graph.setMaxSize(182, 107);
+        graph.setHorizontalGridLinesVisible(false);
+        graph.setVerticalGridLinesVisible(false);
+        /* ----------- End Graph ----------- */
+
+        graphDenivele.getChildren().add(graph);
     }
 
     @Override

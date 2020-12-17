@@ -17,7 +17,6 @@ import java.util.List;
 public class TestInterfa extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        System.out.println("Création de coordonnées grâce au créateur");
         Coordonees c0 = new Coordonees(0f, 0f, 0f);
         Coordonees c1 = new Coordonees(0.1f, 0f, 0.1f);
         Coordonees c2 = new Coordonees(0.2f, 0f, 0.2f);
@@ -31,7 +30,6 @@ public class TestInterfa extends Application {
 
         GestionnaireParcours gestion = new GestionnaireParcours();
 
-        System.out.println("Création de parcours grâce au créateur");
         gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "chemin", "randonée sur un petit chemin", "details", photos, new ArrayList<>());
         gestion.createParcours(list, 2.5f, 100, 600, 1, "titre", "description", "details", photos, new ArrayList<>());
 

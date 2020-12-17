@@ -20,7 +20,6 @@ public class FenetreAccueil extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        System.out.println("Création de coordonnées grâce au créateur");
         Coordonees c0 = new Coordonees(0f, 0f, 0f);
         Coordonees c1 = new Coordonees(0.1f, 0f, 0.1f);
         Coordonees c2 = new Coordonees(0.2f, 0f, 0.2f);
@@ -34,7 +33,6 @@ public class FenetreAccueil extends Application {
 
         GestionnaireParcours gestion = new GestionnaireParcours();
 
-        System.out.println("Création de parcours grâce au créateur");
         Parcours p = gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos, new ArrayList<>());
         Parcours p2 = gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos, new ArrayList<>());
         gestion.ajouterParcours(p);
@@ -42,8 +40,6 @@ public class FenetreAccueil extends Application {
 
 
         String fxmlFile = "/ressources/layout/pageAccueil.fxml";
-        System.out.println(fxmlFile+"\n");
-        System.out.println(getClass().getResource(fxmlFile));
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent rootNode = fxmlLoader1.load();
 

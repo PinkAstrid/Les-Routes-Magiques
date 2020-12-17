@@ -113,6 +113,8 @@ public class CreationParcoursControl implements Initializable {
             this.dialogStage.close();
         }
         catch(Exception e) {
+            e.printStackTrace();
+            // TODO : afficher dans la fenetre de creation de parcours
             System.out.println("There is a problem with your input"+e.getCause());
         }
     }
