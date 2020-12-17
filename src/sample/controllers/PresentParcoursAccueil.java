@@ -30,8 +30,6 @@ public class PresentParcoursAccueil implements Initializable {
     public  Label distance;
     public  Label duree;
     public  Label diff;
-    public  Label descLongue;
-    public  ImageView imRando;
     private Parcours parc;
 
     private GestionnaireParcours gestion;
@@ -47,11 +45,6 @@ public class PresentParcoursAccueil implements Initializable {
         duree.setText(vis.getDuree()+"h");
         level.setText(vis.getDiff()+"/5");
         diff.setText(vis.getDenivele()+"m");
-        descLongue.setText(vis.getDescLongue());
-
-        if (!vis.getPhotos().isEmpty()){
-            imRando.setImage(vis.getPhotos().get(0));
-        }
     }
 
     @Override
