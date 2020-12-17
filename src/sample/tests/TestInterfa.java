@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import sample.Coordonees;
-import sample.CreatorParcours;
 import sample.Parcours;
 import sample.controllers.AccueilHautController;
 import sample.model.GestionnaireParcours;
@@ -29,7 +28,6 @@ public class TestInterfa extends Application {
         list.add(c2);
         list.add(c3);
         ArrayList<Image> photos = new ArrayList<Image>();
-        CreatorParcours c = new CreatorParcours();
 
         GestionnaireParcours gestion = new GestionnaireParcours();
 

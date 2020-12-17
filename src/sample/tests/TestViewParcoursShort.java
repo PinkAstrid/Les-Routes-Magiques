@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import sample.Coordonees;
-import sample.CreatorParcours;
 import sample.Parcours;
 import sample.controllers.PageAccueil;
 import sample.model.GestionnaireParcours;
