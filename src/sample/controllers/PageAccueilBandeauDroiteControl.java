@@ -7,15 +7,19 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.controllers.CreationParcoursControl;
+import sample.model.GestionnaireParcours;
 
 import java.io.IOException;
 
 public class PageAccueilBandeauDroiteControl {
     private Stage primaryStage;
+    private GestionnaireParcours gestion;
+
     public void creerPopup(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loaderCreation = new FXMLLoader();
         loaderCreation.setLocation(getClass().getResource("/ressources/layout/CreationParcours.fxml"));
+        loaderCreation.setControllerFactory(iC -> new CreationParcoursControl(gestion));
         Pane page = loaderCreation.load();
 
         // Create the dialog Stage.
@@ -37,7 +41,8 @@ public class PageAccueilBandeauDroiteControl {
     public void supprimerParcours(ActionEvent actionEvent) {
     }
 
-    public void myfunct(Stage primaryStage){
+    public void myfunct(Stage primaryStage, GestionnaireParcours gestion){
         this.primaryStage = primaryStage;
+        this.gestion = gestion;
     }
 }

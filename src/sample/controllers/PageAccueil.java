@@ -43,8 +43,8 @@ public class PageAccueil implements Initializable {
         String fxmlFileRight = "/ressources/layout/PageAccueilBandeauDroite.fxml"; //vers ta classe
         FXMLLoader fxmlLoaderRight = new FXMLLoader(getClass().getResource(fxmlFileRight));
         Parent rightNode = fxmlLoaderRight.load();
-        //PageAccueilBandeauDroiteControl controllerRight = fxmlLoaderRight.getController(); //type de ton controller
-        //controllerRight.myfunct(primaryStage); //la fonction permettant d'ajouter les éléments dans ton controller
+        PageAccueilBandeauDroiteControl controllerRight = fxmlLoaderRight.getController(); //type de ton controller
+        controllerRight.myfunct(primaryStage, gestion); //la fonction permettant d'ajouter les éléments dans ton controller
         bordPa.setRight(rightNode);
     }
 

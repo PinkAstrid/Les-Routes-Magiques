@@ -47,6 +47,9 @@ public class GestionnaireParcours extends Observable {
         this.listeParcoursRecherches = listeParcoursRecherches;
     }
 
+    public List<Parcours> getListeParcoursRecherches() {
+        return listeParcoursRecherches;
+    }
 
 
 
