@@ -2,9 +2,9 @@ package sample.tests;
 
 import javafx.scene.image.Image;
 import sample.Coordonees;
-import sample.CreatorParcours;
 import sample.Parcours;
 import sample.VisitorDistanceElevation;
+import sample.model.GestionnaireParcours;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +23,9 @@ public class TestDistanceElevation {
 		list.add(c2);
 		list.add(c3);
 		ArrayList<Image> photos = new ArrayList<Image>();
-		CreatorParcours c = new CreatorParcours();
+		GestionnaireParcours gestion = new GestionnaireParcours();
 
-		Parcours p = c.createProduct(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
+		Parcours p = gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
 		v.visit(p);
 		System.out.println(v.getElevation());
 		System.out.println(v.getDistance());
