@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.sothawo.mapjfx.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.MapCreationParcours">
+    <center>
+        <MapView fx:id="mapView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="TOP_LEFT" />
+    </center>
+    <right>
+        <Pane>
+            <VBox>
+                <children>
+                    <RadioButton fx:id="mark" selected="true" text="Add Mark">
+                        <toggleGroup>
+                            <ToggleGroup fx:id="group" />
+                        </toggleGroup>
+                    </RadioButton>
+                    <RadioButton fx:id="line" text="Draw Line" toggleGroup="$group" />
+                    <Button fx:id="resetLine">Reset Line</Button>
+                    <Button fx:id="resetMark">Reset Mark</Button>
+                    <Button fx:id="resetAll">Reset All</Button>
+                </children>
+            </VBox>
+        </Pane>
+    </right>
+</BorderPane>
