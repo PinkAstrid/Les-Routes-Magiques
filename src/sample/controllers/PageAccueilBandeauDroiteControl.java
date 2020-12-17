@@ -32,6 +32,7 @@ public class PageAccueilBandeauDroiteControl {
 
         // Set the person into the controller.
         CreationParcoursControl creationParcoursController = loaderCreation.getController();
+        creationParcoursController.mapFonction();
         creationParcoursController.setDialogStage(dialogStage);
 
         // Show the dialog and wait until the user closes it

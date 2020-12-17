@@ -87,8 +87,7 @@
                 <TextField fx:id="parcoursDenivele" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                 <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#validerParcours" prefHeight="25.0" prefWidth="50.0" text="Créer" GridPane.rowIndex="9" />
                 <Button mnemonicParsing="false" onAction="#handleCancel" text="Annuler" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-
+                <AnchorPane fx:id="mapPane" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             </children>
         </GridPane>
     </children>

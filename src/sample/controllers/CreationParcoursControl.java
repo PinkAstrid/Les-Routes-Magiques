@@ -1,10 +1,15 @@
 package sample.controllers;
 
+import com.sothawo.mapjfx.Projection;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.*;
 
@@ -12,6 +17,7 @@ import javafx.scene.control.TextField;
 import sample.model.GestionnaireParcours;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +40,8 @@ public class CreationParcoursControl implements Initializable {
     private TextField parcoursDenivele;
     @FXML
     private ImageView imRando0;
+    @FXML
+    private AnchorPane mapPane;
 
     private Stage dialogStage;
     public GestionnaireParcours gestion;
@@ -41,6 +49,23 @@ public class CreationParcoursControl implements Initializable {
 
     public CreationParcoursControl(GestionnaireParcours gestion) {
         this.gestion = gestion;
+    }
+
+    public void  mapFonction(){
+        String fxmlFile = "/ressources/layout/mapCreationParcours.fxml";
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent rootNode = null;
+        try {
+            rootNode = fxmlLoader.load(getClass().getResourceAsStream(fxmlFile));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        final MapCreationParcours controller = fxmlLoader.getController();
+        final Projection projection = Projection.WEB_MERCATOR;
+        controller.initMapAndControls(projection);
+
+        mapPane.getChildren().add(rootNode);
     }
 
     public void setDialogStage(Stage dialogStage) {
@@ -99,5 +124,5 @@ public class CreationParcoursControl implements Initializable {
         }
     }
 
-    
+
 }
