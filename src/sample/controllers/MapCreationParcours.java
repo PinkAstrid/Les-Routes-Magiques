@@ -12,11 +12,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
+import sample.Coordonees;
+import sample.Trace;
+import sample.Waypoint;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class MapCreationParcours {
 	private static final Coordinate TelecomNancy = new Coordinate(48.6692041D,6.156187D);
@@ -75,6 +80,7 @@ public class MapCreationParcours {
 		mapView.addEventHandler(MapLabelEvent.MAPLABEL_CLICKED, event -> {
 			selectedLabel = event.getMapLabel();
 			labelText.setDisable(false);
+			labelText.requestFocus();
 		});
 
 		labelText.setOnKeyPressed(event -> {
@@ -187,6 +193,38 @@ public class MapCreationParcours {
 	private void deleteAll(){
 		deleteLine();
 		deleteMarker();
+	}
+
+	public CoordinateLine getPolygonLine() {
+		return polygonLine;
+	}
+
+	public List<Marker> getFollowedMarker() {
+		return followedMarker;
+	}
+
+	public Trace getTrace(){
+		List<Coordonees> list = new ArrayList<Coordonees>();
+		List<Coordinate> l2 = polygonLine.getCoordinateStream().collect(Collectors.toList());
+		for( Coordinate c : l2){
+			list.add(new Coordonees(c.getLatitude().floatValue(), c.getLongitude().floatValue(), 0));
+		}
+		return new Trace(list);
+	}
+
+	public List<Waypoint> getWaypoints(){
+		List<Waypoint> list = new ArrayList<>();
+		String name;
+		for(Marker m : followedMarker){
+			if (m.getMapLabel().isPresent()){
+				name = m.getMapLabel().get().getText();
+			}
+			else{
+				name = "";
+			}
+			list.add(new Waypoint(new Coordonees(m.getPosition().getLatitude().floatValue(), m.getPosition().getLongitude().floatValue(), 0f), name));
+		}
+		return list;
 	}
 
 }
