@@ -14,8 +14,12 @@ import sample.Parcours;
 import sample.VisitorVisualisation;
 
 import javafx.event.ActionEvent;
+import sample.model.GestionnaireParcours;
+
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -30,8 +34,11 @@ public class PresentParcoursAccueil implements Initializable {
     public  ImageView imRando;
     private Parcours parc;
 
-    public void myFunct(Parcours parc){
+    private GestionnaireParcours gestion;
+
+    public void myFunct(Parcours parc, GestionnaireParcours gestion){
         this.parc = parc;
+        this.gestion = gestion;
         VisitorVisualisation vis = new VisitorVisualisation();
         vis.visit(parc);
         this.name.setText(vis.getName());
@@ -74,4 +81,11 @@ public class PresentParcoursAccueil implements Initializable {
         dialogStage.setWidth(800);
         dialogStage.show();
     }
+
+    public void supprimer(MouseEvent mouseEvent) {
+        gestion.supprimerParcours(this.parc);
+    }
+
+    public void modifier() {}
+
 }

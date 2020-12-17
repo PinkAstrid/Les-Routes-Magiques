@@ -62,6 +62,10 @@ public class GestionnaireParcours extends Observable {
         return listeParcours;
     }
 
+    public void setParcours(int index, Parcours p) {
+        listeParcours.set(index, p);
+    }
+
     public void setParcoursRecherche(List<Parcours> listeParcoursRecherches) {
         this.listeParcoursRecherches = listeParcoursRecherches;
     }

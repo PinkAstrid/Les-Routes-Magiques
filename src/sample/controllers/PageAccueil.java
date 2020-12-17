@@ -29,6 +29,7 @@ public class PageAccueil implements Initializable {
 
         String fxmlFileMiddle = "/ressources/layout/middlePane.fxml"; //vers ta classe
         FXMLLoader fxmlLoaderMiddle = new FXMLLoader(getClass().getResource(fxmlFileMiddle));
+        fxmlLoaderMiddle.setControllerFactory(iC->new MiddlePaneController(gestion));
         Parent middleNode = fxmlLoaderMiddle.load();
         MiddlePaneController controllerMiddle = fxmlLoaderMiddle.getController(); //type de ton controller
         controllerMiddle.setBorPane(parcours); //la fonction permettant d'ajouter les éléments dans ton controller

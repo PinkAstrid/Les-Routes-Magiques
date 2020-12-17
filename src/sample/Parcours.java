@@ -13,6 +13,7 @@ public class Parcours implements ElementVisitor {
 	List<Waypoint> waypoints;
 	FicheTech fiche;
 	Trace trace;
+	private Boolean favoris; //true quand le parcours est dans les favoris
 
 	public Parcours() {
 		photos = new ArrayList<Image>();
@@ -29,6 +30,7 @@ public class Parcours implements ElementVisitor {
 		this.trace = trace;
 		this.fiche = fiche;
 		waypoints = new ArrayList<Waypoint>();
+		this.favoris = false;
 	}
 
 	public String getName() {
@@ -86,6 +88,8 @@ public class Parcours implements ElementVisitor {
 	public FicheTech getFiche(){
 		return fiche;
 	}
+
+	public Boolean getFavoris() {return favoris;}
 
 	@Override
 	public void accept(Visitor v) {
