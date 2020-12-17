@@ -6,17 +6,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox fx:id="accueil" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AccueilHautController" onKeyPressed="#rechercherKey">
+<HBox fx:id="accueil" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#rechercherKey" prefHeight="127.0" prefWidth="783.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AccueilHautController">
    <children>
-      <ImageView fitHeight="132.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="127.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/ressource/logo.png" />
          </image></ImageView>
-      <Label prefHeight="130.0" prefWidth="222.0" style="-fx-background-color: white;" text=" Les routes magiques" textFill="#917cc4" wrapText="true">
+      <Label prefHeight="126.0" prefWidth="200.0" style="-fx-background-color: white;" text=" Les routes magiques" textFill="#917cc4" wrapText="true">
          <font>
             <Font name="DejaVu Sans Bold Oblique" size="21.0" />
          </font></Label>
-      <VBox prefHeight="131.0" prefWidth="401.0" spacing="10.0" style="-fx-background-color: white;">
+      <VBox prefHeight="127.0" prefWidth="437.0" spacing="10.0" style="-fx-background-color: white;">
          <children>
             <ToolBar prefHeight="44.0" prefWidth="470.0" style="-fx-background-color: #F9B1CB;">
               <items>

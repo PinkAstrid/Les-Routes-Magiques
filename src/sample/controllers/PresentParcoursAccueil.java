@@ -1,5 +1,8 @@
 package sample.controllers;
 
+import com.sun.xml.internal.bind.v2.model.annotation.RuntimeAnnotationReader;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -18,6 +21,7 @@ import javafx.event.ActionEvent;
 import sample.model.GestionnaireParcours;
 
 import java.io.IOException;
+import java.lang.management.PlatformLoggingMXBean;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -31,6 +35,9 @@ public class PresentParcoursAccueil implements Initializable {
     public  Label duree;
     public  Label diff;
     private Parcours parc;
+
+    @FXML
+    public Button favoris;
 
     private GestionnaireParcours gestion;
     Stage primaryStage;
@@ -106,9 +113,33 @@ public class PresentParcoursAccueil implements Initializable {
 
     }
 
-    public void passerFavoris(ActionEvent actionEvent) {
-        parc.setFavoris(true);
-        gestion.setParcours(gestion.getListeParcours().indexOf(parc), parc);
+    public void passerFavoris(MouseEvent mouseEvent) {
+        if (favoris.getText().equals("Ajouter aux favoris")) {
+            parc.setFavoris(true);
+            gestion.setParcours(gestion.getListeParcours().indexOf(parc), parc);
+
+            Runnable updater = new Runnable() {
+                @Override
+                public void run() {
+                    favoris.setText("Retirer des favoris");
+                }
+            };
+            Platform.runLater(updater);
+        }
+
+        if (favoris.getText().equals("Retirer des favoris")){
+            parc.setFavoris(false);
+            gestion.setParcours(gestion.getListeParcours().indexOf(parc), parc);
+
+            Runnable updater = new Runnable() {
+                @Override
+                public void run() {
+                    favoris.setText("Ajouter aux favoris");
+                }
+            };
+            Platform.runLater(updater);
+        }
     }
+
 
 }

@@ -87,7 +87,7 @@
             </VBox>
             <Button fx:id="modifier" mnemonicParsing="false" onAction="#modifier" style="-fx-background-color: #F9B1CB; -fx-border-color: #5A4C7D; -fx-background-radius: 5; -fx-border-radius: 5;" text="Modifier" />
             <Button fx:id="supprimer" mnemonicParsing="false" onMouseClicked="#supprimer" style="-fx-background-color: #F9B1CB; -fx-border-color: #5A4C7D; -fx-background-radius: 5; -fx-border-radius: 5;" text="Supprimer" />
-            <Button fx:id="favoris" mnemonicParsing="false" onAction="#passerFavoris" style="-fx-background-color: #F9B1CB; -fx-border-color: #5A4C7D; -fx-background-radius: 5; -fx-border-radius: 5;" text="Ajouter aux favoris" wrapText="true" />
+            <Button fx:id="favoris" mnemonicParsing="false" onMouseClicked="#passerFavoris" style="-fx-background-color: #F9B1CB; -fx-border-color: #5A4C7D; -fx-background-radius: 5; -fx-border-radius: 5;" text="Ajouter aux favoris" wrapText="true" />
          </children>
          <padding>
             <Insets top="10.0" />
