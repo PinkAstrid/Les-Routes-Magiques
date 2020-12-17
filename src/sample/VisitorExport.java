@@ -17,6 +17,11 @@ public class VisitorExport implements Visitor {
     }
 
     @Override
+    public void visit(Waypoint wpt) {
+
+    }
+
+    @Override
     public void visit(Trace trace) {
 
     }

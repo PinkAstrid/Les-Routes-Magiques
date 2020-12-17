@@ -6,21 +6,38 @@ import sample.VisitorToGPX;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Writer {
 	File file;
 	boolean isNew = true;
 
-	public Writer(String filePath){
-
-		try{
-			file = new File(filePath);
-			if (!file.createNewFile()){
-				isNew = false;
+	public Writer(String filePath) throws IOException {
+		String[] strTab = filePath.split("/");
+		if (strTab.length > 1){
+			String folderPath = "";
+			for (int i = 0; i < strTab.length -1; i++){
+				folderPath += strTab[i] + "/";
 			}
+			Path folder = Paths.get(folderPath);
+			Files.createDirectories(folder);
+		}
+		file = new File(filePath);
+		if (!file.createNewFile()){
+			isNew = false;
+		}
+	}
+
+	public static Writer CreateWriter(String filePath){
+		try{
+			Writer w = new Writer(filePath);
+			return w;
 		} catch (IOException ioException) {
 			ioException.printStackTrace();
 		}
+		return null;
 	}
 
 	public void writeGPX(Parcours parc){
@@ -37,5 +54,6 @@ public class Writer {
 			ioException.printStackTrace();
 		}
 	}
+
 
 }

@@ -25,7 +25,7 @@ public class TestDenivle extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("/sample/sample.fxml"));
 		primaryStage.setTitle("Telecom Nancy Hiking");
 
-		Trace trace = Objects.requireNonNull(Reader.CreateReader("traceTest.gpx")).getTrace();
+		Trace trace = Objects.requireNonNull(Reader.CreateReader("src/traceTest.gpx")).getTrace();
 
 		VisitorDistanceElevation v = new VisitorDistanceElevation();
 		v.visit(trace);

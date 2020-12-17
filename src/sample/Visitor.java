@@ -7,5 +7,7 @@ public interface Visitor {
 
     public void visit(Coordonees cord);
 
+    public void visit(Waypoint wpt);
+
     public void visit(Trace trace);
 }

@@ -2,7 +2,6 @@ package sample;
 
 import javafx.scene.image.Image;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +10,7 @@ public class Parcours implements ElementVisitor {
 	String descCourte;
 	String descLongue;
 	List<Image> photos;
+	List<Waypoint> waypoints;
 	FicheTech fiche;
 	Trace trace;
 
@@ -61,6 +61,14 @@ public class Parcours implements ElementVisitor {
 		this.photos = photos;
 	}
 
+	public List<Waypoint> getWaypoints() {
+		return waypoints;
+	}
+
+	public void setWaypoints(List<Waypoint> waypoints) {
+		this.waypoints = waypoints;
+	}
+
 	public void setFiche(FicheTech fiche) {
 		this.fiche = fiche;
 	}
@@ -80,6 +88,8 @@ public class Parcours implements ElementVisitor {
 	@Override
 	public void accept(Visitor v) {
 		v.visit(fiche);
+		for( Waypoint wpt : waypoints)
+			v.visit(wpt);
 		v.visit(trace);
 	}
 }

@@ -57,6 +57,11 @@ public class VisitorDistanceElevation implements Visitor{
 	}
 
 	@Override
+	public void visit(Waypoint wpt) {
+		wpt.accept(this);
+	}
+
+	@Override
 	public void visit(Trace trace) {
 		trace.accept(this);
 	}

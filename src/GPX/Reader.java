@@ -15,6 +15,7 @@ import java.io.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Reader {
 	private File file;
@@ -26,11 +27,14 @@ public class Reader {
 	 * @param filePath
 	 * 		chemin du fichier à lire
 	 * @throws ParserConfigurationException
+	 * 		Si le document Builder ne peut être créé
 	 * @throws IOException
+	 * 		si le fichier est invalide
 	 * @throws SAXException
+	 * 		si une erreur de parser est soulevé
 	 */
 	public Reader(String filePath) throws ParserConfigurationException, IOException, SAXException {
-		file = new File(getClass().getClassLoader().getResource(filePath).getFile());
+		file = new File(filePath);
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		db = dbf.newDocumentBuilder();
 		doc = db.parse(file);
@@ -79,7 +83,7 @@ public class Reader {
 	public void print(){
 		Node root = this.getRoot();
 		System.out.println("Root : " + root.getNodeName());
-		NodeList list = this.getElementsByTag("wpt");
+		NodeList list = this.getElementsByTag("trkpt");
 		for (int i = 0; i < list.getLength() ; i++) {
 			Node n = list.item(i);
 			System.out.println("Latitude : " + getLatitude(n));
@@ -149,7 +153,10 @@ public class Reader {
 	 */
 	public Trace getTrace(){
 		List<Coordonees> listCords = new ArrayList<Coordonees>();
-		NodeList list = this.getElementsByTag("wpt");
+		NodeList list;
+		list = this.getElementsByTag("trkpt");
+		if (list.getLength() == 0)
+			list = this.getElementsByTag("wpt");
 		for (int i = 0; i < list.getLength() ; i++) {
 			listCords.add(getCords(list.item(i)));
 		}

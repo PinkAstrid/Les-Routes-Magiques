@@ -12,13 +12,19 @@ public class TestExportToGPX{
 
 	public static void main(String[] args) {
 		VisitorToGPX v = new VisitorToGPX();
-		Trace trace = Objects.requireNonNull(Reader.CreateReader("traceTest.gpx")).getTrace();
+		Trace trace = Objects.requireNonNull(Reader.CreateReader("src/traceTest.gpx")).getTrace();
 		v.visit(trace);
-		System.out.println(v.str);
 
 		Parcours p = new Parcours("Parcours", "short description", "long description", new ArrayList<Image>(), new FicheTech(), trace);
-		Writer writer = new Writer("outputTestGPX.gpx");
+		Writer writer = Writer.CreateWriter("GPX/outputTestGPX.gpx");
+		assert writer != null;
 		writer.writeGPX(p);
+
+		VisitorVisualisation visu = new VisitorVisualisation();
+
+		Reader reader = Reader.CreateReader("GPX/outputTestGPX.gpx");
+		assert reader != null;
+		visu.visit(reader.getTrace());
 
 	}
 }

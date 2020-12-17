@@ -2,7 +2,6 @@ package sample;
 
 import javafx.scene.image.Image;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,6 +105,11 @@ public class VisitorVisualisation implements Visitor {
 	public void visit(Coordonees cord) {
 		System.out.println("\tlat:"+ cord.lattitude+" long:"+cord.longitude+" elev:"+cord.elevation);
 		cord.accept(this);
+	}
+
+	@Override
+	public void visit(Waypoint wpt) {
+		wpt.accept(this);
 	}
 
 	@Override
