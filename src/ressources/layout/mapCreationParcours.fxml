@@ -21,6 +21,7 @@
                     <Button fx:id="resetLine">Reset Line</Button>
                     <Button fx:id="resetMark">Reset Mark</Button>
                     <Button fx:id="resetAll">Reset All</Button>
+                    <TextField fx:id="labelText" disable="true" />
                 </children>
             </VBox>
         </Pane>

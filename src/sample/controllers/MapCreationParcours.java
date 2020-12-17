@@ -1,14 +1,19 @@
 package sample.controllers;
 
 import com.sothawo.mapjfx.*;
+import com.sothawo.mapjfx.event.MapLabelEvent;
 import com.sothawo.mapjfx.event.MapViewEvent;
+import com.sothawo.mapjfx.event.MarkerEvent;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +24,8 @@ public class MapCreationParcours {
 
 	@FXML
 	public ToggleGroup group;
-
+	@FXML
+	public TextField labelText;
 	@FXML
 	private RadioButton line;
 	@FXML
@@ -38,7 +44,7 @@ public class MapCreationParcours {
 	private List<Marker> followedMarker;
 	private List<MapLabel> followedLabel;
 
-
+	private MapLabel selectedLabel;
 	Extent extent;
 
 	public MapCreationParcours() {
@@ -64,6 +70,54 @@ public class MapCreationParcours {
 				handlePolygonClick(event);
 			if (group.getSelectedToggle() == mark)
 				handleMarkerClick(event);
+		});
+
+		mapView.addEventHandler(MapLabelEvent.MAPLABEL_CLICKED, event -> {
+			selectedLabel = event.getMapLabel();
+			labelText.setDisable(false);
+		});
+
+		labelText.setOnKeyPressed(event -> {
+			if (event.getCode() == KeyCode.ENTER){
+				if (selectedLabel != null){
+					if (selectedLabel.getMarker().isPresent()) {
+						Marker marker = selectedLabel.getMarker().get();
+						marker.detachLabel();
+						followedLabel.remove(selectedLabel);
+						mapView.removeLabel(selectedLabel);
+
+						MapLabel newLabel = new MapLabel(labelText.getText()).setVisible(true);
+						marker.attachLabel(newLabel);
+						followedLabel.add(newLabel);
+						mapView.addLabel(newLabel);
+
+						labelText.setText("");
+						labelText.setDisable(true);
+					}
+				}
+			}
+		});
+		mapView.addEventHandler(MapLabelEvent.MAPLABEL_RIGHTCLICKED, event -> {
+			Marker marker;
+			if (event.getMapLabel().getMarker().isPresent()) {
+				marker = event.getMapLabel().getMarker().get();
+				marker.setVisible(false);
+				mapView.removeMarker(marker);
+				followedMarker.remove(marker);
+			}
+			MapLabel label = event.getMapLabel().setVisible(false);
+			mapView.removeLabel(label);
+			followedLabel.remove(label);
+		});
+		mapView.addEventHandler(MarkerEvent.MARKER_RIGHTCLICKED, event -> {
+			if (event.getMarker().getMapLabel().isPresent()) {
+				MapLabel label = event.getMarker().getMapLabel().get().setVisible(false);
+				mapView.removeLabel(label);
+				followedLabel.remove(label);
+			}
+			Marker marker = event.getMarker().setVisible(false);
+			mapView.removeMarker(marker);
+			followedMarker.remove(marker);
 		});
 
 		this.mapView.initialize(Configuration.builder().projection(projection).showZoomControls(true).build());
@@ -97,7 +151,6 @@ public class MapCreationParcours {
 		coordinates.add(event.getCoordinate());
 		polygonLine = new CoordinateLine(coordinates)
 				.setColor(Color.DODGERBLUE)
-				.setFillColor(Color.web("lawngreen", 0.4))
 				.setClosed(false);
 		mapView.addCoordinateLine(polygonLine);
 		polygonLine.setVisible(true);
@@ -106,7 +159,7 @@ public class MapCreationParcours {
 
 	private void handleMarkerClick(MapViewEvent event) {
 		Marker marker = new Marker(getClass().getResource("/ressources/images/ressource/blackmarker.png"), -25, -50).setPosition(event.getCoordinate()).setVisible(true);
-		MapLabel mapLabel = new MapLabel("text holder").setVisible(true);
+		MapLabel mapLabel = new MapLabel("Clique moi pour me changer").setVisible(true);
 		marker.attachLabel(mapLabel);
 		followedMarker.add(marker);
 		followedLabel.add(mapLabel);
@@ -121,9 +174,11 @@ public class MapCreationParcours {
 
 	private void deleteMarker(){
 		for(Marker m : followedMarker){
-			m.getMapLabel().ifPresent(mapLabel -> mapView.removeLabel(mapLabel));
 			m.detachLabel();
 			mapView.removeMarker(m);
+		}
+		for (MapLabel l : followedLabel){
+			mapView.removeLabel(l);
 		}
 		this.followedMarker = new ArrayList<>();
 		this.followedLabel = new ArrayList<>();
