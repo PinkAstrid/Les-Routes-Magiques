@@ -1,4 +1,3 @@
-
 Télécorn Viking
 ===
 
@@ -22,5 +21,15 @@ Affichage sur une carte du tracé d'un parcours
 affichage du dénivelé du parcours dans un graphique
 
 Import et Export des parcours au format gpx, ils sont lu et stocké dans le dossier GPX à coté de exécutable
+
+
+Carte interactive
+---
+Lors de la création d'un parcours, il est possible de définir son tracé en utilisant la carte.
+Le sélecteur à droite permet de choisir entre l'ajout d'un point du chemin et l'ajout d'un point d’intérêt. Ensuite faire un clique gauche sur la carte permet d'ajouter ce point. Pour voir le premier trait il faut ajouter 2 points.
+
+Un clique gauche sur label permet de changer son nom. Écrire dans la zone de texte qui s'est ouvert à droite puis appuyez sur entrée.
+
+Un clique droit sur un marker le supprime ainsi que son label.
 
 > fait avec le visualiseur de [stackedit](https://stackedit.io)
