@@ -46,6 +46,7 @@ public class CreationParcoursControl implements Initializable {
     private Stage dialogStage;
     public GestionnaireParcours gestion;
     public Parcours parcours;
+    private MapCreationParcours mapCreationParcours;
 
     public CreationParcoursControl(GestionnaireParcours gestion) {
         this.gestion = gestion;
@@ -61,9 +62,9 @@ public class CreationParcoursControl implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
-        final MapCreationParcours controller = fxmlLoader.getController();
+        mapCreationParcours = fxmlLoader.getController();
         final Projection projection = Projection.WEB_MERCATOR;
-        controller.initMapAndControls(projection);
+        mapCreationParcours.initMapAndControls(projection);
 
         mapPane.getChildren().add(rootNode);
     }
@@ -108,7 +109,7 @@ public class CreationParcoursControl implements Initializable {
             System.out.println(denivele);
             ArrayList<Image> photos = new ArrayList<Image>();
             System.out.println(photos);
-            List<Coordonees> chemin = new ArrayList<Coordonees>();
+            List<Coordonees> chemin = mapCreationParcours.getTrace().getChemin();
             System.out.println(chemin);
             System.out.println(getName());
             System.out.println(getLongDescr());
