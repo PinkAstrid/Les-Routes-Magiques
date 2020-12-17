@@ -14,5 +14,5 @@ public abstract class Decorator_Recherche {
      * @return
      * liste des parcours filtrés
      */
-    public abstract ArrayList<Parcours> execute(ArrayList<Parcours> listeParcours);
+    public abstract List<Parcours> execute(List<Parcours> listeParcours);
 }

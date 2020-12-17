@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 import sample.*;
 
 import javafx.scene.control.TextField;
+import sample.model.GestionnaireParcours;
+
 import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ArrayList;
@@ -34,7 +36,12 @@ public class CreationParcoursControl implements Initializable {
     private ImageView imRando0;
 
     private Stage dialogStage;
+    public GestionnaireParcours gestion;
     public Parcours parcours;
+
+    public CreationParcoursControl(GestionnaireParcours gestion) {
+        this.gestion = gestion;
+    }
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -81,8 +88,9 @@ public class CreationParcoursControl implements Initializable {
             System.out.println(getName());
             System.out.println(getLongDescr());
             System.out.println(getShortDescr());
-            CreatorParcours c = new CreatorParcours();
-            parcours = c.createProduct(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos);
+
+            Parcours p = gestion.createParcours(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos);
+            gestion.ajouterParcours(p);
 
             this.dialogStage.close();
         }

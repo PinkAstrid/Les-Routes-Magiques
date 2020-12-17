@@ -2,6 +2,7 @@ package sample.tests;
 
 import javafx.scene.image.Image;
 import sample.*;
+import sample.model.GestionnaireParcours;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +22,11 @@ public class TestParcours {
         list.add(c2);
         list.add(c3);
         ArrayList<Image> photos = new ArrayList<Image>();
-        CreatorParcours c = new CreatorParcours();
 
+        GestionnaireParcours gestion = new GestionnaireParcours();
         System.out.println("Création de parcours grâce au créateur");
-        Parcours p = c.createProduct(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
-        Parcours p2 = c.createProduct(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
+        Parcours p = gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
+        Parcours p2 = gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
         /*p.setName("easy");
         p.setDescCourte("an easy course");
         p.setDescLongue("this is a very basic track, can be walked by anyone");
@@ -43,12 +44,10 @@ public class TestParcours {
 
         Composant_Decorator_Recherche CDR = new Composant_Decorator_Recherche();
         Decorator_Recherche_Denivele CRD = new Decorator_Recherche_Denivele(CDR, 300f, 600f);
-        ArrayList<Parcours> lp = new ArrayList<Parcours>();
-        lp.add(p);
-        lp.add(p2);
-        ArrayList<Parcours> lfinale = new ArrayList<Parcours>();
+
+        List<Parcours> lfinale = new ArrayList<Parcours>();
         System.out.println("Filtrage grâce au décorateur");
-        lfinale = CRD.execute(lp);
+        lfinale = CRD.execute(gestion.getListeParcours());
 
         System.out.println("Visite grâce au visiteur");
         for(Parcours parc : lfinale) {

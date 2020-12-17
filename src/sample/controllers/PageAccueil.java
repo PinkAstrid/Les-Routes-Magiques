@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import sample.Parcours;
 import sample.controllers.AccueilHautController;
 import sample.controllers.MiddlePaneController;
+import sample.model.GestionnaireParcours;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,12 +18,14 @@ import java.util.ResourceBundle;
 
 public class PageAccueil implements Initializable {
     public BorderPane bordPa;
+    GestionnaireParcours gestion;
     List<Parcours> parcours;
     private Stage primaryStage;
     public PageAccueil(){}
 
-    public void initPage(List<Parcours> parc, Stage primaryStage) throws IOException {
-        this.parcours = parc;
+    public void initPage(GestionnaireParcours gestion, Stage primaryStage) throws IOException {
+        this.gestion = gestion;
+        this.parcours = gestion.getListeParcours();
 
         String fxmlFileMiddle = "/ressources/layout/middlePane.fxml"; //vers ta classe
         FXMLLoader fxmlLoaderMiddle = new FXMLLoader(getClass().getResource(fxmlFileMiddle));
@@ -33,7 +36,7 @@ public class PageAccueil implements Initializable {
 
         String fxmlFileTop = "/ressources/layout/PageAccueilBandeauHaut.fxml"; //vers ta classe
         FXMLLoader fxmlLoaderTop = new FXMLLoader(getClass().getResource(fxmlFileTop));
-        fxmlLoaderTop.setControllerFactory(iC->new AccueilHautController((ArrayList<Parcours>) parcours));
+        fxmlLoaderTop.setControllerFactory(iC->new AccueilHautController(gestion));
         Parent rootNodeTop = fxmlLoaderTop.load();
         bordPa.setTop(rootNodeTop);
 

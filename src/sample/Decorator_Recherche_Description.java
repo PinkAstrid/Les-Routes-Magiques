@@ -30,8 +30,8 @@ public class Decorator_Recherche_Description extends Decorator_Recherche {
      * @return
      * liste des parcours ayant un dénivelé compris entre deniveleMin et deniveleMax
      */
-    public ArrayList<Parcours> execute(ArrayList<Parcours> listeParcours) {
-        ArrayList<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
+    public List<Parcours> execute(List<Parcours> listeParcours) {
+        List<Parcours> parcoursCompatibles = new ArrayList<Parcours>();
 
         String[] listeRecherche = recherche.split(" ");
 

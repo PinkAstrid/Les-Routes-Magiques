@@ -8,7 +8,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import sample.*;
 import javafx.scene.input.KeyEvent;
+import sample.model.GestionnaireParcours;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class AccueilHautController {
     @FXML
@@ -32,16 +35,15 @@ public class AccueilHautController {
     @FXML
     public TextField rechercheT;
 
-    ArrayList<Parcours> parcours;
-
+    GestionnaireParcours gestion;
     /**
      * Constructeur
      *
-     * @param parcours
-     * liste des parcours à filtrer lors d'une recherche
+     * @param gestion
+     * gestionnaire des parcours à filtrer lors d'une recherche
      */
-    public AccueilHautController(ArrayList<Parcours> parcours) {
-        this.parcours = parcours;
+    public AccueilHautController(GestionnaireParcours gestion) {
+        this.gestion = gestion;
     }
 
     /**
@@ -57,7 +59,7 @@ public class AccueilHautController {
         float durMin;
         float durMax;
 
-        ArrayList<Parcours> resultat;
+        List<Parcours> resultat;
 
         float Pinf = Float.POSITIVE_INFINITY;
         float Ninf = Float.NEGATIVE_INFINITY;
@@ -114,16 +116,13 @@ public class AccueilHautController {
 
             if(recherche.length() != 0) {
                 Decorator_Recherche_Description CRDescr = new Decorator_Recherche_Description(CRDur, recherche);
-                resultat = CRDescr.execute(parcours);
+                resultat = CRDescr.execute(gestion.getListeParcours());
             }
             else {
-                resultat = CRDur.execute(parcours);
+                resultat = CRDur.execute(gestion.getListeParcours());
             }
 
-            Visitor v = new VisitorVisualisation();
-            for(Parcours parc : resultat) {
-                v.visit(parc);
-            }
+            gestion.setParcoursRecherche(resultat);
 
         }
         catch(Exception e) {

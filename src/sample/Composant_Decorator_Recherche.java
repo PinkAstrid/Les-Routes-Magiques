@@ -1,6 +1,7 @@
 package sample;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Composant_Decorator_Recherche extends Decorator_Recherche{
     @Override
@@ -13,7 +14,7 @@ public class Composant_Decorator_Recherche extends Decorator_Recherche{
      * @return
      * liste des parcours filtrés par les "Decorator_Recherche"
      */
-    public ArrayList<Parcours> execute(ArrayList<Parcours> listeParcours) {
+    public List<Parcours> execute(List<Parcours> listeParcours) {
         return listeParcours;
     }
 }

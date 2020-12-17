@@ -8,6 +8,7 @@ import sample.Coordonees;
 import sample.CreatorParcours;
 import sample.Parcours;
 import sample.controllers.PageAccueil;
+import sample.model.GestionnaireParcours;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,13 +32,14 @@ public class FenetreAccueil extends Application {
         list.add(c2);
         list.add(c3);
         ArrayList<Image> photos = new ArrayList<Image>();
-        CreatorParcours c = new CreatorParcours();
+
+        GestionnaireParcours gestion = new GestionnaireParcours();
 
         System.out.println("Création de parcours grâce au créateur");
-        Parcours p = c.createProduct(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
-        Parcours p2 = c.createProduct(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
-        List<Parcours> ps = new ArrayList<Parcours>();
-        ps.add(p); ps.add(p2);
+        Parcours p = gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre", "description", "details", photos);
+        Parcours p2 = gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos);
+        gestion.ajouterParcours(p);
+        gestion.ajouterParcours(p2);
 
 
         String fxmlFile = "/ressources/layout/pageAccueil.fxml";
@@ -47,7 +49,7 @@ public class FenetreAccueil extends Application {
         Parent rootNode = fxmlLoader1.load();
 
         PageAccueil controller = fxmlLoader1.getController();
-        controller.initPage(ps, primaryStage);
+        controller.initPage(gestion, primaryStage);
         Scene scene = new Scene(rootNode);
 
         primaryStage.setTitle("let us try");

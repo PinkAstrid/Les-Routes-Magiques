@@ -10,6 +10,7 @@ import sample.Coordonees;
 import sample.CreatorParcours;
 import sample.Parcours;
 import sample.controllers.AccueilHautController;
+import sample.model.GestionnaireParcours;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,17 +31,17 @@ public class TestInterfa extends Application {
         ArrayList<Image> photos = new ArrayList<Image>();
         CreatorParcours c = new CreatorParcours();
 
-        System.out.println("Création de parcours grâce au créateur");
-        Parcours p = c.createProduct(list, 2.5f, 5.0f, 200, 1, "chemin", "randonée sur un petit chemin", "details", photos);
-        Parcours p2 = c.createProduct(list, 2.5f, 100, 600, 1, "titre", "description", "details", photos);
+        GestionnaireParcours gestion = new GestionnaireParcours();
 
-        ArrayList<Parcours> lp = new ArrayList<Parcours>();
-        lp.add(p);
-        lp.add(p2);
+        System.out.println("Création de parcours grâce au créateur");
+        Parcours p = gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "chemin", "randonée sur un petit chemin", "details", photos);
+        Parcours p2 = gestion.createParcours(list, 2.5f, 100, 600, 1, "titre", "description", "details", photos);
+        gestion.ajouterParcours(p);
+        gestion.ajouterParcours(p2);
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/ressources/layout/PageAccueilBandeauHaut.fxml"));
-        loader.setControllerFactory(iC->new AccueilHautController(lp));
+        loader.setControllerFactory(iC->new AccueilHautController(gestion));
         Parent root = loader.load();
 
         //Parent root = FXMLLoader.load(getClass().getResource("/sample/interfa/PageAccueilBandeauHaut.fxml"));
