@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import sample.Coordonees;
 import sample.Parcours;
@@ -39,9 +41,8 @@ public class TestViewParcoursShort extends Application {
         gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre1", "description", "details", photos);
         gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre2", "description", "details", photos);
 
-        String fxmlFile = "./../../ressources/layout/pageAccueil.fxml";
-        System.out.println(fxmlFile+"\n");
-        System.out.println(getClass().getResource(fxmlFile));
+        String fxmlFile = "/ressources/layout/pageAccueil.fxml";
+
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent rootNode = fxmlLoader1.load();
 
@@ -49,7 +50,9 @@ public class TestViewParcoursShort extends Application {
         controller.initPage(gestion, primaryStage);
         Scene scene = new Scene(rootNode);
 
-        primaryStage.setTitle("let us try");
+        rootNode.setStyle("-fx-background-color: white");
+
+        primaryStage.setTitle("Telecorn Viking");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

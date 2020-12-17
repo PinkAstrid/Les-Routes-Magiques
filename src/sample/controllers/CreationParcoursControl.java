@@ -100,20 +100,11 @@ public class CreationParcoursControl implements Initializable {
     public void validerParcours(javafx.event.ActionEvent actionEvent) {
         try {
             float duree = Float.parseFloat(getDuree());
-            System.out.println(duree);
             float distance = Float.parseFloat(getDistance());
-            System.out.println(distance);
             int difficulte = Integer.parseInt(getDiff());
-            System.out.println(difficulte);
             float denivele = Float.parseFloat(getDenivele());
-            System.out.println(denivele);
             ArrayList<Image> photos = new ArrayList<Image>();
-            System.out.println(photos);
             List<Coordonees> chemin = mapCreationParcours.getTrace().getChemin();
-            System.out.println(chemin);
-            System.out.println(getName());
-            System.out.println(getLongDescr());
-            System.out.println(getShortDescr());
 
             gestion.createParcours(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos);
 

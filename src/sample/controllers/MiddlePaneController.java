@@ -38,6 +38,8 @@ public class MiddlePaneController implements Initializable, Observer {
         fxmlLoader.setControllerFactory(iC->new VBoxMiddlePaneAccueil(gestion, primaryStage));
         Parent rootNode = fxmlLoader.load();
 
+        rootNode.setStyle("-fx-background-color: white");
+
         VBoxMiddlePaneAccueil controller = fxmlLoader.getController(); //type de ton controller
         this.controller = controller;
         controller.initList(parcoursList); //la fonction permettant d'ajouter les éléments dans ton controller

@@ -44,6 +44,8 @@ public class PageAccueil implements Initializable, Observer {
         PageAccueilBandeauDroiteControl controllerRight = fxmlLoaderRight.getController(); //type de ton controller
         controllerRight.myfunct(primaryStage, gestion); //la fonction permettant d'ajouter les éléments dans ton controller
         bordPa.setRight(rightNode);
+
+        bordPa.setStyle("-fx-border-color: white");
     }
 
     @Override
