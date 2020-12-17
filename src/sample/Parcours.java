@@ -16,6 +16,7 @@ public class Parcours implements ElementVisitor {
 
 	public Parcours() {
 		photos = new ArrayList<Image>();
+		waypoints = new ArrayList<Waypoint>();
 		fiche = new FicheTech();
 		trace = new Trace();
 	}
@@ -27,6 +28,7 @@ public class Parcours implements ElementVisitor {
 		this.photos = photos;
 		this.trace = trace;
 		this.fiche = fiche;
+		waypoints = new ArrayList<Waypoint>();
 	}
 
 	public String getName() {
