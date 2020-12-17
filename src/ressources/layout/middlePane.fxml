@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.MiddlePaneController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.MiddlePaneController">
    <children>
       <BorderPane fx:id="borPane" layoutY="-2.0" prefHeight="400.0" prefWidth="603.0" AnchorPane.leftAnchor="0.0">
          <top>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #917CC4;" text="Proposition de randonnée" BorderPane.alignment="CENTER_LEFT">
+            <Label fx:id="label" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #917CC4;" text="Proposition de randonnée" BorderPane.alignment="CENTER_LEFT">
                <font>
                   <Font name="DejaVu Sans Oblique" size="14.0" />
                </font>

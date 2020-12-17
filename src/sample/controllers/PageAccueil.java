@@ -12,11 +12,9 @@ import sample.model.GestionnaireParcours;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
-public class PageAccueil implements Initializable {
+public class PageAccueil implements Initializable, Observer {
     public BorderPane bordPa;
     GestionnaireParcours gestion;
     List<Parcours> parcours;
@@ -52,4 +50,8 @@ public class PageAccueil implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    @Override
+    public void update(Observable o, Object arg) {}
+
 }

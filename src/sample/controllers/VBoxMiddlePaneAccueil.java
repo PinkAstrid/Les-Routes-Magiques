@@ -49,8 +49,7 @@ public class VBoxMiddlePaneAccueil implements Initializable, Observer
     public void update(Observable o, Object arg) {
         GestionnaireParcours gestion = (GestionnaireParcours) o;
         System.out.println(gestion.getMarqueurChangementGlobal());
-        if (gestion.getMarqueurChangementGlobal()==1){
-            vBox.getChildren().clear();
+        vBox.getChildren().clear();
             /*List<Parcours> parcours = gestion.getListeParcours();
             for (Parcours pa: parcours) {
                 String fxmlFile = "/ressources/layout/presentParcoursAccueil.fxml"; //vers ta classe
@@ -65,6 +64,5 @@ public class VBoxMiddlePaneAccueil implements Initializable, Observer
                 controller.myFunct(primaryStage, pa, gestion); //la fonction permettant d'ajouter les éléments dans ton controller
                 vBox.getChildren().add(rootNode);
             }*/
-        }
     }
 }

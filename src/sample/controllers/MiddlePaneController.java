@@ -1,8 +1,10 @@
 package sample.controllers;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.Parcours;
@@ -20,6 +22,9 @@ public class MiddlePaneController implements Initializable, Observer {
     public GestionnaireParcours gestion;
     public Stage primaryStage;
     private VBoxMiddlePaneAccueil controller;
+
+    @FXML
+    Label label;
 
     public MiddlePaneController(GestionnaireParcours gestion, Stage primaryStage){
         this.gestion = gestion;
@@ -47,7 +52,15 @@ public class MiddlePaneController implements Initializable, Observer {
     public void update(Observable o, Object arg) {
         GestionnaireParcours gestionnaireParcours = (GestionnaireParcours) o;
         try {
-            controller.initList(gestionnaireParcours.getListeParcours());
+            if(gestionnaireParcours.getMarqueurRecherche()==1) {
+                label.setText("Résultats de recherches");
+                controller.initList(gestionnaireParcours.getListeParcoursRecherches());
+            }
+
+            if(gestionnaireParcours.getMarqueurChangementGlobal()==1) {
+                label.setText("Propositions de randonnées");
+                controller.initList(gestionnaireParcours.getListeParcours());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

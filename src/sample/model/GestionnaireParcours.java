@@ -79,20 +79,20 @@ public class GestionnaireParcours extends Observable {
     public void modifyFavoris(int index, Boolean b) {
         listeParcours.get(index).setFavoris(b);
         //notifying observers
-        this.marqueurRecherche = 1;
+        this.marqueurChangementGlobal= 1;
         setChanged();
         notifyObservers();
-        this.marqueurRecherche = 0;
+        this.marqueurChangementGlobal = 0;
     }
 
     public void setParcours(int index, Parcours p) {
         listeParcours.set(index, p);
 
         //notifying observers
-        this.marqueurRecherche = 1;
+        this.marqueurChangementGlobal = 1;
         setChanged();
         notifyObservers();
-        this.marqueurRecherche = 0;
+        this.marqueurChangementGlobal = 0;
     }
 
     public void setParcoursRecherche(List<Parcours> listeParcoursRecherches) {
