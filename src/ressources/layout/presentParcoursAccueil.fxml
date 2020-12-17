@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.PresentParcoursAccueil">
+<AnchorPane maxHeight="90.0" minHeight="90.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.PresentParcoursAccueil">
    <children>
-      <HBox layoutX="176.0" layoutY="100.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox layoutX="176.0" layoutY="100.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="88.0" prefWidth="600.0" AnchorPane.bottomAnchor="320.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
                <children>
@@ -83,29 +83,15 @@
                         <Insets left="10.0" top="10.0" />
                      </padding>
                   </HBox>
-                  <Label fx:id="descLongue" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="Label" wrapText="true">
-                     <font>
-                        <Font name="DejaVu Sans" size="13.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" top="10.0" />
-                     </padding>
-                  </Label>
                </children>
             </VBox>
-            <VBox spacing="6.0">
-               <children>
-                  <HBox spacing="6.0">
-                     <children>
-                        <Button fx:id="modifier" mnemonicParsing="false" text="Modifier" />
-                        <Button fx:id="supprimer" mnemonicParsing="false" text="Supprimer" onMouseClicked="#supprimer"/>
-                        <Button fx:id="favoris" mnemonicParsing="false" text="Ajouter aux favoris" wrapText="true" />
-                     </children>
-                  </HBox>
-                  <ImageView fx:id="imRando" fitHeight="143.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </VBox>
+            <Button fx:id="modifier" mnemonicParsing="false" style="-fx-background-color: #F9B1CB; -fx-border-color: #5A4C7D;" text="Modifier" />
+            <Button fx:id="supprimer" mnemonicParsing="false" onMouseClicked="#supprimer" style="-fx-background-color: #F9B1CB; -fx-border-color: #5A4C7D;" text="Supprimer" />
+            <Button fx:id="favoris" mnemonicParsing="false" style="-fx-background-color: #F9B1CB; -fx-border-color: #5A4C7D;" text="Ajouter aux favoris" wrapText="true" />
          </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
       </HBox>
    </children>
 </AnchorPane>
