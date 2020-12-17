@@ -11,12 +11,15 @@ import sample.model.GestionnaireParcours;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
-public class MiddlePaneController implements Initializable {
+public class MiddlePaneController implements Initializable, Observer {
     public BorderPane borPane;
     public GestionnaireParcours gestion;
     public Stage primaryStage;
+    private VBoxMiddlePaneAccueil controller;
 
     public MiddlePaneController(GestionnaireParcours gestion, Stage primaryStage){
         this.gestion = gestion;
@@ -30,12 +33,23 @@ public class MiddlePaneController implements Initializable {
         Parent rootNode = fxmlLoader.load();
 
         VBoxMiddlePaneAccueil controller = fxmlLoader.getController(); //type de ton controller
+        this.controller = controller;
         controller.initList(parcoursList); //la fonction permettant d'ajouter les éléments dans ton controller
         borPane.setCenter(rootNode);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        GestionnaireParcours gestionnaireParcours = (GestionnaireParcours) o;
+        try {
+            controller.initList(gestionnaireParcours.getListeParcours());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }

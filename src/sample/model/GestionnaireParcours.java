@@ -43,21 +43,23 @@ public class GestionnaireParcours extends Observable {
     }
 
     public Parcours createParcours(List<Coordonees> chemin, float duree, float distance, float denivele, int difficulte, String title, String description, String details, ArrayList<Image> photos) {
+        System.out.println(listeParcours.size());
         Trace t = new Trace(chemin);
 
         FicheTech ficheTechnique = createFicheTechnique(duree, distance, denivele, difficulte);
 
         Parcours p = new Parcours(title, description, details, photos, ficheTechnique, t);
         listeParcours.add(p);
+        System.out.println(listeParcours.size());
+        //notifying observers
+        this.marqueurChangementGlobal = 1;
+        notifyObservers();
+        this.marqueurChangementGlobal =0;
         return p;
     }
 
     public void ajouterParcours(Parcours p){
         listeParcours.add(p);
-        //notifying observers
-        this.marqueurChangementGlobal = 1;
-        notifyObservers();
-        this.marqueurChangementGlobal =0;
     }
 
     public void supprimerParcours(Parcours p){
