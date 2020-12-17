@@ -47,7 +47,6 @@ public class VBoxMiddlePaneAccueil implements Initializable, Observer
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("hihi");
         GestionnaireParcours gestion = (GestionnaireParcours) o;
         System.out.println(gestion.getMarqueurChangementGlobal());
         if (gestion.getMarqueurChangementGlobal()==1){

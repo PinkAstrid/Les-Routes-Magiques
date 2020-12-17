@@ -115,8 +115,7 @@ public class PresentParcoursAccueil implements Initializable {
 
     public void passerFavoris(MouseEvent mouseEvent) {
         if (favoris.getText().equals("Ajouter aux favoris")) {
-            parc.setFavoris(true);
-            gestion.setParcours(gestion.getListeParcours().indexOf(parc), parc);
+            gestion.modifyFavoris(gestion.getListeParcours().indexOf(parc), true);
 
             Runnable updater = new Runnable() {
                 @Override
@@ -128,8 +127,7 @@ public class PresentParcoursAccueil implements Initializable {
         }
 
         if (favoris.getText().equals("Retirer des favoris")){
-            parc.setFavoris(false);
-            gestion.setParcours(gestion.getListeParcours().indexOf(parc), parc);
+            gestion.modifyFavoris(gestion.getListeParcours().indexOf(parc), false);
 
             Runnable updater = new Runnable() {
                 @Override
