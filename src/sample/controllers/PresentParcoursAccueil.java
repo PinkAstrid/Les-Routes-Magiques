@@ -33,10 +33,12 @@ public class PresentParcoursAccueil implements Initializable {
     private Parcours parc;
 
     private GestionnaireParcours gestion;
+    Stage primaryStage;
 
-    public void myFunct(Parcours parc, GestionnaireParcours gestion){
+    public void myFunct(Stage primaryStage, Parcours parc, GestionnaireParcours gestion){
         this.parc = parc;
         this.gestion = gestion;
+        this.primaryStage = primaryStage;
         VisitorVisualisation vis = new VisitorVisualisation();
         vis.visit(parc);
         this.name.setText(vis.getName());
@@ -79,6 +81,28 @@ public class PresentParcoursAccueil implements Initializable {
         gestion.supprimerParcours(this.parc);
     }
 
-    public void modifier() {}
+    public void modifier(ActionEvent actionEvent) throws IOException {
+        int index =  gestion.getListeParcours().indexOf(parc);
+        FXMLLoader loaderModification = new FXMLLoader();
+        loaderModification.setLocation(getClass().getResource("/ressources/layout/ModifierParcours.fxml"));
+        loaderModification.setControllerFactory(iC -> new ModifierParcoursController(gestion, parc, index));
+        Pane page = loaderModification.load();
+
+        // Create the dialog Stage.
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Modifier un parcours");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(primaryStage);
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+
+        // Set the person into the controller.
+        ModifierParcoursController modifierParcoursController = loaderModification.getController();
+        modifierParcoursController.setDialogStage(dialogStage);
+
+        // Show the dialog and wait until the user closes it
+        dialogStage.showAndWait();
+
+    }
 
 }

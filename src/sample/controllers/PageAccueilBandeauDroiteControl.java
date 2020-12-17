@@ -24,7 +24,7 @@ public class PageAccueilBandeauDroiteControl {
 
         // Create the dialog Stage.
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Edit Person");
+        dialogStage.setTitle("Créer un parcours");
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(primaryStage);
         Scene scene = new Scene(page);
