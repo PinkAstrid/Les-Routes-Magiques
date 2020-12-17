@@ -91,6 +91,8 @@ public class Parcours implements ElementVisitor {
 
 	public Boolean getFavoris() {return favoris;}
 
+	public void setFavoris(Boolean favoris) {this.favoris = favoris;}
+
 	@Override
 	public void accept(Visitor v) {
 		v.visit(fiche);

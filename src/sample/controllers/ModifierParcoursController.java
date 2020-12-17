@@ -39,20 +39,20 @@ public class ModifierParcoursController implements Initializable {
     public Parcours parcours;
     private int index;
 
-    public ModifierParcoursController(GestionnaireParcours gestion, Parcours p, int index){
+    public ModifierParcoursController(GestionnaireParcours gestion, Parcours p, int index) {
         this.gestion = gestion;
         this.parcours = p;
         this.index = index;
-        /*System.out.println(p.getName());
-        System.out.println(p.getDescCourte());
-        System.out.println(p.getFiche().getDenivele());
-        parcoursName.setText(p.getName());
-        parcoursShortDescr.setText(p.getDescCourte());
-        parcoursLongDescr.setText(p.getDescLongue());
-        parcoursDuree.setText(Float.toString(p.getFiche().getDuree()));
-        parcoursDistance.setText(Float.toString(p.getFiche().getDistance()));
-        parcoursDifficulte.setText(Float.toString(p.getFiche().getDifficulte()));
-        parcoursDenivele.setText(Float.toString(p.getFiche().getDenivele()));*/
+    }
+
+    public void initialiserChamps() {
+        parcoursName.setText(parcours.getName());
+        parcoursShortDescr.setText(parcours.getDescCourte());
+        parcoursLongDescr.setText(parcours.getDescLongue());
+        parcoursDuree.setText(Float.toString(parcours.getFiche().getDuree()));
+        parcoursDistance.setText(Float.toString(parcours.getFiche().getDistance()));
+        parcoursDifficulte.setText(Integer.toString(parcours.getFiche().getDifficulte()));
+        parcoursDenivele.setText(Float.toString(parcours.getFiche().getDenivele()));
         // il faut rajouter les photos et coordonnées GPS deja définies
     }
 
@@ -85,8 +85,8 @@ public class ModifierParcoursController implements Initializable {
             parcours.getFiche().setDistance(distance);
             parcours.getFiche().setDifficulte(difficulte);
             parcours.getFiche().setDenivele(denivele);
-            parcours.setPhotos(photos);
-            parcours.setTrace(chemin);
+            //parcours.setPhotos(photos);
+            //parcours.setTrace(chemin);
 
             //Parcours p = gestion.createParcours(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos);
             gestion.setParcours(index, parcours);

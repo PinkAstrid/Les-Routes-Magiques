@@ -89,8 +89,8 @@ public class CreationParcoursControl implements Initializable {
             System.out.println(getLongDescr());
             System.out.println(getShortDescr());
 
-            Parcours p = gestion.createParcours(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos);
-            gestion.ajouterParcours(p);
+            gestion.createParcours(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos);
+
 
             this.dialogStage.close();
         }

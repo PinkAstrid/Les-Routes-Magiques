@@ -20,7 +20,6 @@ public class PageAccueil implements Initializable {
     public BorderPane bordPa;
     GestionnaireParcours gestion;
     List<Parcours> parcours;
-    private Stage primaryStage;
     public PageAccueil(){}
 
     public void initPage(GestionnaireParcours gestion, Stage primaryStage) throws IOException {

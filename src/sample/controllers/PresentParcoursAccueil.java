@@ -99,10 +99,16 @@ public class PresentParcoursAccueil implements Initializable {
         // Set the person into the controller.
         ModifierParcoursController modifierParcoursController = loaderModification.getController();
         modifierParcoursController.setDialogStage(dialogStage);
+        modifierParcoursController.initialiserChamps();
 
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
 
+    }
+
+    public void passerFavoris(ActionEvent actionEvent) {
+        parc.setFavoris(true);
+        gestion.setParcours(gestion.getListeParcours().indexOf(parc), parc);
     }
 
 }
