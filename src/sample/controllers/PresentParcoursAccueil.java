@@ -79,7 +79,7 @@ public class PresentParcoursAccueil implements Initializable {
         ficheTechControl.myFichControl(parc);
 
         // Show the new stage
-        dialogStage.setHeight(1000);
+        dialogStage.setHeight(600);
         dialogStage.setWidth(800);
         dialogStage.show();
     }
