@@ -15,7 +15,7 @@
                <children>
                   <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
                      <children>
-                        <Button fx:id="name" mnemonicParsing="false" style="-fx-background-color: white;" text="Button" textFill="#5a4c7d">
+                        <Button fx:id="name" mnemonicParsing="false" onAction="#visuParcoursDetail" style="-fx-background-color: white;" text="Button" textFill="#5a4c7d">
                            <font>
                               <Font name="DejaVu Sans Bold Oblique" size="13.0" />
                            </font>

@@ -1,12 +1,20 @@
 package sample.controllers;
 
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import sample.FicheTech;
 import sample.Parcours;
 import sample.VisitorVisualisation;
 
+import javafx.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -20,8 +28,10 @@ public class PresentParcoursAccueil implements Initializable {
     public  Label diff;
     public  Label descLongue;
     public  ImageView imRando;
+    private Parcours parc;
 
     public void myFunct(Parcours parc){
+        this.parc = parc;
         VisitorVisualisation vis = new VisitorVisualisation();
         vis.visit(parc);
         this.name.setText(vis.getName());
@@ -40,5 +50,28 @@ public class PresentParcoursAccueil implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void visuParcoursDetail (ActionEvent actionEvent) throws IOException {
+        //Load
+        FXMLLoader loaderDetail = new FXMLLoader();
+        loaderDetail.setLocation(getClass().getResource("/ressources/layout/FicheTech.fxml"));
+        Pane page = loaderDetail.load();
+
+        // Create the dialog Stage.
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle(name.getText());
+        dialogStage.initModality(Modality.NONE);
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+
+        // Set the person into the controller.
+        FicheTechControl ficheTechControl = loaderDetail.getController();
+        ficheTechControl.myFichControl(parc);
+
+        // Show the new stage
+        dialogStage.setHeight(1000);
+        dialogStage.setWidth(800);
+        dialogStage.show();
     }
 }
