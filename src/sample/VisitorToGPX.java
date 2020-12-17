@@ -32,7 +32,10 @@ public class VisitorToGPX implements Visitor{
 
 	@Override
 	public void visit(Waypoint wpt) {
-
+		str += "\t<wpt lat=\\\""+wpt.getCords().lattitude+"\" lon=\""+wpt.getCords().longitude+"\">\n";
+		str += "\t\t<ele>"+wpt.getCords().elevation+"</ele>\n";
+		str += "\t\t<name>"+wpt.getName()+"</name>\n";
+		str += "\t</wpt>\n";
 	}
 
 	@Override
@@ -42,5 +45,10 @@ public class VisitorToGPX implements Visitor{
 		trace.accept(this);
 		str += "\t\t</trkseg>\n" +
 				"\t</trk>\n";
+	}
+
+	@Override
+	public String toString() {
+		return str;
 	}
 }
