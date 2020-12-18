@@ -45,7 +45,7 @@ public class GestionnaireParcours extends Observable {
         return ficheTechnique;
     }
 
-    public Parcours createParcours(List<Coordonees> chemin, float duree, float distance, float denivele, int difficulte, String title, String description, String details, ArrayList<Image> photos, List<Waypoint> waypoints) {
+    public Parcours createParcours(List<Coordonees> chemin, float duree, float distance, float denivele, int difficulte, String title, String description, String details, List<Image> photos, List<Waypoint> waypoints) {
         Trace t = new Trace(chemin);
 
         FicheTech ficheTechnique = createFicheTechnique(duree, distance, denivele, difficulte);

@@ -9,6 +9,7 @@ public class Parcours implements ElementVisitor {
 	String name;
 	String descCourte;
 	String descLongue;
+	List<String> names;
 	List<Image> photos;
 	List<Waypoint> waypoints;
 	FicheTech fiche;
@@ -42,7 +43,8 @@ public class Parcours implements ElementVisitor {
 	 * @param waypoints
 	 * points d'arrêts du parcours
 	 */
-	public Parcours(String name, String description, String details, ArrayList<Image> photos, FicheTech fiche, Trace trace, List<Waypoint> waypoints){
+
+	public Parcours(String name, String description, String details, List<Image> photos, FicheTech fiche, Trace trace, List<Waypoint> waypoints){
 		this.name = name;
 		this.descCourte = description;
 		this.descLongue = details;
@@ -116,9 +118,12 @@ public class Parcours implements ElementVisitor {
 	 * mise à jour des photos du parcours
 	 * @param photos
 	 * nouvelle liste de photos à donner au parcours
+	 * @param names
+	 * nouvelle liste des noms de fichier des photos du parcours
 	 */
-	public void setPhotos(List<Image> photos) {
+	public void setPhotos(List<Image> photos, List<String> names) {
 		this.photos = photos;
+		this.names = names;
 	}
 
 	/**

@@ -29,7 +29,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -59,7 +64,11 @@ public class CreationParcoursControl implements Initializable {
     public GestionnaireParcours gestion;
     public Parcours parcours;
     private MapCreationParcours mapCreationParcours;
+    private List<Image> images = new ArrayList<Image>();
     private List<String> pathImage = new ArrayList<String>();
+    private Path source;
+    private Path destination;
+    private String name;
     private String pathGPX = "";
 
     public CreationParcoursControl(GestionnaireParcours gestion) {
@@ -101,11 +110,6 @@ public class CreationParcoursControl implements Initializable {
         this.dialogStage.close();
     }
 
-    public void setParcours(Parcours p){
-        this.parcours = p;
-
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -117,12 +121,10 @@ public class CreationParcoursControl implements Initializable {
             float distance = Float.parseFloat(getDistance());
             int difficulte = Integer.parseInt(getDiff());
             float denivele = Float.parseFloat(getDenivele());
-            ArrayList<Image> photos = new ArrayList<Image>();
             List<Coordonees> chemin = mapCreationParcours.getTrace().getChemin();
             List<Waypoint> waypoints = mapCreationParcours.getWaypoints();
 
-            gestion.createParcours(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos, waypoints);
-
+            gestion.createParcours(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), images, waypoints);
 
             this.dialogStage.close();
         }
@@ -134,17 +136,24 @@ public class CreationParcoursControl implements Initializable {
     }
 
 
-    public void choixFichier(MouseEvent mouseEvent) throws IOException {
+    public void choixFichier(MouseEvent mouseEvent) throws IOException, URISyntaxException {
         FileChooser dialogue = new FileChooser();
 
         List<File> fichiers = dialogue.showOpenMultipleDialog(dialogStage);
+
         if (fichiers != null) {
             for(File f : fichiers) {
-                pathImage.add(f.getPath());
+                name = f.getName();
+                source = Paths.get(f.getAbsolutePath());
+                Path tmp = Paths.get(getClass().getResource("/images").toURI());
+                destination = Paths.get(tmp.toString(),name);
+                try {
+                    Files.copy(source, destination);
+                } catch (IOException e){}
+                pathImage.add(name);
+                images.add(new Image("/images/"+name));
             }
-            System.out.printf(pathImage.get(0));
-            Image i = new Image(getClass().getResource(pathImage.get(0)).toExternalForm());
-            photos.setImage(i);
+            photos.setImage(images.get(0));
         }
     }
 
