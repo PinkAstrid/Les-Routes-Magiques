@@ -1,6 +1,7 @@
 package sample.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,6 +17,8 @@ public class PageAccueilBandeauDroiteControl {
     public Button fav;
     private Stage primaryStage;
     private GestionnaireParcours gestion;
+    @FXML
+    private Button save;
 
     public void creerPopup(ActionEvent actionEvent) throws IOException {
 
@@ -51,5 +54,9 @@ public class PageAccueilBandeauDroiteControl {
 
     public void afficherFav(MouseEvent actionEvent) {
         gestion.afficherFav();
+    }
+
+    public void save(MouseEvent mouseEvent) {
+        gestion.exportParcours("GPX/");
     }
 }

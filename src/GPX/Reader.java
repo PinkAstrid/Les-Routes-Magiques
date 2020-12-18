@@ -49,16 +49,15 @@ public class Reader {
 	 */
 	public static Reader CreateReader(String filePath) {
 		try {
-			Reader r = new Reader(filePath);
-			return r;
-		}catch (IOException ioException){
-			System.err.println("IO error");
-		}catch (SAXException saxException){
-			System.err.println("parsing error");
-		}catch (ParserConfigurationException parserConfigurationException){
-			System.err.println("Parser configuration error");
+			return new Reader(filePath);
+		}catch (IOException | ParserConfigurationException | SAXException e){
+			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public File getFile() {
+		return file;
 	}
 
 	/**
@@ -295,8 +294,8 @@ public class Reader {
 	public Parcours getParcours(){
 		Parcours p = new Parcours();
 		p.setName(this.getParcoursName());
-		p.setDescCourte(this.getDetails());
-		p.setDescLongue(this.getDescription());
+		p.setDescCourte(this.getDescription());
+		p.setDescLongue(this.getDetails());
 		p.setFiche(this.getFiche());
 		p.setTrace(this.getTrace());
 		p.setWaypoints(this.getWaypoints());

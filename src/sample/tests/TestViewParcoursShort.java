@@ -36,8 +36,10 @@ public class TestViewParcoursShort extends Application {
 
         GestionnaireParcours gestion = new GestionnaireParcours();
 
-        gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre1", "description", "details", photos, new ArrayList<>());
-        gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre2", "description", "details", photos, new ArrayList<>());
+        // gestion.createParcours(list, 2.5f, 5.0f, 200, 1, "titre1", "description", "details", photos, new ArrayList<>());
+        // gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre2", "description", "details", photos, new ArrayList<>());
+
+        gestion.importParcours("GPX/");
 
         String fxmlFile = "/ressources/layout/pageAccueil.fxml";
 

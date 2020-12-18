@@ -1,5 +1,6 @@
 package sample.controllers;
 
+import GPX.Reader;
 import com.sothawo.mapjfx.Projection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -153,6 +154,9 @@ public class CreationParcoursControl implements Initializable {
         File fichier = dialogue.showOpenDialog(dialogStage);
         if (fichier != null) {
             pathGPX = fichier.getPath();
+            Reader r = Reader.CreateReader(pathGPX);
+            Parcours p = r.getParcours();
+            mapCreationParcours.addParcours(p);
         }
     }
 }

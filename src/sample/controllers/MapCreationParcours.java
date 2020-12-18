@@ -13,6 +13,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import sample.Coordonees;
+import sample.Parcours;
 import sample.Trace;
 import sample.Waypoint;
 
@@ -225,6 +226,31 @@ public class MapCreationParcours {
 			list.add(new Waypoint(new Coordonees(m.getPosition().getLatitude().floatValue(), m.getPosition().getLongitude().floatValue(), 0f), name));
 		}
 		return list;
+	}
+
+	public void addParcours(Parcours p){
+		Marker marker;
+		MapLabel label;
+		for (Waypoint w : p.getWaypoints()){
+			marker = new Marker(getClass().getResource("/ressources/images/ressource/blackmarker.png"), -25, -50).setPosition(new Coordinate((double)w.getCords().getLattitude(), (double)w.getCords().getLongitude())).setVisible(true);
+			label = new MapLabel(w.getName()).setVisible(true);
+			marker.attachLabel(label);
+			followedMarker.add(marker);
+			followedLabel.add(label);
+			mapView.addMarker(marker);
+			mapView.addLabel(label);
+		}
+
+		final List<Coordinate> coordinates = new ArrayList<>(p.getTrace().getListCoordinates());
+		if (polygonLine != null) {
+			mapView.removeCoordinateLine(polygonLine);
+			polygonLine = null;
+		}
+		polygonLine = new CoordinateLine(coordinates)
+				.setColor(Color.DODGERBLUE)
+				.setClosed(false);
+		mapView.addCoordinateLine(polygonLine);
+		polygonLine.setVisible(true);
 	}
 
 }

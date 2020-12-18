@@ -60,6 +60,17 @@ public class GestionnaireParcours extends Observable {
         return p;
     }
 
+	public Parcours createParcours(Parcours p) {
+		p.setFavoris(false);
+		listeParcours.add(p);
+		//notifying observers
+		this.marqueurChangementGlobal = 1;
+		setChanged();
+		notifyObservers();
+		this.marqueurChangementGlobal =0;
+		return p;
+	}
+
     public void ajouterParcours(Parcours p){
         listeParcours.add(p);
     }
@@ -116,8 +127,14 @@ public class GestionnaireParcours extends Observable {
         File[] files = folder.toFile().listFiles();
         Reader r;
         for (int i = 0; i < files.length; i++){
-            r = Reader.CreateReader(files[i].getName());
-            listeParcours.add(r.getParcours());
+            r = Reader.CreateReader(files[i].getAbsolutePath());
+            File f = r.getFile();
+
+			String newName = r.getParcoursName();
+			File newFile = new File(newName);
+			f.renameTo(newFile);
+
+            this.createParcours(r.getParcours());
         }
     }
 
