@@ -100,7 +100,7 @@ public class FicheTech implements ElementVisitor {
 	}
 
 	/**
-	 * override accepte du parcours
+	 * override accepte de la fiche technique
 	 * @param v
 	 * visiteur à accepter
 	 */
