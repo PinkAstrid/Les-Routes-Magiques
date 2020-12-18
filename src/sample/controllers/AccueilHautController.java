@@ -2,6 +2,7 @@ package sample.controllers;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
@@ -34,6 +35,8 @@ public class AccueilHautController {
     public TextField durMaxT;
     @FXML
     public TextField rechercheT;
+    @FXML
+    public Label erreur;
 
     GestionnaireParcours gestion;
     /**
@@ -74,6 +77,7 @@ public class AccueilHautController {
         String durMaxS = getdurMax();
         String recherche = getRecherche();
 
+        erreur.setText("");
 
         try {
             if(distMinS.length() != 0) {
@@ -126,6 +130,7 @@ public class AccueilHautController {
 
         }
         catch(Exception e) {
+            erreur.setText("ATTENTION : Il y a une erreur dans votre recherche.");
             System.out.println("There is a problem with your input");
         }
     }

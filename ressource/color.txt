@@ -1,3 +1,0 @@
-pink #F9B1CB
-violet #917CC4
-dark violet #5A4C7D

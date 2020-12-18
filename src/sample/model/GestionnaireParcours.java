@@ -126,6 +126,7 @@ public class GestionnaireParcours extends Observable {
         Path folder = Paths.get(path);
         File[] files = folder.toFile().listFiles();
         Reader r;
+
         for (int i = 0; i < files.length; i++){
             r = Reader.CreateReader(files[i].getAbsolutePath());
             File f = r.getFile();
