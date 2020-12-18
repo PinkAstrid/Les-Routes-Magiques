@@ -85,7 +85,10 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <children>
                         <Button mnemonicParsing="false" onMouseClicked="#choixFichier" prefHeight="27.0" prefWidth="77.0" text="Ajouter" />
-                        <ImageView fx:id="photos" fitHeight="89.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="photos" fitHeight="86.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/ressource/photo.png" />
+                           </image></ImageView>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="8">

@@ -40,7 +40,7 @@ public class FicheTechControl implements Initializable {
     @FXML
     private Label denivele;
     @FXML
-    private ImageView imRando0;
+    private GridPane imRando;
     @FXML
     private AnchorPane graphDenivele;
 
@@ -58,7 +58,15 @@ public class FicheTechControl implements Initializable {
         denivele.setText(v.getDenivele()+"m");
 
         if (!v.getPhotos().isEmpty()){
-            imRando0.setImage(v.getPhotos().get(0));
+            int taille = v.getPhotos().size();
+            if(taille > 4) {
+                taille = 4;
+            }
+            for(int i=0; i<taille; i++){
+                ImageView image = (ImageView) imRando.getChildren().get(i);
+                image.setImage(v.getPhotos().get(i));
+            }
+
         }
 
         //Def carte

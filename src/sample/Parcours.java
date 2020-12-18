@@ -9,6 +9,7 @@ public class Parcours implements ElementVisitor {
 	String name;
 	String descCourte;
 	String descLongue;
+	List<String> names;
 	List<Image> photos;
 	List<Waypoint> waypoints;
 	FicheTech fiche;
@@ -22,7 +23,7 @@ public class Parcours implements ElementVisitor {
 		trace = new Trace();
 	}
 
-	public Parcours(String name, String description, String details, ArrayList<Image> photos, FicheTech fiche, Trace trace, List<Waypoint> waypoints){
+	public Parcours(String name, String description, String details, List<Image> photos, FicheTech fiche, Trace trace, List<Waypoint> waypoints){
 		this.name = name;
 		this.descCourte = description;
 		this.descLongue = details;
@@ -61,8 +62,10 @@ public class Parcours implements ElementVisitor {
 		return photos;
 	}
 
-	public void setPhotos(List<Image> photos) {
+	public void setPhotos(List<Image> photos, List<String> names) {
+
 		this.photos = photos;
+		this.names = names;
 	}
 
 	public List<Waypoint> getWaypoints() {
