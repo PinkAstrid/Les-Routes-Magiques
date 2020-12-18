@@ -9,7 +9,7 @@
    <children>
       <BorderPane fx:id="borPane" layoutY="-2.0" prefHeight="400.0" prefWidth="603.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0">
          <top>
-            <Label fx:id="label" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #917CC4; -fx-border-color: #917CC4;" text="Proposition de randonnée" BorderPane.alignment="CENTER_LEFT">
+            <Label fx:id="label" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #917CC4; -fx-border-color: #917CC4;" text="Propositions de randonnée" BorderPane.alignment="CENTER_LEFT">
                <font>
                   <Font name="DejaVu Sans Oblique" size="14.0" />
                </font>
