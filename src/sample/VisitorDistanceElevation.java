@@ -33,10 +33,13 @@ public class VisitorDistanceElevation implements Visitor{
 	public List<Float> getElevation(){ return elevation; }
 
 	/**
-	 *
+	 * fonction calculant la distance entre deux point géographiquement
 	 * @param c1
+	 * 		coordonnées de départ
 	 * @param c2
+	 * 		coordonnées d'arrivée
 	 * @return
+	 * 		distance en longitude et lattitude
 	 */
 	public double haversine(Coordonees c1, Coordonees c2){
 		double DLat = Math.toRadians(c2.lattitude - c1.lattitude);
@@ -61,6 +64,11 @@ public class VisitorDistanceElevation implements Visitor{
 
 	}
 
+	/**
+	 * override visite coordonnées
+	 * @param cord
+	 * 		coordonnées à visiter
+	 */
 	@Override
 	public void visit(Coordonees cord) {
 		float d = 0f;
@@ -80,11 +88,21 @@ public class VisitorDistanceElevation implements Visitor{
 		cord.accept(this);
 	}
 
+	/**
+	 * override visite waypoint
+	 * @param wpt
+	 * 		waypoint à visiter
+	 */
 	@Override
 	public void visit(Waypoint wpt) {
 		wpt.accept(this);
 	}
 
+	/**
+	 * override visite trace
+	 * @param trace
+	 * 		trace à visiter
+	 */
 	@Override
 	public void visit(Trace trace) {
 		trace.accept(this);
