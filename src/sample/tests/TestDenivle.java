@@ -1,3 +1,5 @@
+package sample.tests;
+
 import GPX.Reader;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
