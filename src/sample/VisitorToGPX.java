@@ -4,6 +4,11 @@ public class VisitorToGPX implements Visitor{
 
 	public String str = "";
 
+	/**
+	 * override visite d'un parcours GPX
+	 * @param parc
+	 * parcours à visiter
+	 */
 	@Override
 	public void visit(Parcours parc) {
 		str += "\t<metadata>\n";
@@ -13,6 +18,11 @@ public class VisitorToGPX implements Visitor{
 		parc.accept(this);
 	}
 
+	/**
+	 * override visite d'un parcours GPX
+	 * @param fiche
+	 * fiche technique à visiter
+	 */
 	@Override
 	public void visit(FicheTech fiche) {
 
@@ -23,6 +33,11 @@ public class VisitorToGPX implements Visitor{
 		str += "\t</metadata>\n";
 	}
 
+	/**
+	 * override visite des coordonnées d'un parcours GPX
+	 * @param cord
+	 * coordonnées à visiter
+	 */
 	@Override
 	public void visit(Coordonees cord) {
 		str += "\t\t\t<trkpt lat=\""+cord.lattitude+"\" lon=\""+cord.longitude+"\">\n";
@@ -30,6 +45,11 @@ public class VisitorToGPX implements Visitor{
 		str += "\t\t\t</trkpt>\n";
 	}
 
+	/**
+	 * override visite des waypoints d'un parcours GPX
+	 * @param wpt
+	 * waypoints à visiter
+	 */
 	@Override
 	public void visit(Waypoint wpt) {
 		str += "\t<wpt lat=\\\""+wpt.getCords().lattitude+"\" lon=\""+wpt.getCords().longitude+"\">\n";
@@ -38,6 +58,10 @@ public class VisitorToGPX implements Visitor{
 		str += "\t</wpt>\n";
 	}
 
+	/**
+	 * override visite des coordonnées d'un parcours GPX
+	 * @param trace
+	 */
 	@Override
 	public void visit(Trace trace) {
 		str += "\t<trk>\n" +
@@ -47,6 +71,11 @@ public class VisitorToGPX implements Visitor{
 				"\t</trk>\n";
 	}
 
+	/**
+	 * fonction récupérant les éléments du parcours passés en chaîne de caractères
+	 * @return
+	 * ensemble des données du parcours passé en chaîne de caractères
+	 */
 	@Override
 	public String toString() {
 		return str;

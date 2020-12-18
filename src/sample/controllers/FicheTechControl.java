@@ -44,8 +44,18 @@ public class FicheTechControl implements Initializable {
     @FXML
     private AnchorPane graphDenivele;
 
+    /**
+     * Controleur
+     */
     public FicheTechControl(){}
 
+    /**
+     * fonction permettant de générer et afficher la fiche technique d'un parcours
+     * @param p
+     *      parcours dont les informations doivent être affichées
+     * @throws IOException
+     *      si le fichier est invalide
+     */
     public void myFichControl(Parcours p) throws IOException {
         VisitorVisualisation v = new VisitorVisualisation();
         v.visit(p);
