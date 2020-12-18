@@ -3,15 +3,17 @@ package sample.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import sample.controllers.CreationParcoursControl;
 import sample.model.GestionnaireParcours;
 
 import java.io.IOException;
 
 public class PageAccueilBandeauDroiteControl {
+    public Button fav;
     private Stage primaryStage;
     private GestionnaireParcours gestion;
 
@@ -45,5 +47,9 @@ public class PageAccueilBandeauDroiteControl {
     public void myfunct(Stage primaryStage, GestionnaireParcours gestion){
         this.primaryStage = primaryStage;
         this.gestion = gestion;
+    }
+
+    public void afficherFav(MouseEvent actionEvent) {
+        gestion.afficherFav();
     }
 }

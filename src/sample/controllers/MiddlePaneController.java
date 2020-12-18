@@ -54,14 +54,20 @@ public class MiddlePaneController implements Initializable, Observer {
     public void update(Observable o, Object arg) {
         GestionnaireParcours gestionnaireParcours = (GestionnaireParcours) o;
         try {
-            if(gestionnaireParcours.getMarqueurRecherche()==1) {
-                label.setText("Résultats de recherches");
-                controller.initList(gestionnaireParcours.getListeParcoursRecherches());
+            if (gestionnaireParcours.getMarqueurFav()==1){
+                label.setText("Liste des favoris");
+                controller.initList(gestionnaireParcours.getListeFav());
             }
+            else {
+                if (gestionnaireParcours.getMarqueurRecherche() == 1) {
+                    label.setText("Résultats de recherches");
+                    controller.initList(gestionnaireParcours.getListeParcoursRecherches());
+                }
 
-            if(gestionnaireParcours.getMarqueurChangementGlobal()==1) {
-                label.setText("Propositions de randonnées");
-                controller.initList(gestionnaireParcours.getListeParcours());
+                if (gestionnaireParcours.getMarqueurChangementGlobal() == 1) {
+                    label.setText("Propositions de randonnées");
+                    controller.initList(gestionnaireParcours.getListeParcours());
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

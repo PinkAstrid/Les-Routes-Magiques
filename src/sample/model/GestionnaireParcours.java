@@ -19,12 +19,15 @@ import java.util.stream.Stream;
 public class GestionnaireParcours extends Observable {
     private List<Parcours> listeParcours;
     private List<Parcours> listeParcoursRecherches;
+    private List<Parcours> listeFav;
     int marqueurRecherche;
     int marqueurChangementGlobal;
+    int marqueurFav;
 
     public GestionnaireParcours() {
         listeParcours = new ArrayList<Parcours>();
         listeParcoursRecherches = new ArrayList<Parcours>();
+        listeFav = new ArrayList<Parcours>();
     }
     public GestionnaireParcours(String path) {
         listeParcours = new ArrayList<Parcours>();
@@ -76,6 +79,8 @@ public class GestionnaireParcours extends Observable {
 
     public void modifyFavoris(int index, Boolean b) {
         listeParcours.get(index).setFavoris(b);
+        if (b){listeFav.add(listeParcours.get(index));}
+        else{listeFav.remove(listeParcours.get(index));}
         //notifying observers
         this.marqueurChangementGlobal= 1;
         setChanged();
@@ -151,5 +156,15 @@ public class GestionnaireParcours extends Observable {
 
     public int getMarqueurRecherche() {
         return marqueurRecherche;
+    }
+
+    public List<Parcours> getListeFav() { return listeFav; }
+
+    public int getMarqueurFav() { return marqueurFav;}
+
+    public void afficherFav(){
+        this.marqueurFav=1;
+        setChanged();
+        notifyObservers();
     }
 }
