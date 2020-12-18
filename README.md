@@ -8,6 +8,7 @@ Comment lancer
 `java -jar %nom_de_lexecutable%.jar`
 
 les exécutables se trouvent dans le dossier `out/artifacts`. Vous pouvez choisir quel version utiliser ici.
+Le rendu final se trouve dans le dossier `RELEASE_FINAL`.
 
 Les features ★
 ---
@@ -26,6 +27,8 @@ Import des parcours au format gpx, ils sont lu et stocké dans le dossier GPX à
 Definir un parcours comme un favoris, il est aussi possible de n'afficher queles favoris grâce au bouton dans la colonne de droite.
 
 Apres une recherche, ou avoir choisi de n'afficher que les favoris, pour revenir à la premiere page, cliquer sur le logo licorne en haut à gauche.
+
+Il est possible de sauvegarder les parcours avec le bouton 'Sauvegarde' à droite de la fenêtre.
 
 
 Carte interactive
