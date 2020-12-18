@@ -101,6 +101,7 @@ public class GestionnaireParcours extends Observable {
     public void setParcoursRecherche(List<Parcours> listeParcoursRecherches) {
         this.listeParcoursRecherches = listeParcoursRecherches;
         //notifying observers
+        this.marqueurFav = 0;
         this.marqueurRecherche = 1;
         setChanged();
         notifyObservers();
@@ -162,6 +163,7 @@ public class GestionnaireParcours extends Observable {
     public int getMarqueurFav() { return marqueurFav;}
 
     public void afficherFav(){
+        this.marqueurRecherche=0;
         this.marqueurFav=1;
         setChanged();
         notifyObservers();
