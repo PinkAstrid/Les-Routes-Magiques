@@ -6,9 +6,13 @@ import sample.VisitorToGPX;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.Normalizer;
+import java.util.regex.Pattern;
 
 public class Writer {
 	File file;
@@ -48,7 +52,8 @@ public class Writer {
 			v.visit(parc);
 			fw.write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n");
 			fw.write("<gpx version=\"1.1\" creator=\"Telecorne Viking\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.topografix.com/GPX/1/1\" xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">\n");
-			fw.write(v.str);
+			String str = normalizeSymbolsAndAccents(v.str);
+			fw.write(str);
 			fw.write("</gpx>");
 			fw.close();
 		} catch (IOException ioException) {
@@ -56,5 +61,10 @@ public class Writer {
 		}
 	}
 
+	public static String normalizeSymbolsAndAccents(String str) {
+		String nfdNormalizedString = Normalizer.normalize(str, Normalizer.Form.NFD);
+		Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+		return pattern.matcher(nfdNormalizedString).replaceAll("");
+	}
 
 }

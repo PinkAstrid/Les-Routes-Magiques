@@ -137,7 +137,7 @@ public class CreationParcoursControl implements Initializable {
 
 
     public void choixFichier(MouseEvent mouseEvent) throws IOException, URISyntaxException {
-        FileChooser dialogue = new FileChooser();
+        /*FileChooser dialogue = new FileChooser();
 
         List<File> fichiers = dialogue.showOpenMultipleDialog(dialogStage);
 
@@ -145,16 +145,16 @@ public class CreationParcoursControl implements Initializable {
             for(File f : fichiers) {
                 name = f.getName();
                 source = Paths.get(f.getAbsolutePath());
-                Path tmp = Paths.get(getClass().getResource("/images").toURI());
-                destination = Paths.get(tmp.toString(),name);
+                Path tmp = Paths.get("images");
+                destination = Paths.get(tmp.toString(), name);
                 try {
                     Files.copy(source, destination);
                 } catch (IOException e){}
                 pathImage.add(name);
-                images.add(new Image("/images/"+name));
+                images.add(new Image("/images/" + name));
             }
             photos.setImage(images.get(0));
-        }
+        }*/
     }
 
     public void chargerGPX(MouseEvent mouseEvent) {

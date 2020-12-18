@@ -2,11 +2,10 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="466.0" prefWidth="964.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.CreationParcoursControl">
+<AnchorPane prefHeight="466.0" prefWidth="964.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.CreationParcoursControl">
     <children>
       <HBox prefHeight="466.0" prefWidth="964.0" spacing="10.0">
          <children>
@@ -23,7 +22,6 @@
                       <RowConstraints maxHeight="95.0" minHeight="9.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="108.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="96.0" minHeight="7.0" prefHeight="34.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="164.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
                   </rowConstraints>
@@ -58,17 +56,12 @@
                               <Font name="DejaVu Sans Bold" size="12.0" />
                           </font>
                   </Label>
-                      <Label text="Photos :" textFill="#917cc4" GridPane.rowIndex="7">
-                          <font>
-                              <Font name="DejaVu Sans Bold" size="12.0" />
-                          </font>
-                  </Label>
                       <Label text="Description courte :" textFill="#917cc4" GridPane.rowIndex="1">
                           <font>
                               <Font name="DejaVu Sans Bold" size="12.0" />
                           </font>
                   </Label>
-                      <Label prefHeight="30.0" prefWidth="136.0" text="Visualisation du parcours :" textFill="#917cc4" wrapText="true" GridPane.rowIndex="8">
+                      <Label prefHeight="30.0" prefWidth="136.0" text="Visualisation du parcours :" textFill="#917cc4" wrapText="true" GridPane.rowIndex="7">
                           <font>
                               <Font name="DejaVu Sans Bold" size="12.0" />
                           </font>
@@ -80,18 +73,9 @@
                       <TextField fx:id="parcoursDistance" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                       <TextField fx:id="parcoursDifficulte" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                       <TextField fx:id="parcoursDenivele" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#validerParcours" prefHeight="25.0" prefWidth="50.0" text="Créer" GridPane.rowIndex="9" />
-                      <Button mnemonicParsing="false" onAction="#handleCancel" text="Annuler" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                     <children>
-                        <Button mnemonicParsing="false" onMouseClicked="#choixFichier" prefHeight="27.0" prefWidth="77.0" text="Ajouter" />
-                        <ImageView fx:id="photos" fitHeight="86.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/ressource/photo.png" />
-                           </image></ImageView>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#validerParcours" prefHeight="25.0" prefWidth="50.0" text="Créer" GridPane.rowIndex="8" />
+                      <Button mnemonicParsing="false" onAction="#handleCancel" text="Annuler" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>

@@ -22,6 +22,7 @@ public class Parcours implements ElementVisitor {
 	public Parcours() {
 		photos = new ArrayList<Image>();
 		waypoints = new ArrayList<Waypoint>();
+		names = new ArrayList<>();
 		fiche = new FicheTech();
 		trace = new Trace();
 	}
@@ -49,6 +50,7 @@ public class Parcours implements ElementVisitor {
 		this.descCourte = description;
 		this.descLongue = details;
 		this.photos = photos;
+		names = new ArrayList<>();
 		this.trace = trace;
 		this.fiche = fiche;
 		this.waypoints = waypoints;
@@ -189,6 +191,14 @@ public class Parcours implements ElementVisitor {
 	 * nouvelle valeur du favoris du parcours
 	 */
 	public void setFavoris(Boolean favoris) {this.favoris = favoris;}
+
+	/**
+	 * @return
+	 * liste des nome de fichiers des images du parcours
+	 */
+	public List<String> getImagesNames(){
+		return names;
+	}
 
 	/**
 	 * override accepte pour le parcours, doit accepter la fiche technique, l'ensemble des points d'arrêts et la trace
