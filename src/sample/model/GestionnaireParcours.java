@@ -130,7 +130,7 @@ public class GestionnaireParcours extends Observable {
             r = Reader.CreateReader(files[i].getAbsolutePath());
             File f = r.getFile();
 
-			String newName = r.getParcoursName();
+			String newName = "GPX/" + r.getParcoursName() + ".gpx";
 			File newFile = new File(newName);
 			f.renameTo(newFile);
 

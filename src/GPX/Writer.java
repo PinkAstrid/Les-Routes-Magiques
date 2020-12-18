@@ -35,6 +35,7 @@ public class Writer {
 			Writer w = new Writer(filePath);
 			return w;
 		} catch (IOException ioException) {
+			System.err.println(filePath);
 			ioException.printStackTrace();
 		}
 		return null;

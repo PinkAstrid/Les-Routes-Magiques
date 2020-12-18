@@ -52,7 +52,7 @@ public class VisitorToGPX implements Visitor{
 	 */
 	@Override
 	public void visit(Waypoint wpt) {
-		str += "\t<wpt lat=\\\""+wpt.getCords().lattitude+"\" lon=\""+wpt.getCords().longitude+"\">\n";
+		str += "\t<wpt lat=\""+wpt.getCords().lattitude+"\" lon=\""+wpt.getCords().longitude+"\">\n";
 		str += "\t\t<ele>"+wpt.getCords().elevation+"</ele>\n";
 		str += "\t\t<name>"+wpt.getName()+"</name>\n";
 		str += "\t</wpt>\n";

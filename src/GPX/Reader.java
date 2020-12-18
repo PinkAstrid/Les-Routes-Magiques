@@ -51,6 +51,7 @@ public class Reader {
 		try {
 			return new Reader(filePath);
 		}catch (IOException | ParserConfigurationException | SAXException e){
+			System.err.println(e.getClass());
 			e.printStackTrace();
 		}
 		return null;

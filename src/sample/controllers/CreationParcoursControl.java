@@ -157,6 +157,20 @@ public class CreationParcoursControl implements Initializable {
             Reader r = Reader.CreateReader(pathGPX);
             Parcours p = r.getParcours();
             mapCreationParcours.addParcours(p);
+            if (r.getParcoursName() != "")
+                parcoursName.setText(r.getParcoursName());
+            if (r.getDescription() != "")
+                parcoursShortDescr.setText(r.getDescription());
+            if (r.getDetails() != "")
+                parcoursLongDescr.setText(r.getDetails());
+            if (r.getDistance() != 0f)
+                parcoursDistance.setText(r.getDistance() + "");
+            if (r.getDuree() != 0f)
+                parcoursDuree.setText(r.getDuree() + "");
+            if (r.getDenivele() != 0f)
+                parcoursDenivele.setText(r.getDenivele() + "");
+            if (r.getDificulte() != 0f)
+                parcoursDifficulte.setText(r.getDificulte() + "");
         }
     }
 }
