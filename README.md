@@ -12,15 +12,20 @@ les exécutables se trouvent dans le dossier `out/artifacts`. Vous pouvez choisi
 Les features ★
 ---
 Lister les parcours enregistrés
-Faire une recherche dans les parcours avec les zones de recherches en haut à droite. Il n'est pas obligé de remplir un champ, et pour lancer la recherche vous pouvez cliquer sur la loupe ou appuyer sur la touche Entrée.
+Faire une recherche dans les parcours avec les zones de recherches en haut à droite. Il n'est pas obligé de remplir un champ. Pour lancer la recherche vous pouvez cliquer sur la loupe ou appuyer sur la touche Entrée.
 
-Création et suppression d'un parcours grâce aux boutons à droite de la fenêtre d'accueil.
+Création d'un parcours grâce au bouton à droite de la fenêtre d'accueil.
+Modification et suppression d'un parcours grâce aux boutons dans la liste.
 
 Affichage des détails d'un parcours dans sa fenêtre en cliquant sur son titre
 Affichage sur une carte du tracé d'un parcours
-affichage du dénivelé du parcours dans un graphique
+Affichage du dénivelé du parcours dans un graphique
 
-Import et Export des parcours au format gpx, ils sont lu et stocké dans le dossier GPX à coté de exécutable
+Import des parcours au format gpx, ils sont lu et stocké dans le dossier GPX à coté de l'exécutable
+
+Definir un parcours comme un favoris, il est aussi possible de n'afficher queles favoris grâce au bouton dans la colonne de droite.
+
+Apres une recherche, ou avoir choisi de n'afficher que les favoris, pour revenir à la premiere page, cliquer sur le logo licorne en haut à gauche.
 
 
 Carte interactive
@@ -31,5 +36,17 @@ Le sélecteur à droite permet de choisir entre l'ajout d'un point du chemin et 
 Un clique gauche sur label permet de changer son nom. Écrire dans la zone de texte qui s'est ouvert à droite puis appuyez sur entrée.
 
 Un clique droit sur un marker le supprime ainsi que son label.
+
+Bug connus et features manquantes
+---
+
+Il n'y a pas d'Images associés aux parcours.
+
+Bug : Les Marker perdent leurs accent après une sauvegarde, c'est dû au chargement des données, qui n'accepte pas les charatères spéciaux.
+
+Bug : L'application affiche une erreur si le fichier GPX n'est pas présent au lancement. Bien penser à garder le fichier (même vide).
+
+Bug : Un chemin créé manuellement aura un dénivelé nul sur le graph, c'est par ce que la carte est plate et qu'on ne peut pas récupéré l'élévation du terrain en un point.
+
 
 > fait avec le visualiseur de [stackedit](https://stackedit.io)
