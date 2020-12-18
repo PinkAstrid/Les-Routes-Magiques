@@ -5,19 +5,29 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.*;
 
 import javafx.scene.control.TextField;
 import sample.model.GestionnaireParcours;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,14 +49,17 @@ public class CreationParcoursControl implements Initializable {
     @FXML
     private TextField parcoursDenivele;
     @FXML
-    private ImageView imRando0;
+    private ImageView photos;
     @FXML
     private AnchorPane mapPane;
+
 
     private Stage dialogStage;
     public GestionnaireParcours gestion;
     public Parcours parcours;
     private MapCreationParcours mapCreationParcours;
+    private List<String> pathImage = new ArrayList<String>();
+    private String pathGPX = "";
 
     public CreationParcoursControl(GestionnaireParcours gestion) {
         this.gestion = gestion;
@@ -120,4 +133,26 @@ public class CreationParcoursControl implements Initializable {
     }
 
 
+    public void choixFichier(MouseEvent mouseEvent) throws IOException {
+        FileChooser dialogue = new FileChooser();
+
+        List<File> fichiers = dialogue.showOpenMultipleDialog(dialogStage);
+        if (fichiers != null) {
+            for(File f : fichiers) {
+                pathImage.add(f.getPath());
+            }
+            System.out.printf(pathImage.get(0));
+            Image i = new Image(getClass().getResource(pathImage.get(0)).toExternalForm());
+            photos.setImage(i);
+        }
+    }
+
+    public void chargerGPX(MouseEvent mouseEvent) {
+        FileChooser dialogue = new FileChooser();
+
+        File fichier = dialogue.showOpenDialog(dialogStage);
+        if (fichier != null) {
+            pathGPX = fichier.getPath();
+        }
+    }
 }
