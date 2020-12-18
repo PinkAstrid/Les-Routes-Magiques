@@ -11,14 +11,33 @@ public class VisitorDistanceElevation implements Visitor{
 	List<Float> elevation; //Elevation par rapport au point de départ
 	float elev_origine = 0f; //Elévation du point de départ
 
+	/**
+	 * Constructeur
+	 */
 	public VisitorDistanceElevation(){
 		distance = new ArrayList<>();
 		elevation = new ArrayList<>();
 		elev_origine = 0f;
 	}
+
+	/**
+	 * @return
+	 * 		distance cumulative
+	 */
 	public List<Float> getDistance(){ return distance; }
+
+	/**
+	 * @return
+	 * 		liste d'élévations par rapport au point de départ
+	 */
 	public List<Float> getElevation(){ return elevation; }
 
+	/**
+	 *
+	 * @param c1
+	 * @param c2
+	 * @return
+	 */
 	public double haversine(Coordonees c1, Coordonees c2){
 		double DLat = Math.toRadians(c2.lattitude - c1.lattitude);
 		double DLong = Math.toRadians(c2.longitude - c1.longitude);
@@ -27,6 +46,11 @@ public class VisitorDistanceElevation implements Visitor{
 		return R * c;
 	}
 
+	/**
+	 * override visiteur du parcours
+	 * @param parc
+	 * 		parcours
+	 */
 	@Override
 	public void visit(Parcours parc) {
 		parc.accept(this);

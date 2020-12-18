@@ -23,12 +23,26 @@ public class VBoxMiddlePaneAccueil implements Initializable, Observer
     public Stage primaryStage;
     public GestionnaireParcours gestion;
 
+    /**
+     * Constructeur
+     * @param gestion
+     *      gestionnaire de parcours permettant d'accéder à la liste des parcours
+     * @param primaryStage
+     *      fenêtre de la page
+     */
     public VBoxMiddlePaneAccueil(GestionnaireParcours gestion, Stage primaryStage){
         this.gestion = gestion;
         this.primaryStage = primaryStage;
         gestion.addObserver(this);
     }
 
+    /**
+     * fonction permettant d'initialiser la Vbox du centre de la page d'accueil
+     * @param parcours
+     *      liste de parcours avec laquelle on initialise
+     * @throws IOException
+     *      si le fichier n'est pas valide
+     */
     public void initList(List<Parcours> parcours) throws IOException {
         for (Parcours pa: parcours) {
             String fxmlFile = "/ressources/layout/presentParcoursAccueil.fxml"; //vers ta classe
@@ -45,6 +59,13 @@ public class VBoxMiddlePaneAccueil implements Initializable, Observer
 
     }
 
+    /**
+     * override update de la vue
+     * @param o
+     *      nom de l'observable
+     * @param arg
+     *      l'objet à observer
+     */
     @Override
     public void update(Observable o, Object arg) {
         GestionnaireParcours gestion = (GestionnaireParcours) o;

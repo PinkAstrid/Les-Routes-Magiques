@@ -33,7 +33,7 @@ public class TestFicheControl extends Application {
         gestion.createParcours(list, 2.5f, 5.0f, 600, 1, "titre", "description", "details", photos, new ArrayList<>());
 
 
-        FXMLLoader load = new FXMLLoader(getClass().getResource("../ressources/layout/FicheTech.fxml"));
+        FXMLLoader load = new FXMLLoader(getClass().getResource("/ressources/layout/FicheTech.fxml"));
         Parent root = load.load();
         FicheTechControl controller = load.getController();
         controller.myFichControl(p);

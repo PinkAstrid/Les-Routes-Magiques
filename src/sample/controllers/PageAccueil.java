@@ -20,6 +20,15 @@ public class PageAccueil implements Initializable, Observer {
     List<Parcours> parcours;
     public PageAccueil(){}
 
+    /**
+     * fonction permettant d'initialiser l'affichage de la page d'accueil
+     * @param gestion
+     *      gestionnaire de parcours permettant d'accéder aux parcours enregistrés
+     * @param primaryStage
+     *      fenêtre d'accueil
+     * @throws IOException
+     *      si le fichier est invalide
+     */
     public void initPage(GestionnaireParcours gestion, Stage primaryStage) throws IOException {
         this.gestion = gestion;
         this.parcours = gestion.getListeParcours();
