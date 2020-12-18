@@ -39,12 +39,27 @@ public class ModifierParcoursController implements Initializable {
     public Parcours parcours;
     private int index;
 
+    /**
+     * Constructeur
+     *
+     * @param gestion
+     * gestionnaire de parcours permettant d'accéder à une liste de parcours
+     *
+     * @param p
+     * parcours p à modifier
+     *
+     * @param index
+     * entier indiquant l'index du parcours à modifier dans la liste
+     */
     public ModifierParcoursController(GestionnaireParcours gestion, Parcours p, int index) {
         this.gestion = gestion;
         this.parcours = p;
         this.index = index;
     }
 
+    /**
+     * fonction permettant de récupérer les informations du parcours et de les pré-remplir dans les champs
+     */
     public void initialiserChamps() {
         parcoursName.setText(parcours.getName());
         parcoursShortDescr.setText(parcours.getDescCourte());
@@ -56,19 +71,78 @@ public class ModifierParcoursController implements Initializable {
         // il faut rajouter les photos et coordonnées GPS deja définies
     }
 
-
+    /**
+     * fonction permettant d'initialiser la fenêtre pop-up
+     *
+     * @param dialogStage
+     * fenêtre de dialogue pop-up
+     */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
+    /**
+     * fonction getter permettant de récupérer le nom du parcours
+     *
+     * @return
+     * nom du parcours sous forme de chaîne de caractères
+     */
     public String getName(){return parcoursName.getText(); }
+
+    /**
+     * fonction getter permettant de récupérer la description courte du parcours
+     *
+     * @return
+     * description courte du parcours sous forme de chaîne de caractères
+     */
     public String getShortDescr(){ return parcoursShortDescr.getText();}
+
+    /**
+     * fonction getter permettant de récupérer la description détaillée du parcours
+     *
+     * @return
+     * description longue du parcours sous forme de chaîne de caractères
+     */
     public String getLongDescr(){ return parcoursLongDescr.getText();}
+
+    /**
+     * fonction getter permettant de récupérer la durée du parcours
+     *
+     * @return
+     * durée du parcours sous forme de chaîne de caractères
+     */
     public String getDuree(){ return parcoursDuree.getText();}
+
+    /**
+     * fonction getter permettant de récupérer la distance du parcours
+     *
+     * @return
+     * distance du parcours sous forme de chaîne de caractères
+     */
     public String getDistance(){ return parcoursDistance.getText();}
+
+    /**
+     * fonction getter permettant de récupérer la difficulté du parcours
+     *
+     * @return
+     * difficulté du parcours sous forme de chaîne de caractères
+     */
     public String getDiff(){ return parcoursDifficulte.getText();}
+
+    /**
+     * fonction getter permettant de récupérer le dénivelé du parcours
+     *
+     * @return
+     * dénivelé du parcours sous forme de chaîne de caractères
+     */
     public String getDenivele(){ return parcoursDenivele.getText();}
 
+    /**
+     * fonction permettant de valider la modification d'un parcours et fermer la fenêtre de dialogue
+     *
+     * @param actionEvent
+     * réagit au clic sur le bouton de validation
+     */
     public void modifierParcours(javafx.event.ActionEvent actionEvent) {
         try {
             float duree = Float.parseFloat(getDuree());
@@ -88,7 +162,6 @@ public class ModifierParcoursController implements Initializable {
             //parcours.setPhotos(photos);
             //parcours.setTrace(chemin);
 
-            //Parcours p = gestion.createParcours(chemin, duree, distance, denivele, difficulte, getName(), getShortDescr(), getLongDescr(), photos);
             gestion.setParcours(index, parcours);
 
             this.dialogStage.close();
@@ -98,6 +171,9 @@ public class ModifierParcoursController implements Initializable {
         }
     }
 
+    /**
+     * fonction permettant de fermer la fenêtre de modification
+     */
     @FXML
     private void annuler() {
         this.dialogStage.close();
