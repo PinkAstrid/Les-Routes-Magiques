@@ -53,11 +53,19 @@ public class MapCreationParcours {
 	private MapLabel selectedLabel;
 	Extent extent;
 
+	/**
+	 * Controleur
+	 */
 	public MapCreationParcours() {
 		followedMarker = new ArrayList<Marker>();
 		followedLabel = new ArrayList<MapLabel>();
 	}
 
+	/**
+	 * fonction initialisant l'affichage de la carte et les fonctionnalités liées à la carte
+	 * @param projection
+	 * 		projection d'un parcours
+	 */
 	public void initMapAndControls(Projection projection) {
 		this.mapView.initializedProperty().addListener((observable, oldValue, newValue) -> {
 			if (newValue) {
@@ -163,7 +171,11 @@ public class MapCreationParcours {
 		polygonLine.setVisible(true);
 	}
 
-
+	/**
+	 * fonction affichant un marqueur lors d'un clic sur la carte
+	 * @param event
+	 * 		clic sur la carte
+	 */
 	private void handleMarkerClick(MapViewEvent event) {
 		Marker marker = new Marker(getClass().getResource("/ressources/images/ressource/blackmarker.png"), -25, -50).setPosition(event.getCoordinate()).setVisible(true);
 		MapLabel mapLabel = new MapLabel("Clique moi pour me changer").setVisible(true);
@@ -174,11 +186,17 @@ public class MapCreationParcours {
 		mapView.addLabel(mapLabel);
 	}
 
+	/**
+	 * fonction supprimant une ligne tracée
+	 */
 	private void deleteLine(){
 		mapView.removeCoordinateLine(polygonLine);
 		this.polygonLine = null;
 	}
 
+	/**
+	 * fonction supprimant un marqueur sur la carte
+	 */
 	private void deleteMarker(){
 		for(Marker m : followedMarker){
 			m.detachLabel();
@@ -191,19 +209,35 @@ public class MapCreationParcours {
 		this.followedLabel = new ArrayList<>();
 	}
 
+	/**
+	 * fonction réinitialisant la carte
+	 */
 	private void deleteAll(){
 		deleteLine();
 		deleteMarker();
 	}
 
+	/**
+	 * fonction récupérant les coordonnées du chemin
+	 * @return
+	 * 		coordonnées du chemin parcouru
+	 */
 	public CoordinateLine getPolygonLine() {
 		return polygonLine;
 	}
 
+	/**
+	 * @return
+	 * 		liste des marqueurs
+	 */
 	public List<Marker> getFollowedMarker() {
 		return followedMarker;
 	}
 
+	/**
+	 * @return
+	 * 		trace du chemin
+	 */
 	public Trace getTrace(){
 		List<Coordonees> list = new ArrayList<Coordonees>();
 		List<Coordinate> l2 = polygonLine.getCoordinateStream().collect(Collectors.toList());
@@ -213,6 +247,10 @@ public class MapCreationParcours {
 		return new Trace(list);
 	}
 
+	/**
+	 * @return
+	 * 		liste des waypoints
+	 */
 	public List<Waypoint> getWaypoints(){
 		List<Waypoint> list = new ArrayList<>();
 		String name;
@@ -228,6 +266,11 @@ public class MapCreationParcours {
 		return list;
 	}
 
+	/**
+	 * fonction permettant d'afficher un nouveau parcours sur la carte
+	 * @param p
+	 * 		le parcours à ajouter
+	 */
 	public void addParcours(Parcours p){
 		Marker marker;
 		MapLabel label;
