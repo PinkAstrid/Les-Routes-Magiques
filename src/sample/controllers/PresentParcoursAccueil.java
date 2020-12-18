@@ -43,6 +43,8 @@ public class PresentParcoursAccueil implements Initializable {
     Stage primaryStage;
 
     public void myFunct(Stage primaryStage, Parcours parc, GestionnaireParcours gestion){
+        if (parc.getFavoris()) { favoris.setText("Retirer des favoris");}
+        else {favoris.setText("Ajouter aux favoris");}
         this.parc = parc;
         this.gestion = gestion;
         this.primaryStage = primaryStage;
