@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
@@ -134,7 +135,7 @@ public class CreationParcoursControl implements Initializable {
     }
 
 
-    public void choixFichier(MouseEvent mouseEvent) throws IOException {
+    public void choixFichier(MouseEvent mouseEvent) throws IOException, URISyntaxException {
         FileChooser dialogue = new FileChooser();
 
         List<File> fichiers = dialogue.showOpenMultipleDialog(dialogStage);
@@ -142,13 +143,14 @@ public class CreationParcoursControl implements Initializable {
         if (fichiers != null) {
             for(File f : fichiers) {
                 name = f.getName();
-                source = Paths.get(f.getPath());
-                destination = Paths.get("./src/ressources/images/photosRando/"+name);
-                System.out.println(name+ " "+ source +" "+ destination);
-                Files.copy(source, destination);
+                source = Paths.get(f.getAbsolutePath());
+                Path tmp = Paths.get(getClass().getResource("/images").toURI());
+                destination = Paths.get(tmp.toString(),name);
+                try {
+                    Files.copy(source, destination);
+                } catch (IOException e){}
                 pathImage.add(name);
-
-                images.add(new Image("/ressources/images/photosRando/"+name));
+                images.add(new Image("/images/"+name));
             }
             photos.setImage(images.get(0));
         }
