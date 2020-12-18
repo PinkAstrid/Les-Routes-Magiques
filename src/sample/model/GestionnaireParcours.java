@@ -104,7 +104,6 @@ public class GestionnaireParcours extends Observable {
         this.marqueurRecherche = 1;
         setChanged();
         notifyObservers();
-        this.marqueurRecherche = 0;
     }
 
     public List<Parcours> getListeParcoursRecherches() {
@@ -166,5 +165,13 @@ public class GestionnaireParcours extends Observable {
         this.marqueurFav=1;
         setChanged();
         notifyObservers();
+    }
+
+    public void backHome(){
+        marqueurFav = 0; marqueurRecherche = 0;
+        marqueurChangementGlobal = 1;
+        setChanged();
+        notifyObservers();
+        marqueurChangementGlobal = 0;
     }
 }

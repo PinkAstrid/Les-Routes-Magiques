@@ -244,4 +244,7 @@ public class AccueilHautController {
         });
     }
 
+    public void backHome(MouseEvent mouseEvent) {
+        gestion.backHome();
+    }
 }
