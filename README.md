@@ -40,6 +40,10 @@ Un clique gauche sur label permet de changer son nom. Écrire dans la zone de te
 
 Un clique droit sur un marker le supprime ainsi que son label.
 
+Video de présentation
+---
+[Telecorn Viking - a L1c0rn3$ Ch3v3£u3 pr3$3nt4t10n](https://www.youtube.com/watch?v=3vlqXBYZ1iE)
+
 Bug connus et features manquantes
 ---
 
