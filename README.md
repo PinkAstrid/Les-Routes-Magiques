@@ -42,7 +42,9 @@ Un clique droit sur un marker le supprime ainsi que son label.
 
 Video de présentation
 ---
-[Telecorn Viking - a L1c0rn3$ Ch3v3£u3 pr3$3nt4t10n](https://www.youtube.com/watch?v=3vlqXBYZ1iE)
+[Telecorn Viking présentation v2](https://www.youtube.com/watch?v=2GcBMklRor4)
+
+[version 1](https://www.youtube.com/watch?v=3vlqXBYZ1iE)
 
 Bug connus et features manquantes
 ---
